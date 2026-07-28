@@ -57,3 +57,29 @@ body {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+/*
+ * Reveal: entrada suave dos elementos ao entrarem na viewport.
+ * O componente <Reveal> só adiciona .is-visible; o movimento vem daqui,
+ * sempre com transform/opacity (baratos) e os tokens de motion.
+ */
+.reveal {
+  opacity: 0;
+  translate: 0 26px;
+  transition:
+    opacity var(--duration-slow) var(--ease-glide) var(--reveal-delay, 0ms),
+    translate var(--duration-slow) var(--ease-glide) var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    translate: 0 0;
+    transition: none;
+  }
+}

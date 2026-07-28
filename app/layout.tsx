@@ -20,7 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* Sem JavaScript o reveal nunca dispararia — garante conteúdo visível */}
+        <noscript>
+          <style>{`.reveal{opacity:1 !important;translate:0 0 !important}`}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }
