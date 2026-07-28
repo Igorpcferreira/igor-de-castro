@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import NeuralBackground from "@/components/NeuralBackground";
 import About from "@/components/sections/About";
+import ExperienceSection from "@/components/sections/ExperienceSection";
 import Hero from "@/components/sections/Hero";
 import Skills from "@/components/sections/Skills";
 
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
+        <ExperienceSection />
       </main>
     </>
   );
