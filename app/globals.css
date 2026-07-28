@@ -18,11 +18,31 @@
   --color-cyan-soft: #8fd8ff; /* ciano suave: metadados discretos */
   --color-neon: #52ff7d; /* verde neon: USO RESTRITO (tags, status, acentos) */
 
-  /* Motion: uma curva única e três durações para todo o site */
+  /* Curva de easing única de todo o site */
   --ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+ * Durações de motion. Ficam em :root (não no @theme) porque o Tailwind 4 não
+ * tem namespace --duration-*; as utilities correspondentes são declaradas
+ * logo abaixo com @utility.
+ */
+:root {
   --duration-fast: 150ms; /* micro-interações (hover) */
   --duration-base: 320ms; /* transições padrão */
   --duration-slow: 700ms; /* reveals de seção */
+}
+
+@utility duration-fast {
+  transition-duration: var(--duration-fast);
+}
+
+@utility duration-base {
+  transition-duration: var(--duration-base);
+}
+
+@utility duration-slow {
+  transition-duration: var(--duration-slow);
 }
 
 @theme inline {
