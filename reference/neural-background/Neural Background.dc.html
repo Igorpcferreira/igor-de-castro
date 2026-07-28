@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #020409; min-height: 100%; }
+    a { color: #35c8ff; text-decoration: none; }
+    a:hover { color: #7fe0ff; }
+  </style>
+</helmet>
+<div style="position: relative; min-height: 100vh; background: #020409; font-family: 'Space Grotesk', sans-serif;">
+  <canvas ref="{{ canvasRef }}" style="position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block;"></canvas>
+  <div style="position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to right, rgba(2,4,9,0.5) 0%, rgba(2,4,9,0.26) 34%, rgba(2,4,9,0) 58%), linear-gradient(to top, rgba(2,4,9,0.45) 0%, rgba(2,4,9,0) 28%);"></div>
+  <sc-if value="{{ showDemo }}" hint-placeholder-val="{{ true }}">
+    <div style="position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 7vw, 120px); max-width: 720px; box-sizing: border-box;">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 22px;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: #52ff7d; box-shadow: 0 0 12px rgba(82,255,125,0.9);"></span>
+        <span style="color: #52ff7d; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;">Full Stack Developer</span>
+      </div>
+      <h1 style="margin: 0 0 18px; color: #f2f8ff; font-size: clamp(34px, 5.4vw, 72px); line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance;">Conteúdo de exemplo sobre o background</h1>
+      <p style="margin: 0; color: rgba(190,214,235,0.75); font-size: clamp(15px, 1.4vw, 19px); line-height: 1.6; max-width: 52ch; text-wrap: pretty;">Este texto demonstra a legibilidade sobre a rede neural viva. Mova o mouse: o cursor vira um nó temporário da malha. Substitua este bloco pelo conteúdo real do hero.</p>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;density&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.3,&quot;min&quot;:0.4,&quot;max&quot;:1.8,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Rede&quot;},&quot;greenAmount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.9,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Rede&quot;},&quot;interaction&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Interação&quot;},&quot;packets&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacotes&quot;},&quot;firingRate&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Disparos&quot;},&quot;showDemo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Demo&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.canvasRef = React.createRef();
+    this.mouse = { x: -9999, y: -9999, sx: -9999, sy: -9999, active: false };
+    this.raf = 0;
+    this.t = 0;
+    this.packets = [];
+    this.firings = []; // scheduled neural firings: {node, at (time), gen}
+  }
+
+  renderVals() {
+    return { canvasRef: this.canvasRef, showDemo: this.props.showDemo ?? true };
+  }
+
+  componentDidMount() {
+    const canvas = this.canvasRef.current;
+    this.ctx = canvas.getContext('2d');
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.onReduced = () => { this.restart(); };
+    this.reduced.addEventListener('change', this.onReduced);
+    this.onResize = () => { this.setup(); };
+    window.addEventListener('resize', this.onResize);
+    this.onMove = (e) => {
+      this.mouse.x = e.clientX; this.mouse.y = e.clientY; this.mouse.active = true;
+    };
+    this.onLeave = () => { this.mouse.active = false; };
+    this.onTouch = (e) => {
+      if (e.touches.length) { this.mouse.x = e.touches[0].clientX; this.mouse.y = e.touches[0].clientY; this.mouse.active = true; }
+    };
+    window.addEventListener('pointermove', this.onMove, { passive: true });
+    window.addEventListener('pointerdown', this.onTouch2 = (e) => { this.mouse.x = e.clientX; this.mouse.y = e.clientY; this.mouse.active = true; }, { passive: true });
+    document.addEventListener('pointerleave', this.onLeave);
+    window.addEventListener('touchmove', this.onTouch, { passive: true });
+    window.addEventListener('touchend', this.onLeave);
+    this.onVis = () => { if (document.hidden) cancelAnimationFrame(this.raf); else this.loop(); };
+    document.addEventListener('visibilitychange', this.onVis);
+    this.setup();
+    this.loop();
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('pointermove', this.onMove);
+    window.removeEventListener('pointerdown', this.onTouch2);
+    document.removeEventListener('pointerleave', this.onLeave);
+    window.removeEventListener('touchmove', this.onTouch);
+    window.removeEventListener('touchend', this.onLeave);
+    document.removeEventListener('visibilitychange', this.onVis);
+    this.reduced.removeEventListener('change', this.onReduced);
+  }
+
+  restart() { this.setup(); cancelAnimationFrame(this.raf); this.loop(); }
+
+  componentDidUpdate(prev) {
+    if (prev.density !== this.props.density || prev.greenAmount !== this.props.greenAmount) this.restart();
+  }
+
+  setup() {
+    const canvas = this.canvasRef.current;
+    if (!canvas) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = window.innerWidth, h = window.innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    this.w = w; this.h = h;
+    const density = this.props.density ?? 1;
+    const isMobile = w < 700;
+    const count = Math.round(Math.min(190, (w * h) / (isMobile ? 12000 : 9000)) * density);
+    const greenAmt = this.props.greenAmount ?? 1;
+    const rnd = mulberry(42);
+    this.nodes = [];
+    for (let i = 0; i < count; i++) {
+      // asymmetric: denser on the left, dissipating right
+      const x = Math.pow(rnd(), 1.45) * w * 1.05;
+      const y = rnd() * h;
+      const z = rnd(); // depth: 0 = far, 1 = near
+      // green accent concentrated on left/top, blue elsewhere
+      const greenP = Math.max(0, 0.72 - (x / w) * 0.95 - (y / h) * 0.3) * greenAmt;
+      const green = rnd() < greenP;
+      this.nodes.push({
+        x, y, hx: x, hy: y, z,
+        vx: (rnd() - 0.5) * 0.14, vy: (rnd() - 0.5) * 0.14,
+        ph: rnd() * Math.PI * 2, ps: 0.4 + rnd() * 0.9,
+        wob: rnd() * Math.PI * 2,
+        r: (green ? 1.4 : 1.2) + z * 2.2 + rnd() * 0.8,
+        green,
+        ox: 0, oy: 0
+      });
+    }
+    this.bokeh = [];
+    for (let i = 0; i < 11; i++) {
+      const green = rnd() < 0.45;
+      this.bokeh.push({
+        x: rnd() * w, y: rnd() * h,
+        r: 14 + rnd() * 46,
+        a: 0.025 + rnd() * 0.05,
+        vx: (rnd() - 0.5) * 0.06, vy: (rnd() - 0.5) * 0.06,
+        ph: rnd() * Math.PI * 2,
+        green
+      });
+    }
+    this.linkDist = Math.min(210, Math.max(140, Math.sqrt(w * h) / 6));
+  }
+
+  loop() {
+    const step = () => {
+      this.t += 1;
+      this.frame(this.reduced.matches);
+      if (!this.reduced.matches) this.raf = requestAnimationFrame(step);
+    };
+    step();
+  }
+
+  frame(still) {
+    const { ctx, w, h, nodes } = this;
+    const t = this.t * 0.016;
+    const m = this.mouse;
+    // smoothed cursor (lag/trail)
+    if (m.sx < -999) { m.sx = m.x; m.sy = m.y; }
+    m.sx += (m.x - m.sx) * 0.09;
+    m.sy += (m.y - m.sy) * 0.09;
+    const strength = this.props.interaction ?? 1;
+    const iRad = 190 * strength;
+
+    ctx.setTransform(Math.min(window.devicePixelRatio || 1, 2), 0, 0, Math.min(window.devicePixelRatio || 1, 2), 0, 0);
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = '#020409';
+    ctx.fillRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+
+    // bokeh (behind)
+    for (const b of this.bokeh) {
+      if (!still) {
+        b.x += b.vx; b.y += b.vy;
+        if (b.x < -60) b.x = w + 60; if (b.x > w + 60) b.x = -60;
+        if (b.y < -60) b.y = h + 60; if (b.y > h + 60) b.y = -60;
+      }
+      const pulse = 0.75 + 0.25 * Math.sin(t * 0.5 + b.ph);
+      const g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+      const c = b.green ? '110,255,140' : '60,170,255';
+      g.addColorStop(0, 'rgba(' + c + ',' + (b.a * pulse) + ')');
+      g.addColorStop(1, 'rgba(' + c + ',0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, 6.2832); ctx.fill();
+    }
+
+    // move nodes
+    for (const n of nodes) {
+      if (!still) {
+        n.hx += n.vx + Math.sin(t * 0.3 + n.wob) * 0.08;
+        n.hy += n.vy + Math.cos(t * 0.26 + n.wob * 1.7) * 0.08;
+        if (n.hx < -40) n.hx = w + 40; if (n.hx > w + 40) n.hx = -40;
+        if (n.hy < -40) n.hy = h + 40; if (n.hy > h + 40) n.hy = -40;
+      }
+      // magnetic pull toward cursor
+      let tx = 0, ty = 0;
+      if (m.active) {
+        const dx = m.sx - n.hx, dy = m.sy - n.hy;
+        const d = Math.hypot(dx, dy);
+        if (d < iRad && d > 0.001) {
+          const f = (1 - d / iRad);
+          tx = dx / d * f * 26 * strength * n.z;
+          ty = dy / d * f * 26 * strength * n.z;
+        }
+      }
+      n.ox += (tx - n.ox) * 0.06;
+      n.oy += (ty - n.oy) * 0.06;
+      n.x = n.hx + n.ox;
+      n.y = n.hy + n.oy;
+      n.glow = 0;
+      if (m.active) {
+        const d = Math.hypot(m.sx - n.x, m.sy - n.y);
+        if (d < iRad) n.glow = 1 - d / iRad;
+      }
+    }
+
+    // spatial grid for links
+    const cell = this.linkDist;
+    const grid = new Map();
+    nodes.forEach((n, i) => {
+      const k = (n.x / cell | 0) + ',' + (n.y / cell | 0);
+      (grid.get(k) || grid.set(k, []).get(k)).push(i);
+    });
+    const maxD = this.linkDist;
+    const adj = [];
+    ctx.lineCap = 'round';
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      const cx = a.x / cell | 0, cy = a.y / cell | 0;
+      for (let gx = cx - 1; gx <= cx + 1; gx++) for (let gy = cy - 1; gy <= cy + 1; gy++) {
+        const bucket = grid.get(gx + ',' + gy);
+        if (!bucket) continue;
+        for (const j of bucket) {
+          if (j <= i) continue;
+          const b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 > maxD * maxD) continue;
+          const d = Math.sqrt(d2);
+          const depth = (a.z + b.z) / 2;
+          let alpha = (1 - d / maxD) * (0.16 + depth * 0.34);
+          let glow = Math.max(a.glow, b.glow);
+          alpha *= 1 + glow * 1.6;
+          const greenish = a.green && b.green;
+          const mixed = a.green !== b.green;
+          const col = greenish ? '110,255,140' : mixed ? '120,230,200' : '70,180,255';
+          ctx.strokeStyle = 'rgba(' + col + ',' + Math.min(alpha, 0.55) + ')';
+          ctx.lineWidth = 0.4 + depth * 0.9 + glow * 0.5;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          adj.push([i, j, d]);
+        }
+      }
+    }
+
+    // faint triangle fills among near foreground nodes
+    ctx.globalCompositeOperation = 'lighter';
+    const nbr = new Map();
+    for (const [i, j] of adj) {
+      (nbr.get(i) || nbr.set(i, new Set()).get(i)).add(j);
+      (nbr.get(j) || nbr.set(j, new Set()).get(j)).add(i);
+    }
+    let tris = 0;
+    for (const [i, j] of adj) {
+      if (tris > 26) break;
+      const si = nbr.get(i);
+      const sj = nbr.get(j);
+      if (!si || !sj) continue;
+      for (const k of si) {
+        if (k > j && sj.has(k)) {
+          const a = nodes[i], b = nodes[j], c = nodes[k];
+          const depth = (a.z + b.z + c.z) / 3;
+          if (depth < 0.55) continue;
+          const col = (a.green || b.green || c.green) ? '90,220,160' : '60,160,255';
+          ctx.fillStyle = 'rgba(' + col + ',' + (0.018 + depth * 0.025) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.lineTo(c.x, c.y); ctx.closePath(); ctx.fill();
+          tris++;
+          break;
+        }
+      }
+    }
+
+    // neural firing cascades
+    this.updateFirings(nbr, still, t);
+    // redraw links between firing nodes brighter (electric pulse on the wire)
+    if (this.anyFire) {
+      for (const [i, j, d] of adj) {
+        const a = nodes[i], b = nodes[j];
+        const f = Math.max(a.fire || 0, b.fire || 0);
+        if (f < 0.05) continue;
+        const both = Math.min(a.fire || 0, b.fire || 0);
+        const col = (a.green && b.green) ? '130,255,160' : (a.green !== b.green) ? '130,240,210' : '100,210,255';
+        ctx.strokeStyle = 'rgba(' + col + ',' + Math.min(0.6, f * 0.3 + both * 0.35) + ')';
+        ctx.lineWidth = 0.6 + f * 1.2;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      }
+    }
+
+    // data packets traveling along existing links
+    this.updatePackets(nbr, still, t);
+
+    // cursor-to-node links (cursor as temporary node)
+    if (m.active && !still) {
+      for (const n of nodes) {
+        const d = Math.hypot(m.sx - n.x, m.sy - n.y);
+        if (d < iRad * 0.85) {
+          const f = 1 - d / (iRad * 0.85);
+          const col = n.green ? '130,255,160' : '90,210,255';
+          ctx.strokeStyle = 'rgba(' + col + ',' + (f * 0.4) + ')';
+          ctx.lineWidth = 0.6 + f * 0.8;
+          ctx.beginPath(); ctx.moveTo(m.sx, m.sy); ctx.lineTo(n.x, n.y); ctx.stroke();
+        }
+      }
+      const cg = ctx.createRadialGradient(m.sx, m.sy, 0, m.sx, m.sy, 26);
+      cg.addColorStop(0, 'rgba(140,225,255,0.28)');
+      cg.addColorStop(1, 'rgba(140,225,255,0)');
+      ctx.fillStyle = cg;
+      ctx.beginPath(); ctx.arc(m.sx, m.sy, 26, 0, 6.2832); ctx.fill();
+    }
+
+    this.drawPackets();
+
+    // nodes with breathing glow
+    for (const n of nodes) {
+      const pulse = still ? 0.8 : 0.65 + 0.35 * Math.sin(t * n.ps + n.ph);
+      const bright = Math.min(1, (0.35 + n.z * 0.5) * pulse * (n.green ? 1.35 : 1) + n.glow * 0.8 + (n.fire || 0) * 0.9);
+      const c = n.green ? '120,255,150' : '70,190,255';
+      const cc = n.green ? '210,255,220' : '200,240,255';
+      const R = n.r * (2.6 + n.glow * 1.6 + (n.fire || 0) * 2.4);
+      const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, R);
+      g.addColorStop(0, 'rgba(' + c + ',' + bright * 0.5 + ')');
+      g.addColorStop(1, 'rgba(' + c + ',0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(n.x, n.y, R, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = 'rgba(' + cc + ',' + bright + ')';
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * (0.55 + n.z * 0.45), 0, 6.2832); ctx.fill();
+    }
+  }
+
+  updateFirings(nbr, still, t) {
+    const { nodes } = this;
+    const rate = this.props.firingRate ?? 1;
+    // decay fire intensity on all nodes
+    this.anyFire = false;
+    for (const n of nodes) {
+      if (n.fire) { n.fire *= 0.90; if (n.fire < 0.02) n.fire = 0; else this.anyFire = true; }
+    }
+    if (still) { this.firings.length = 0; return; }
+    // spontaneous spark: random node fires on its own
+    if (rate > 0 && Math.random() < 0.006 * rate && this.firings.length < 60) {
+      this.firings.push({ node: Math.floor(Math.random() * nodes.length), at: t, gen: 0, maxGen: 2 + Math.floor(Math.random() * 3) });
+    }
+    // process due firings
+    const remaining = [];
+    for (const f of this.firings) {
+      if (f.at > t) { remaining.push(f); continue; }
+      const n = nodes[f.node];
+      const power = 1 - f.gen / (f.maxGen + 1);
+      if ((n.fire || 0) < power) n.fire = power;
+      this.anyFire = true;
+      if (f.gen < f.maxGen && this.firings.length + remaining.length < 60) {
+        const opts = nbr.get(f.node);
+        if (opts) {
+          for (const j of opts) {
+            if ((nodes[j].fire || 0) > 0.25) continue; // already lit — don't re-trigger (prevents loops)
+            remaining.push({ node: j, at: t + 0.06 + Math.random() * 0.06, gen: f.gen + 1, maxGen: f.maxGen });
+          }
+        }
+      }
+    }
+    this.firings = remaining;
+  }
+
+  updatePackets(nbr, still, t) {
+    const { nodes, w, h } = this;
+    const rate = this.props.packets ?? 1;
+    const m = this.mouse;
+    // spawn: random moderate interval, no spawning under reduced motion
+    if (!still && rate > 0 && this.packets.length < Math.ceil(3 * rate)) {
+      if (Math.random() < 0.008 * rate) {
+        const from = Math.floor(Math.random() * nodes.length);
+        const opts = nbr.get(from);
+        if (opts && opts.size) {
+          const to = this.pickNext(from, -1, opts);
+          this.packets.push({
+            from, to, p: 0,
+            speed: 0.010 + Math.random() * 0.008,
+            hops: 1 + Math.floor(Math.random() * 3), // 2-4 total hops
+            green: nodes[from].green,
+            trail: [],
+            dead: false, fade: 1
+          });
+        }
+      }
+    }
+    for (const pk of this.packets) {
+      if (still) continue;
+      if (pk.dead) { pk.fade -= 0.05; continue; }
+      const a = nodes[pk.from], b = nodes[pk.to];
+      // link broke (nodes drifted apart): let packet finish but check next hop against live nbr
+      pk.p += pk.speed;
+      pk.x = a.x + (b.x - a.x) * pk.p;
+      pk.y = a.y + (b.y - a.y) * pk.p;
+      pk.trail.push([pk.x, pk.y]);
+      if (pk.trail.length > 14) pk.trail.shift();
+      if (pk.p >= 1) {
+        if (pk.hops > 0) {
+          const opts = nbr.get(pk.to);
+          if (opts && opts.size) {
+            const next = this.pickNext(pk.to, pk.from, opts);
+            pk.from = pk.to; pk.to = next; pk.p = 0; pk.hops--;
+            continue;
+          }
+        }
+        pk.dead = true;
+      }
+    }
+    this.packets = this.packets.filter(pk => pk.fade > 0);
+  }
+
+  // choose next node: avoid going straight back; bias toward cursor when active
+  pickNext(from, prev, opts) {
+    const { nodes } = this;
+    const m = this.mouse;
+    const arr = [...opts].filter(i => i !== prev);
+    const pool = arr.length ? arr : [...opts];
+    if (m.active && Math.random() < 0.65) {
+      let best = pool[0], bd = Infinity;
+      for (const i of pool) {
+        const d = Math.hypot(nodes[i].x - m.sx, nodes[i].y - m.sy);
+        if (d < bd) { bd = d; best = i; }
+      }
+      return best;
+    }
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  drawPackets() {
+    const ctx = this.ctx;
+    for (const pk of this.packets) {
+      if (pk.x === undefined) continue;
+      const col = pk.green ? '130,255,160' : '110,220,255';
+      // dissipating trail
+      ctx.lineCap = 'round';
+      for (let i = 1; i < pk.trail.length; i++) {
+        const f = (i / pk.trail.length) * pk.fade;
+        ctx.strokeStyle = 'rgba(' + col + ',' + (f * 0.35) + ')';
+        ctx.lineWidth = 0.6 + f * 1.6;
+        ctx.beginPath();
+        ctx.moveTo(pk.trail[i - 1][0], pk.trail[i - 1][1]);
+        ctx.lineTo(pk.trail[i][0], pk.trail[i][1]);
+        ctx.stroke();
+      }
+      // bright head
+      const g = ctx.createRadialGradient(pk.x, pk.y, 0, pk.x, pk.y, 9);
+      g.addColorStop(0, 'rgba(' + col + ',' + (0.85 * pk.fade) + ')');
+      g.addColorStop(1, 'rgba(' + col + ',0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(pk.x, pk.y, 9, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,' + (0.9 * pk.fade) + ')';
+      ctx.beginPath(); ctx.arc(pk.x, pk.y, 1.4, 0, 6.2832); ctx.fill();
+    }
+  }
+}
+
+function mulberry(seed) {
+  let a = seed;
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+</script>
+</body>
+</html>
