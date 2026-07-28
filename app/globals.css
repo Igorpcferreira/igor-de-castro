@@ -29,6 +29,31 @@
   --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Container padrão de todas as seções */
+@utility container-site {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* Pulso suave do pontinho verde de status (transform/opacity, barato) */
+@theme {
+  --animate-ping-soft: ping-soft 2.6s var(--ease-glide) infinite;
+
+  @keyframes ping-soft {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    70%,
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+}
+
 html {
   scroll-behavior: smooth;
   /* Compensa a navbar fixa ao navegar por âncoras */
