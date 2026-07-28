@@ -37,6 +37,16 @@
   padding-inline: clamp(1.5rem, 5vw, 2.5rem);
 }
 
+/*
+ * Superfície padrão de cards. Sem backdrop-blur de propósito: blur sobre o
+ * canvas animado forçaria repaint caro a cada frame — só a navbar usa blur.
+ */
+@utility card-surface {
+  border: 1px solid color-mix(in srgb, var(--color-cyan) 12%, transparent);
+  background: color-mix(in srgb, var(--color-night) 78%, transparent);
+  border-radius: 0.9rem;
+}
+
 /* Pulso suave do pontinho verde de status (transform/opacity, barato) */
 @theme {
   --animate-ping-soft: ping-soft 2.6s var(--ease-glide) infinite;
