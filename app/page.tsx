@@ -1,3 +1,4 @@
+import BackgroundVeil from "@/components/BackgroundVeil";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import NeuralBackground from "@/components/NeuralBackground";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <NeuralBackground />
+      <BackgroundVeil />
       <Navbar />
       <main id="conteudo" className="relative z-[2]">
         <Hero />
