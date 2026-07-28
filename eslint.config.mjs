@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Artefato original do Claude Design, mantido só como referência do background
+    "reference/**",
   ]),
 ]);
 
