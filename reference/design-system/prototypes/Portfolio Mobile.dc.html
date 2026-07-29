@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #04070a; min-height: 100%; }
+    a { color: #52ff7d; text-decoration: none; }
+    a:hover { color: #a5ffbe; }
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    @keyframes pulseDot { 0%, 100% { box-shadow: 0 0 6px rgba(82,255,125,0.9); } 50% { box-shadow: 0 0 14px rgba(82,255,125,1); } }
+  </style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 40px 16px; box-sizing: border-box; background: radial-gradient(ellipse at 50% 30%, #0a1210 0%, #04070a 65%); font-family: 'JetBrains Mono', monospace;">
+  <p style="margin: 0; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: #52ff7d;">// protótipo mobile — 390px</p>
+  <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="430px,880px">
+    <div style="position: relative; min-height: 100%; background: #010503; font-family: 'JetBrains Mono', monospace; color: #d7f5e2;">
+      <canvas ref="{{ canvasRef }}" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+      <div style="position: relative; z-index: 1; padding-top: 58px;">
+        <header style="position: sticky; top: 58px; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: rgba(1,5,3,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(82,255,125,0.14);">
+          <span style="display: flex; align-items: baseline; gap: 6px; font-size: 13px; font-weight: 700;"><span style="color: #52ff7d;">~/</span><span style="color: #eafff0;">igor.de.castro</span><span style="display: inline-block; width: 7px; height: 13px; background: #52ff7d; animation: blink 1.1s step-end infinite; transform: translateY(2px);"></span></span>
+          <button style="display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 10px; background: none; border: 1px solid rgba(82,255,125,0.3); cursor: pointer;"><span style="height: 2px; background: #52ff7d;"></span><span style="height: 2px; background: #52ff7d; width: 70%;"></span><span style="height: 2px; background: #52ff7d;"></span></button>
+        </header>
+
+        <section data-screen-label="Hero mobile" style="padding: 34px 22px 40px;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 22px;">
+            <div style="position: relative; width: 76px; height: 76px; flex-shrink: 0; padding: 4px; border: 1px solid rgba(82,255,125,0.35);" style-before="content: ''; position: absolute; top: -2px; left: -2px; width: 14px; height: 14px; border-top: 2px solid #52ff7d; border-left: 2px solid #52ff7d;" style-after="content: ''; position: absolute; bottom: -2px; right: -2px; width: 14px; height: 14px; border-bottom: 2px solid #35c8ff; border-right: 2px solid #35c8ff;">
+              <img src="../assets/profile/igor-square.png" alt="Igor de Castro" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <p style="margin: 0 0 6px; font-size: 12px; color: #6fa88b;"><span style="color: #35c8ff;">igor@dev</span><span style="color: #5d7d6c;">:~$</span> <span style="color: #eafff0;">whoami</span></p>
+              <div style="display: flex; align-items: center; gap: 8px;"><span style="width: 7px; height: 7px; background: #52ff7d; animation: pulseDot 2.4s ease-in-out infinite;"></span><span style="font-size: 10px; letter-spacing: 0.22em; color: #52ff7d; text-transform: uppercase;">Full Stack // Pleno</span></div>
+            </div>
+          </div>
+          <h1 style="margin: 0 0 14px; font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.0; font-weight: 700; letter-spacing: -0.02em; color: #f4fff8;">Igor<br>de Castro<span style="color: #52ff7d;">_</span></h1>
+          <p style="margin: 0 0 26px; font-size: 14px; line-height: 1.7; color: #9fc4af; text-wrap: pretty;"><span style="color: #52ff7d;">&gt;</span> Modernizo sistemas de grande porte e construo produtos web rápidos, acessíveis e com <span style="color: #35c8ff;">qualidade mensurável</span>.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="#m-projetos" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; background: #52ff7d; color: #01130a; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; box-shadow: 0 0 22px rgba(82,255,125,0.3); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));">ver_projetos →</a>
+            <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; border: 1px solid rgba(53,200,255,0.5); color: #35c8ff; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;">baixar_curriculo.pdf ↓</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(82,255,125,0.14);">
+            <div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #52ff7d;">4+</div><div style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #6fa88b; margin-top: 2px;">anos exp.</div></div>
+            <div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #35c8ff;">10+</div><div style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #6fa88b; margin-top: 2px;">sistemas</div></div>
+            <div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #52ff7d;">750+</div><div style="font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #6fa88b; margin-top: 2px;">testes</div></div>
+          </div>
+        </section>
+
+        <section data-screen-label="Sobre mobile" style="padding: 10px 22px 40px;">
+          <p style="margin: 0 0 6px; font-size: 11px; color: #52ff7d; letter-spacing: 0.2em;">// 01 — SOBRE</p>
+          <h2 style="margin: 0 0 20px; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #f4fff8;">Quem sou eu</h2>
+          <div style="border: 1px solid rgba(82,255,125,0.22); background: rgba(2,12,7,0.65);">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid rgba(82,255,125,0.16); background: rgba(82,255,125,0.05);">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,95,86,0.8);"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,189,46,0.8);"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(82,255,125,0.8);"></span>
+              <span style="margin-left: 8px; font-size: 11px; color: #6fa88b;">cat sobre.txt</span>
+            </div>
+            <p style="margin: 0; padding: 18px; font-size: 13px; line-height: 1.75; color: #b6d9c4;">Full Stack Pleno com <span style="color: #52ff7d;">4+ anos</span> de experiência. Atualmente na <span style="color: #35c8ff;">Minsait (Grupo Indra)</span>, em sistemas de grande porte para saúde pública, trânsito e defesa. Java, Spring Boot, Quarkus, Angular, Vue, PostgreSQL e Oracle.</p>
+          </div>
+        </section>
+
+        <section data-screen-label="Stack mobile" style="padding: 10px 22px 40px;">
+          <p style="margin: 0 0 6px; font-size: 11px; color: #52ff7d; letter-spacing: 0.2em;">// 02 — STACK</p>
+          <h2 style="margin: 0 0 20px; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #f4fff8;">Com o que eu trabalho</h2>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <sc-for list="{{ skillGroups }}" as="g" hint-placeholder-count="2">
+              <div style="position: relative; padding: 18px; background: rgba(2,12,7,0.55); border: 1px solid rgba(82,255,125,0.14);" style-before="content: ''; position: absolute; top: -1px; left: -1px; width: 16px; height: 16px; border-top: 2px solid #52ff7d; border-left: 2px solid #52ff7d;">
+                <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;"><span style="font-size: 11px; color: #52ff7d;">{{ g.idx }}</span><h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #eafff0;">{{ g.title }}</h3></div>
+                <div style="display: flex; flex-wrap: wrap; gap: 7px;">
+                  <sc-for list="{{ g.tags }}" as="tag" hint-placeholder-count="5">
+                    <span style="padding: 5px 9px; font-size: 11px; color: #9fd8b6; border: 1px solid rgba(82,255,125,0.22); background: rgba(82,255,125,0.04);">[{{ tag }}]</span>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <section data-screen-label="Experiencia mobile" style="padding: 10px 22px 40px;">
+          <p style="margin: 0 0 6px; font-size: 11px; color: #52ff7d; letter-spacing: 0.2em;">// 03 — EXPERIÊNCIA</p>
+          <h2 style="margin: 0 0 20px; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #f4fff8;">Por onde passei</h2>
+          <div style="display: grid; grid-template-columns: 18px 1fr; gap: 14px;">
+            <div style="display: flex; flex-direction: column; align-items: center;"><span style="width: 10px; height: 10px; margin-top: 5px; background: #010503; border: 2px solid #52ff7d; box-shadow: 0 0 8px rgba(82,255,125,0.6); transform: rotate(45deg);"></span><span style="width: 1px; flex: 1; margin-top: 6px; background: linear-gradient(to bottom, rgba(82,255,125,0.4), rgba(82,255,125,0.05));"></span></div>
+            <div>
+              <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #eafff0;">Minsait (Grupo Indra)</h3>
+              <p style="margin: 3px 0 2px; font-size: 13px; color: #35c8ff;">Desenvolvedor Full Stack Pleno</p>
+              <p style="margin: 0 0 10px; font-size: 11px; letter-spacing: 0.06em; color: #6fa88b;">mar 2025 — atual · Goiânia, GO</p>
+              <p style="margin: 0 0 16px; font-size: 13px; line-height: 1.7; color: #b6d9c4;">APIs com Java, Spring Boot e Quarkus; interfaces com Angular e Vue; modernização do SINGRA 2 (Marinha do Brasil).</p>
+              <a href="#" style="font-size: 12px; letter-spacing: 0.08em; border-bottom: 1px dashed rgba(82,255,125,0.4); padding-bottom: 2px;">ver histórico completo --&gt;</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="m-projetos" data-screen-label="Projetos mobile" style="padding: 10px 22px 40px;">
+          <p style="margin: 0 0 6px; font-size: 11px; color: #52ff7d; letter-spacing: 0.2em;">// 04 — PROJETOS</p>
+          <h2 style="margin: 0 0 20px; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #f4fff8;">Projetos</h2>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <sc-for list="{{ projects }}" as="p" hint-placeholder-count="2">
+              <a href="#" style="position: relative; display: flex; flex-direction: column; gap: 8px; padding: 18px; background: rgba(2,12,7,0.55); border: 1px solid rgba(53,200,255,0.16); color: inherit;" style-before="content: ''; position: absolute; top: -1px; right: -1px; width: 16px; height: 16px; border-top: 2px solid #35c8ff; border-right: 2px solid #35c8ff;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;"><h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #eafff0;">{{ p.name }}</h3><span style="font-size: 14px; color: #35c8ff;">↗</span></div>
+                <p style="margin: 0; font-size: 12px; color: #35c8ff;">{{ p.tagline }}</p>
+                <span style="align-self: flex-start; padding: 3px 8px; font-size: 10px; letter-spacing: 0.06em; color: #52ff7d; border: 1px solid rgba(82,255,125,0.35); background: rgba(82,255,125,0.06);">{{ p.badge }}</span>
+                <p style="margin: 0; font-size: 13px; line-height: 1.65; color: #b6d9c4;">{{ p.desc }}</p>
+              </a>
+            </sc-for>
+          </div>
+        </section>
+
+        <section data-screen-label="Contato mobile" style="padding: 20px 22px 50px; text-align: center;">
+          <p style="margin: 0 0 6px; font-size: 11px; color: #52ff7d; letter-spacing: 0.2em;">// 05 — CONTATO</p>
+          <h2 style="margin: 0 0 12px; font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; color: #f4fff8;">Vamos conversar<span style="color: #52ff7d;">?</span></h2>
+          <p style="margin: 0 0 24px; font-size: 13px; line-height: 1.7; color: #9fc4af;">O caminho mais rápido é o e-mail — respondo rápido.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="mailto:igorpcferreira@gmail.com" style="display: flex; align-items: center; justify-content: center; min-height: 50px; background: #52ff7d; color: #01130a; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; box-shadow: 0 0 22px rgba(82,255,125,0.3); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));">enviar_email →</a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <a href="#" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border: 1px solid rgba(53,200,255,0.5); color: #35c8ff; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;">linkedin ↗</a>
+              <a href="#" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border: 1px solid rgba(53,200,255,0.5); color: #35c8ff; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;">github ↗</a>
+            </div>
+          </div>
+          <p style="margin: 36px 0 0; font-size: 10px; color: #5d7d6c;">© 2026 Igor de Castro <span style="color: rgba(82,255,125,0.5);">//</span> rede neural viva</p>
+        </section>
+      </div>
+    </div>
+  </x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:520,&quot;height&quot;:960}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.canvasRef = React.createRef();
+    this.raf = 0; this.t = 0;
+  }
+  renderVals() {
+    return {
+      canvasRef: this.canvasRef,
+      skillGroups: [
+        { idx: '01', title: 'Backend', tags: ['Java 11/21/25', 'Spring Boot', 'Quarkus', 'APIs REST', 'Node.js'] },
+        { idx: '02', title: 'Frontend', tags: ['Angular 6/21', 'React 19', 'Next.js 16', 'Vue 2', 'TypeScript'] }
+      ],
+      projects: [
+        { name: 'Kyber Tech', tagline: 'Estúdio de tecnologia — sites, automações e IA', badge: 'CO-FUNDADOR', desc: 'Estúdio criado com foco em sites, automações e produtos digitais, da descoberta à publicação.' },
+        { name: 'Compressify', tagline: 'Compressão de imagens no navegador', badge: '-86% EM LOTE MEDIDO', desc: 'App estático e offline para compressão em lote com Web Workers e WebAssembly. 389 testes unitários, 115 E2E.' }
+      ]
+    };
+  }
+  componentDidMount() {
+    // x-import mounts children async — retry until the canvas ref resolves
+    const tryInit = () => {
+      const canvas = this.canvasRef.current;
+      if (!canvas) { this.raf = requestAnimationFrame(tryInit); return; }
+      this.ctx = canvas.getContext('2d');
+      this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      this.ro = new ResizeObserver(() => this.setup());
+      this.ro.observe(canvas.parentElement);
+      this.setup();
+      const step = () => {
+        this.t += 0.016;
+        this.frame(this.reduced.matches);
+        if (!this.reduced.matches) this.raf = requestAnimationFrame(step);
+      };
+      step();
+    };
+    tryInit();
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); if (this.ro) this.ro.disconnect(); }
+  setup() {
+    const canvas = this.canvasRef.current;
+    if (!canvas || !canvas.parentElement) return;
+    const r = canvas.parentElement.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.w = r.width; this.h = r.height;
+    canvas.width = this.w * dpr; canvas.height = this.h * dpr;
+    this.dpr = dpr;
+    const rnd = (() => { let a = 7; return () => { a = (a * 16807) % 2147483647; return a / 2147483647; }; })();
+    const count = Math.min(130, Math.round((this.w * this.h) / 11000));
+    this.nodes = [];
+    for (let i = 0; i < count; i++) {
+      const green = rnd() < 0.3;
+      this.nodes.push({ x: rnd() * this.w, y: rnd() * this.h, vx: (rnd() - 0.5) * 0.12, vy: (rnd() - 0.5) * 0.12, r: 1 + rnd() * 1.8, ph: rnd() * 6.28, green });
+    }
+    this.linkDist = 110;
+  }
+  frame(still) {
+    const { ctx, w, h, nodes } = this;
+    if (!ctx || !nodes) return;
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+    for (const n of nodes) {
+      if (!still) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < -20) n.x = w + 20; if (n.x > w + 20) n.x = -20;
+        if (n.y < -20) n.y = h + 20; if (n.y > h + 20) n.y = -20;
+      }
+    }
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        if (Math.abs(dx) > this.linkDist || Math.abs(dy) > this.linkDist) continue;
+        const d = Math.hypot(dx, dy);
+        if (d > this.linkDist) continue;
+        const col = (a.green && b.green) ? '110,255,140' : '70,180,255';
+        ctx.strokeStyle = 'rgba(' + col + ',' + ((1 - d / this.linkDist) * 0.22) + ')';
+        ctx.lineWidth = 0.6;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      }
+    }
+    for (const n of nodes) {
+      const pulse = still ? 0.8 : 0.6 + 0.4 * Math.sin(this.t * 1.2 + n.ph);
+      const c = n.green ? '110,255,140' : '70,190,255';
+      const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 3);
+      g.addColorStop(0, 'rgba(' + c + ',' + (0.5 * pulse) + ')');
+      g.addColorStop(1, 'rgba(' + c + ',0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 3, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = 'rgba(230,250,255,' + (0.85 * pulse) + ')';
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 0.6, 0, 6.2832); ctx.fill();
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * Background "rede neural viva", portado do artifact do Claude Design
- * (reference/neural-background/Neural Background.dc.html).
+ * (reference/design-system/prototypes/Neural Background.dc.html).
  *
  * A matemática do canvas (setup/frame/updateFirings/updatePackets/pickNext/
  * drawPackets/mulberry) foi transcrita sem alterações — é ela que define a

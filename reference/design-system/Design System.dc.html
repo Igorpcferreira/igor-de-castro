@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #010503; min-height: 100%; }
+    a { color: #52ff7d; text-decoration: none; }
+    a:hover { color: #a5ffbe; }
+    body { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5" stroke="%2352ff7d" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="%2352ff7d"/></svg>') 12 12, crosshair; }
+    a, button { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path d="M4 9V4h5M17 4h5v5M22 17v5h-5M9 22H4v-5" stroke="%2335c8ff" stroke-width="2" fill="none"/><circle cx="13" cy="13" r="2.4" fill="%2352ff7d"/></svg>') 13 13, pointer; }
+  </style>
+</helmet>
+<div style="min-height: 100vh; background: #010503; font-family: 'JetBrains Mono', monospace; color: #d7f5e2; padding: clamp(28px, 5vw, 72px); box-sizing: border-box;">
+  <p style="margin: 0 0 8px; font-size: 13px; color: #52ff7d; letter-spacing: 0.2em;">// DESIGN SYSTEM — PORTFÓLIO IGOR DE CASTRO</p>
+  <h1 style="margin: 0 0 10px; font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 4vw, 46px); font-weight: 700; color: #f4fff8; letter-spacing: -0.02em;">Identidade, ícones e cursores</h1>
+  <p style="margin: 0 0 48px; max-width: 68ch; font-size: 14px; line-height: 1.7; color: #9fc4af;">Arquivos prontos em <span style="color: #35c8ff;">assets/brand/</span> — copie para a pasta <span style="color: #35c8ff;">public/</span> do seu projeto Next.js.</p>
+
+  <section style="margin-bottom: 52px;">
+    <h2 style="margin: 0 0 18px; font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #eafff0;"><span style="color: #52ff7d;">01.</span> Ícones do site (favicon / app)</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid rgba(82,255,125,0.18); background: rgba(2,12,7,0.55); align-items: center; min-width: 130px;">
+        <img src="assets/brand/icon-512.png" alt="App / PWA — 512px" width="96" height="96">
+        <span style="font-size: 11px; color: #6fa88b;">App / PWA — 512px</span>
+        <span style="font-size: 11px; color: #35c8ff;">icon-512.png</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid rgba(82,255,125,0.18); background: rgba(2,12,7,0.55); align-items: center; min-width: 130px;">
+        <img src="assets/brand/icon-192.png" alt="App / PWA — 192px" width="96" height="96">
+        <span style="font-size: 11px; color: #6fa88b;">App / PWA — 192px</span>
+        <span style="font-size: 11px; color: #35c8ff;">icon-192.png</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid rgba(82,255,125,0.18); background: rgba(2,12,7,0.55); align-items: center; min-width: 130px;">
+        <img src="assets/brand/apple-touch-icon.png" alt="iOS — 180px" width="90" height="90">
+        <span style="font-size: 11px; color: #6fa88b;">iOS — 180px</span>
+        <span style="font-size: 11px; color: #35c8ff;">apple-touch-icon.png</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid rgba(82,255,125,0.18); background: rgba(2,12,7,0.55); align-items: center; min-width: 130px;">
+        <img src="assets/brand/favicon-32.png" alt="Favicon — 32px" width="32" height="32">
+        <span style="font-size: 11px; color: #6fa88b;">Favicon — 32px</span>
+        <span style="font-size: 11px; color: #35c8ff;">favicon-32.png</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom: 52px;">
+    <h2 style="margin: 0 0 18px; font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #eafff0;"><span style="color: #52ff7d;">02.</span> Preview de link (WhatsApp / redes) — Open Graph</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+      <img src="assets/brand/og-image.png" alt="OG image" style="width: min(560px, 100%); border: 1px solid rgba(53,200,255,0.25); display: block;">
+      <div style="flex: 1 1 380px; min-width: 300px;">
+        <p style="margin: 0 0 10px; font-size: 13px; color: #9fc4af; line-height: 1.7;">Cole no <span style="color: #35c8ff;">&lt;head&gt;</span> (ou no metadata do Next.js) com os arquivos em <span style="color: #35c8ff;">public/</span>:</p>
+        <pre style="margin: 0; padding: 18px; font-size: 12px; line-height: 1.7; color: #b6d9c4; background: rgba(2,12,7,0.7); border: 1px solid rgba(82,255,125,0.18); overflow-x: auto; white-space: pre;">{{ metaSnippet }}</pre>
+        <p style="margin: 12px 0 0; font-size: 12px; color: #6fa88b; line-height: 1.7;">⚠ O WhatsApp guarda cache do preview — depois do deploy, teste com o link + "?v=2" ou valide em opengraph.xyz.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom: 52px;">
+    <h2 style="margin: 0 0 18px; font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #eafff0;"><span style="color: #52ff7d;">03.</span> Ícones de interface (SVG inline, stroke = currentColor)</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 14px;">
+      <sc-for list="{{ icons }}" as="ic" hint-placeholder-count="8">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 10px; border: 1px solid rgba(82,255,125,0.14); background: rgba(2,12,7,0.5); color: #52ff7d;" style-hover="border-color: rgba(82,255,125,0.5); color: #a5ffbe;">
+          <span dangerouslySetInnerHTML="{{ ic.svg }}" style="display: inline-flex;"></span>
+          <span style="font-size: 11px; color: #6fa88b;">{{ ic.name }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 14px 0 0; font-size: 12px; color: #6fa88b;">Uso: 24×24, stroke-width 2, stroke = currentColor — herdam a cor do texto (verde #52ff7d ou ciano #35c8ff).</p>
+  </section>
+
+  <section style="margin-bottom: 52px;">
+    <h2 style="margin: 0 0 18px; font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #eafff0;"><span style="color: #52ff7d;">04.</span> Cursor customizado (desktop)</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <div style="flex: 1 1 300px; min-width: 260px; padding: 28px; border: 1px dashed rgba(82,255,125,0.35); background: rgba(2,12,7,0.5); text-align: center;">
+        <p style="margin: 0 0 6px; font-size: 13px; color: #eafff0;">Cursor padrão — mira</p>
+        <p style="margin: 0; font-size: 12px; color: #6fa88b;">passe o mouse aqui: crosshair verde com ponto central</p>
+      </div>
+      <a href="#" style="flex: 1 1 300px; min-width: 260px; padding: 28px; border: 1px dashed rgba(53,200,255,0.4); background: rgba(2,8,12,0.5); text-align: center; display: block;">
+        <p style="margin: 0 0 6px; font-size: 13px; color: #eafff0;">Cursor de link/botão — alvo HUD</p>
+        <p style="margin: 0; font-size: 12px; color: #6fa88b;">colchetes ciano + ponto verde (este card é um link)</p>
+      </a>
+    </div>
+    <p style="margin: 14px 0 8px; font-size: 13px; color: #9fc4af;">CSS pronto (já aplicado nesta página e no protótipo desktop):</p>
+    <pre style="margin: 0; padding: 18px; font-size: 11px; line-height: 1.7; color: #b6d9c4; background: rgba(2,12,7,0.7); border: 1px solid rgba(82,255,125,0.18); overflow-x: auto; white-space: pre-wrap; word-break: break-all;">{{ cursorSnippet }}</pre>
+  </section>
+
+  <section>
+    <h2 style="margin: 0 0 18px; font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #eafff0;"><span style="color: #52ff7d;">05.</span> Tokens</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+      <sc-for list="{{ colors }}" as="c" hint-placeholder-count="6">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 130px;">
+          <div style="height: 56px; background: {{ c.hex }}; border: 1px solid rgba(255,255,255,0.14);"></div>
+          <span style="font-size: 11px; color: #eafff0;">{{ c.name }}</span>
+          <span style="font-size: 11px; color: #6fa88b;">{{ c.hex }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 0; font-size: 13px; color: #9fc4af; line-height: 1.8;">Títulos: <span style="font-family: 'Space Grotesk', sans-serif; color: #f4fff8; font-weight: 700;">Space Grotesk 700</span> · Corpo/código: <span style="color: #f4fff8;">JetBrains Mono 400–700</span></p>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const icons = [
+      ['terminal', '<path d="M4 5h16v14H4z"/><path d="M7 9l3 3-3 3M12 15h5"/>'],
+      ['code', '<path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/>'],
+      ['arrow-right', '<path d="M3 12h17M14 6l6 6-6 6"/>'],
+      ['download', '<path d="M12 3v12M7 10l5 5 5-5M4 20h16"/>'],
+      ['external', '<path d="M14 4h6v6M20 4L10 14M18 13v7H4V6h7"/>'],
+      ['mail', '<path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/>'],
+      ['github', '<path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.62-.2.62-.44v-1.7c-2.5.55-3.03-1.06-3.03-1.06-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.38 2.11.98 2.63.75.08-.58.31-.98.57-1.2-2-.23-4.1-1-4.1-4.45 0-.98.35-1.79.93-2.42-.1-.23-.4-1.15.08-2.4 0 0 .76-.24 2.48.92a8.6 8.6 0 0 1 4.51 0c1.72-1.16 2.47-.92 2.47-.92.49 1.25.18 2.17.09 2.4.58.63.93 1.44.93 2.42 0 3.47-2.11 4.22-4.12 4.44.32.28.61.83.61 1.67v2.48c0 .24.16.53.62.44A9 9 0 0 0 12 3z"/>'],
+      ['linkedin', '<path d="M4 4h16v16H4z"/><path d="M8 10v7M8 7.5v.01M12 17v-4a2 2 0 0 1 4 0v4"/>'],
+      ['menu', '<path d="M4 6h16M4 12h11M4 18h16"/>'],
+      ['close', '<path d="M5 5l14 14M19 5L5 19"/>'],
+      ['check', '<path d="M4 12l5 5L20 7"/>'],
+      ['node', '<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>']
+    ].map(([name, body]) => ({ name, svg: { __html: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + body + '</svg>' } }));
+    return {
+      icons,
+      colors: [
+        { name: 'bg / preto', hex: '#010503' },
+        { name: 'verde matrix', hex: '#52ff7d' },
+        { name: 'ciano elétrico', hex: '#35c8ff' },
+        { name: 'texto principal', hex: '#f4fff8' },
+        { name: 'texto corpo', hex: '#9fc4af' },
+        { name: 'texto apagado', hex: '#6fa88b' }
+      ],
+      metaSnippet: '<link rel="icon" href="/favicon-32.png" sizes="32x32">\n<link rel="icon" href="/icon-192.png" sizes="192x192">\n<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n\n<meta property="og:title" content="Igor de Castro — Full Stack Developer">\n<meta property="og:description" content="Modernizo sistemas de grande porte e construo produtos web rápidos, acessíveis e com qualidade mensurável.">\n<meta property="og:image" content="https://igor-de-castro.vercel.app/og-image.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:url" content="https://igor-de-castro.vercel.app">\n<meta property="og:type" content="website">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="https://igor-de-castro.vercel.app/og-image.png">',
+      cursorSnippet: 'body {\n  cursor: url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5" stroke="%2352ff7d" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="%2352ff7d"/></svg>\') 12 12, crosshair;\n}\na, button, [role="button"] {\n  cursor: url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path d="M4 9V4h5M17 4h5v5M22 17v5h-5M9 22H4v-5" stroke="%2335c8ff" stroke-width="2" fill="none"/><circle cx="13" cy="13" r="2.4" fill="%2352ff7d"/></svg>\') 13 13, pointer;\n}\n@media (pointer: coarse) { body, a, button { cursor: auto; } }'
+    };
+  }
+}
+</script>
+</body>
+</html>
