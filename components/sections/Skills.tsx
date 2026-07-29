@@ -1,25 +1,35 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { skillCategories } from "@/data/content";
 
 export default function Skills() {
-  return (
-    <section id="competencias" className="py-24">
-      <div className="container-site">
-        <SectionHeading overline="02 · Competências" title="Com o que eu trabalho" />
+  const { copy } = useLanguage();
+  const section = copy.skillsSection;
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          {skillCategories.map((category, i) => (
-            <Reveal key={category.title} delay={i * 90} className="h-full">
-              <article className="card-surface hover:border-cyan/30 h-full p-6 transition-[border-color,translate] duration-base ease-glide hover:-translate-y-1">
-                <h3 className="text-ink mb-4 text-lg font-semibold">{category.title}</h3>
+  return (
+    <section id="skills" className="section-shell">
+      <div className="container-site">
+        <SectionHeading overline={section.overline} title={section.title} />
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:gap-5">
+          {section.categories.map((category, index) => (
+            <Reveal key={category.title} delay={index * 75} className="h-full">
+              <article className="corner-card terminal-surface hover:border-neon/45 h-full p-5 transition-[border-color,box-shadow,translate] duration-base hover:-translate-y-1 hover:shadow-[0_0_30px_rgb(82_255_125_/_0.08)] sm:p-7">
+                <header className="mb-5 flex items-baseline gap-3">
+                  <span className="text-neon text-[11px]">{category.index}</span>
+                  <h3 className="font-display text-ink text-lg font-bold">{category.title}</h3>
+                </header>
                 <ul className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="border-cyan/15 bg-cyan/5 text-body hover:border-cyan/40 hover:text-cyan-bright rounded-full border px-3 py-1 text-[13px] transition-colors duration-fast ease-glide"
+                      className="border-neon/20 bg-neon/[0.035] text-body hover:border-neon/55 hover:text-neon border px-2.5 py-1.5 text-[10px] transition-colors sm:text-[11px]"
                     >
+                      <span className="text-neon/50">[</span>
                       {skill}
+                      <span className="text-neon/50">]</span>
                     </li>
                   ))}
                 </ul>

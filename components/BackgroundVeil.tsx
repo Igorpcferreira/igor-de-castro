@@ -2,9 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-/** Opacidade máxima do véu depois de rolar um viewport inteiro. */
-const MAX_OPACITY = 0.55;
-
 /**
  * Véu de calibração do background: no hero a rede neural fica totalmente
  * visível; ao rolar, este overlay escurece gradualmente pra que o texto denso
@@ -21,7 +18,10 @@ export default function BackgroundVeil() {
     const update = () => {
       raf = 0;
       const progress = Math.min(window.scrollY / window.innerHeight, 1);
-      el.style.opacity = (progress * MAX_OPACITY).toFixed(3);
+      // No mobile, mantém mais da rede visível entre os cards. As superfícies
+      // já fornecem contraste, então um véu pesado apagaria a sensação de vida.
+      const maxOpacity = window.innerWidth < 700 ? 0.34 : 0.55;
+      el.style.opacity = (progress * maxOpacity).toFixed(3);
     };
     const onScrollOrResize = () => {
       if (!raf) raf = requestAnimationFrame(update);

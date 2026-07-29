@@ -111,6 +111,7 @@ class NeuralEngine {
   private linkDist = 0;
   private w = 0;
   private h = 0;
+  private isMobile = false;
   private reduced!: MediaQueryList;
   private cleanup: (() => void) | null = null;
 
@@ -201,13 +202,22 @@ class NeuralEngine {
     this.h = h;
     const density = this.opts.density;
     const isMobile = w < 700;
-    const count = Math.round(Math.min(190, (w * h) / (isMobile ? 12000 : 9000)) * density);
+    this.isMobile = isMobile;
+    // O cálculo anterior deixava apenas ~30 nós em celulares comuns. O piso
+    // e o teto abaixo entregam uma malha perceptível sem se aproximar do custo
+    // do desktop (190 nós).
+    const rawCount = Math.round(((w * h) / (isMobile ? 5200 : 9000)) * density);
+    const count = isMobile
+      ? Math.min(105, Math.max(62, rawCount))
+      : Math.min(190, rawCount);
     const greenAmt = this.opts.greenAmount;
     const rnd = mulberry(42);
     this.nodes = [];
     for (let i = 0; i < count; i++) {
       // assimétrico: mais denso à esquerda, dissipando pra direita
-      const x = Math.pow(rnd(), 1.45) * w * 1.05;
+      // No mobile a malha ocupa toda a largura; no desktop preserva a
+      // assimetria original, mais densa à esquerda.
+      const x = Math.pow(rnd(), isMobile ? 1.12 : 1.45) * w * 1.05;
       const y = rnd() * h;
       const z = rnd(); // profundidade: 0 = longe, 1 = perto
       // acento verde concentrado à esquerda/topo, azul no resto
@@ -219,8 +229,8 @@ class NeuralEngine {
         hx: x,
         hy: y,
         z,
-        vx: (rnd() - 0.5) * 0.14,
-        vy: (rnd() - 0.5) * 0.14,
+        vx: (rnd() - 0.5) * (isMobile ? 0.3 : 0.14),
+        vy: (rnd() - 0.5) * (isMobile ? 0.3 : 0.14),
         ph: rnd() * Math.PI * 2,
         ps: 0.4 + rnd() * 0.9,
         wob: rnd() * Math.PI * 2,
@@ -233,7 +243,7 @@ class NeuralEngine {
       });
     }
     this.bokeh = [];
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < (isMobile ? 8 : 11); i++) {
       const green = rnd() < 0.45;
       this.bokeh.push({
         x: rnd() * w,
@@ -246,7 +256,9 @@ class NeuralEngine {
         green,
       });
     }
-    this.linkDist = Math.min(210, Math.max(140, Math.sqrt(w * h) / 6));
+    this.linkDist = isMobile
+      ? Math.min(148, Math.max(124, Math.sqrt(w * h) / 4.6))
+      : Math.min(210, Math.max(140, Math.sqrt(w * h) / 6));
   }
 
   private loop() {
@@ -509,7 +521,8 @@ class NeuralEngine {
       return;
     }
     // faísca espontânea: um nó aleatório dispara sozinho
-    if (rate > 0 && Math.random() < 0.006 * rate && this.firings.length < 60) {
+    const sparkChance = this.isMobile ? 0.01 : 0.006;
+    if (rate > 0 && Math.random() < sparkChance * rate && this.firings.length < 60) {
       this.firings.push({
         node: Math.floor(Math.random() * nodes.length),
         at: t,
@@ -551,7 +564,7 @@ class NeuralEngine {
     const rate = this.opts.packets;
     // nascimento: intervalo moderado aleatório; nada nasce com reduced motion
     if (!still && rate > 0 && this.packets.length < Math.ceil(3 * rate)) {
-      if (Math.random() < 0.008 * rate) {
+      if (Math.random() < (this.isMobile ? 0.012 : 0.008) * rate) {
         const from = Math.floor(Math.random() * nodes.length);
         const opts = nbr.get(from);
         if (opts && opts.size) {

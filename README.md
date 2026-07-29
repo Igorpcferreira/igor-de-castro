@@ -1,62 +1,55 @@
-# Igor de Castro — Portfólio
+# Igor de Castro — Portfolio
 
-Portfólio pessoal como Desenvolvedor Full Stack. Single-page estática com um
-background interativo de "rede neural viva" em canvas puro, portado do Claude
-Design.
+Portfolio bilíngue (EN e pt-BR) de Igor de Castro, Desenvolvedor Full Stack.
+O site combina uma interface inspirada em terminal com um background interativo
+de rede neural em canvas.
 
-**Stack:** Next.js 16 (App Router, `output: "export"`), React 19, TypeScript
-strict, Tailwind CSS 4, Space Grotesk. Sem biblioteca de animação — tudo em CSS
-nativo + IntersectionObserver.
+## Stack
+
+- Next.js 16 com App Router e export estático
+- React 19 e TypeScript strict
+- Tailwind CSS 4
+- Space Grotesk + JetBrains Mono
+- Canvas 2D, CSS e IntersectionObserver para motion
 
 ## Rodar localmente
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
-npm run build    # gera o site estático em /out
+npm run dev
 npm run lint
+npm run build
 ```
 
-> O `.npmrc` do projeto aponta pro registry público do npm (a máquina pode ter
-> registries corporativos configurados globalmente).
+O build de produção é gerado em `out/`.
 
 ## Estrutura
 
-```
-app/                  # layout (metadata, fonte, lang pt-BR) e página única
-data/content.ts       # TODO o conteúdo textual, tipado — edite texto aqui
-components/
-  NeuralBackground.tsx  # background neural (canvas puro, portado do Claude Design)
-  BackgroundVeil.tsx    # véu que escurece o background fora do hero (legibilidade)
-  Reveal.tsx            # entrada suave ao rolar (IntersectionObserver + CSS)
-  Navbar.tsx            # navbar fixa com seção ativa e menu mobile
-  sections/             # Hero, Sobre, Competências, Experiência, Projetos, Formação, Contato
-reference/neural-background/  # artifact original do Claude Design + guia de porte
+```text
+app/                         layout, metadata, estilos e página
+components/LanguageProvider  estado de idioma e preferência local
+components/NeuralBackground  engine do background interativo
+components/sections/         hero, sobre, stack, experiência, projetos,
+                             formação e contato
+data/content.ts              conteúdo tipado em inglês e português
+public/                      fotos e currículos finais
+reference/                   protótipos e materiais de referência
 ```
 
-## Design tokens
+O idioma padrão é inglês. A escolha feita pelas bandeiras do header fica salva
+no navegador. Cada idioma baixa o currículo correspondente, e o contato
+principal abre uma conversa direta no WhatsApp com mensagem localizada.
 
-Cores, curva de easing e durações vivem no `@theme` de `app/globals.css` e são
-usadas em todo o site (nunca valores hardcoded). O verde neon (`--color-neon`)
-é restrito a pequenos acentos: tags, status e badges.
+## Conteúdo
+
+Os currículos finais em `public/` são a fonte de verdade para experiência,
+projetos, formação, cursos e idiomas. O conteúdo completo foi preservado no
+site; detalhes mais densos da experiência aparecem em painéis expansíveis para
+manter uma leitura inicial objetiva.
 
 ## Background neural
 
-A lógica do canvas foi portada **sem alterações na matemática** do artifact
-original — ver `reference/neural-background/neural-background.md` para o guia
-completo de funcionamento, parâmetros e decisões de performance. O componente
-respeita `prefers-reduced-motion` (congela no último frame) e pausa quando a
-aba fica oculta.
-
-## Pendências de conteúdo
-
-- Colocar o PDF do currículo em `public/curriculo-igor-de-castro.pdf`
-  (os botões "Baixar currículo" já apontam pra esse caminho).
-- Preencher `certificateUrl` de cada certificação em `data/content.ts`.
-- Ajustar `metadataBase` em `app/layout.tsx` quando o domínio definitivo do
-  deploy estiver no ar.
-
-## Deploy
-
-Deploy padrão da Vercel (framework preset Next.js). O build gera saída
-estática — nenhum servidor Node é necessário em produção.
+O desktop preserva a calibração visual original. No mobile, a engine usa uma
+faixa controlada de 62 a 105 nós, distribuição mais uniforme e eventos neurais
+um pouco mais frequentes. O componente respeita `prefers-reduced-motion` e
+pausa quando a página fica oculta.

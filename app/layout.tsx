@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -7,30 +7,36 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
-const siteTitle = "Igor de Castro — Desenvolvedor Full Stack Pleno";
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
+const siteTitle = "Igor de Castro — Mid-Level Full Stack Developer";
 const siteDescription =
-  "Desenvolvedor Full Stack Pleno em Goiânia. Java, Spring Boot, Quarkus, Angular, React e modernização de sistemas corporativos de grande porte. Portfólio com projetos, experiência e contato.";
+  "Full Stack Developer specializing in Java, Spring Boot, Angular, enterprise modernization, and high-quality web products. Based in Goiânia, Brazil.";
 
 export const metadata: Metadata = {
-  // Ajustar quando o domínio definitivo do deploy estiver no ar
-  metadataBase: new URL("https://igor-ferreira-portfolio.vercel.app"),
+  metadataBase: new URL("https://igordecastro.com.br"),
   title: siteTitle,
   description: siteDescription,
   keywords: [
     "Igor de Castro",
-    "Igor Ferreira",
-    "Desenvolvedor Full Stack",
+    "Full Stack Developer",
     "Java",
     "Spring Boot",
     "Angular",
     "React",
+    "Enterprise Modernization",
     "Goiânia",
   ],
-  authors: [{ name: "Igor de Castro" }],
+  authors: [{ name: "Igor de Castro", url: "https://igordecastro.com.br" }],
   creator: "Igor de Castro",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "pt_BR",
+    locale: "en_US",
+    alternateLocale: ["pt_BR"],
     url: "/",
     siteName: "Igor de Castro",
     title: siteTitle,
@@ -50,9 +56,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${spaceGrotesk.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        {/* Sem JavaScript o reveal nunca dispararia — garante conteúdo visível */}
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full">
         <noscript>
           <style>{`.reveal{opacity:1 !important;translate:0 0 !important}`}</style>
         </noscript>

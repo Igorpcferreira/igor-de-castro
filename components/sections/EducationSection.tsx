@@ -1,57 +1,58 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { certifications, education } from "@/data/content";
 
 export default function EducationSection() {
-  return (
-    <section id="formacao" className="py-24">
-      <div className="container-site">
-        <SectionHeading overline="05 · Formação" title="Formação e certificações" />
+  const { copy } = useLanguage();
+  const section = copy.educationSection;
+  const { education, certifications } = section;
 
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-          <Reveal className="h-full">
-            <article className="card-surface h-full p-6">
-              <h3 className="text-ink text-lg font-semibold">{education.degree}</h3>
-              <p className="text-cyan-soft mt-1 text-sm">
-                {education.institution} <span className="text-muted">· {education.period}</span>
+  return (
+    <section id="education" className="section-shell">
+      <div className="container-site">
+        <SectionHeading overline={section.overline} title={section.title} />
+
+        <div className="grid items-start gap-6 lg:grid-cols-[1.05fr_1fr]">
+          <Reveal>
+            <article className="corner-card terminal-surface p-5 sm:p-7">
+              <p className="text-neon mb-3 text-[10px]">~/education/main</p>
+              <h3 className="font-display text-ink text-xl font-bold">{education.degree}</h3>
+              <p className="text-cyan mt-1.5 text-[11px] leading-relaxed sm:text-xs">
+                {education.institution}
               </p>
-              <ul className="text-body mt-4 space-y-2.5 text-[15px] leading-relaxed">
+              <p className="text-muted mt-1 text-[10px]">{education.period}</p>
+              <ul className="mt-5 space-y-3">
                 {education.details.map((detail) => (
-                  <li key={detail} className="flex gap-2.5">
-                    <span aria-hidden="true" className="text-cyan mt-0.5 shrink-0">
+                  <li
+                    key={detail}
+                    className="text-body flex gap-2.5 text-pretty text-[12px] leading-[1.75] sm:text-[13px]"
+                  >
+                    <span aria-hidden="true" className="text-neon shrink-0">
                       ▹
                     </span>
-                    <span className="text-pretty">{detail}</span>
+                    {detail}
                   </li>
                 ))}
               </ul>
             </article>
           </Reveal>
 
-          <Reveal delay={120}>
-            <h3 className="text-cyan-soft mb-3 text-[12px] font-medium uppercase tracking-[0.18em]">
-              Cursos e certificações selecionados
+          <Reveal delay={100}>
+            <h3 className="text-cyan mb-3 text-[10px] uppercase tracking-[0.16em]">
+              {section.certificationsLabel}
             </h3>
-            <ul className="space-y-2">
-              {certifications.map((cert) => (
+            <ul className="divide-cyan/10 cyan-surface divide-y">
+              {certifications.map((certification) => (
                 <li
-                  key={cert.name}
-                  className="card-surface hover:border-cyan/30 flex items-baseline justify-between gap-4 px-4 py-3 transition-colors duration-fast ease-glide"
+                  key={certification.name}
+                  className="hover:bg-cyan/[0.035] flex items-start justify-between gap-4 px-4 py-3.5 transition-colors"
                 >
-                  <div>
-                    <p className="text-body text-sm font-medium">{cert.name}</p>
-                    {cert.certificateUrl && (
-                      <a
-                        href={cert.certificateUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-cyan hover:text-cyan-bright text-[13px] transition-colors duration-fast ease-glide"
-                      >
-                        Ver certificado <span aria-hidden="true">↗</span>
-                      </a>
-                    )}
-                  </div>
-                  <span className="text-muted shrink-0 text-[13px]">{cert.year}</span>
+                  <span className="text-body text-[11px] leading-relaxed sm:text-xs">
+                    {certification.name}
+                  </span>
+                  <span className="text-muted shrink-0 text-[10px]">{certification.year}</span>
                 </li>
               ))}
             </ul>

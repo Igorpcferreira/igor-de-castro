@@ -1,102 +1,135 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { experiences } from "@/data/content";
 
 export default function ExperienceSection() {
-  return (
-    <section id="experiencia" className="py-24">
-      <div className="container-site">
-        <SectionHeading overline="03 · Experiência" title="Por onde passei" />
+  const { copy } = useLanguage();
+  const section = copy.experienceSection;
 
-        <ol className="border-cyan/15 relative ml-1.5 space-y-14 border-l pl-8 sm:ml-3 sm:pl-10">
-          {experiences.map((exp, i) => {
-            const isCurrent = i === 0;
-            return (
-              <Reveal key={exp.company} as="li" delay={i * 90} className="relative">
-                {/* Marcador na linha do tempo; verde só no cargo atual (status) */}
+  return (
+    <section id="experience" className="section-shell">
+      <div className="container-site max-w-[69rem]">
+        <SectionHeading overline={section.overline} title={section.title} />
+
+        <ol className="space-y-0">
+          {section.experiences.map((experience, index) => (
+            <Reveal
+              key={`${experience.company}-${copy.localeName}`}
+              as="li"
+              delay={index * 90}
+              className="grid grid-cols-[18px_minmax(0,1fr)] gap-4 sm:grid-cols-[24px_minmax(0,1fr)] sm:gap-6"
+            >
+              <div aria-hidden="true" className="flex flex-col items-center">
                 <span
-                  aria-hidden="true"
-                  className={`absolute -left-[37px] top-1.5 h-2.5 w-2.5 rounded-full sm:-left-[45px] ${
-                    isCurrent
-                      ? "bg-neon shadow-[0_0_10px] shadow-neon/70"
-                      : "border-cyan/50 bg-night border-2"
+                  className={`mt-1.5 h-3 w-3 rotate-45 border-2 ${
+                    index === 0
+                      ? "border-neon bg-night shadow-[0_0_12px_rgb(82_255_125_/_0.7)]"
+                      : "border-cyan/55 bg-night"
                   }`}
                 />
+                {index < section.experiences.length - 1 && (
+                  <span className="from-neon/40 to-neon/5 mt-2 min-h-16 w-px flex-1 bg-gradient-to-b" />
+                )}
+              </div>
 
-                <header className="mb-4">
-                  <h3 className="text-ink text-xl font-semibold">
-                    {exp.company}
-                    <span className="text-cyan"> · </span>
-                    <span className="text-cyan-bright font-medium">{exp.role}</span>
+              <article className="pb-12 sm:pb-16">
+                <header className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-3">
+                  <h3 className="font-display text-ink text-xl font-bold sm:text-[1.35rem]">
+                    {experience.company}
                   </h3>
-                  <p className="text-cyan-soft mt-1 text-sm">
-                    {exp.period} <span className="text-muted">· {exp.location}</span>
-                  </p>
+                  <p className="text-cyan text-[12px] sm:text-[13px]">{experience.role}</p>
                 </header>
+                <p className="text-muted mt-1.5 text-[10px] leading-relaxed tracking-[0.04em] sm:text-[11px]">
+                  {experience.period} · {experience.location}
+                </p>
 
-                {exp.roles && (
-                  <ol className="mb-4 space-y-1 text-sm">
-                    {exp.roles.map((role) => (
-                      <li key={role.title} className="flex flex-wrap items-baseline gap-x-2">
-                        <span aria-hidden="true" className="text-cyan/60">
-                          ↳
+                {experience.roles && (
+                  <ol className="mt-4 space-y-1.5">
+                    {experience.roles.map((role) => (
+                      <li
+                        key={role.title}
+                        className="flex flex-col text-[11px] sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-2"
+                      >
+                        <span className="text-neon">
+                          ↳ <span className="text-body font-medium">{role.title}</span>
                         </span>
-                        <span className="text-body font-medium">{role.title}</span>
-                        <span className="text-muted text-[13px]">{role.period}</span>
+                        <span className="text-muted">{role.period}</span>
                       </li>
                     ))}
                   </ol>
                 )}
 
-                <ul className="text-body max-w-[75ch] space-y-2.5 text-[15px] leading-relaxed">
-                  {exp.highlights.map((item) => (
-                    <li key={item} className="flex gap-2.5">
-                      <span aria-hidden="true" className="text-cyan mt-0.5 shrink-0">
-                        ▹
-                      </span>
-                      <span className="text-pretty">{item}</span>
+                <p className="text-body mt-4 max-w-[76ch] text-pretty text-[13px] leading-[1.8] sm:text-[14px]">
+                  <span className="text-neon">&gt; </span>
+                  {experience.summary}
+                </p>
+
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {experience.summaryTags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="border-neon/20 text-body border px-2 py-1 text-[9px] sm:text-[10px]"
+                    >
+                      {tag}
                     </li>
                   ))}
                 </ul>
 
-                {exp.summaryTags.length > 0 && (
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {exp.summaryTags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="border-cyan/15 bg-cyan/5 text-cyan-soft rounded-full border px-2.5 py-0.5 text-[12px]"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <details className="experience-details border-neon/15 mt-5 border-l pl-4 sm:pl-5">
+                  <summary className="text-neon hover:text-neon-bright inline-flex cursor-pointer list-none items-center gap-2 py-1 text-[11px] tracking-[0.05em] transition-colors">
+                    <span
+                      aria-hidden="true"
+                      className="details-arrow inline-block transition-transform duration-fast"
+                    >
+                      ▸
+                    </span>
+                    {section.detailsLabel}
+                  </summary>
 
-                {exp.projects && (
-                  <div className="mt-6">
-                    <h4 className="text-cyan-soft mb-3 text-[12px] font-medium uppercase tracking-[0.18em]">
-                      Projetos selecionados
-                    </h4>
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {exp.projects.map((project, j) => (
-                        <Reveal key={project.name} delay={j * 60} className="h-full">
-                          <article className="card-surface hover:border-cyan/30 h-full p-4 transition-[border-color,translate] duration-base ease-glide hover:-translate-y-0.5">
-                            <h5 className="text-ink text-sm font-semibold">{project.name}</h5>
-                            <p className="text-cyan-soft mt-0.5 text-[12px]">
-                              {project.period} · {project.client}
-                            </p>
-                            <p className="text-body mt-2 text-pretty text-[13px] leading-relaxed">
-                              {project.description}
-                            </p>
-                          </article>
-                        </Reveal>
+                  <div className="mt-5 space-y-7">
+                    <ul className="max-w-[80ch] space-y-2.5">
+                      {experience.highlights.map((highlight) => (
+                        <li
+                          key={highlight}
+                          className="text-body flex gap-2.5 text-pretty text-[12px] leading-[1.75] sm:text-[13px]"
+                        >
+                          <span aria-hidden="true" className="text-cyan shrink-0">
+                            ▹
+                          </span>
+                          {highlight}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
+
+                    {experience.projects && (
+                      <div>
+                        <h4 className="text-cyan mb-3 text-[10px] uppercase tracking-[0.16em]">
+                          {section.projectsLabel}
+                        </h4>
+                        <div className="grid gap-3 md:grid-cols-2">
+                          {experience.projects.map((project) => (
+                            <article key={project.name} className="cyan-surface p-4">
+                              <h5 className="font-display text-ink text-sm font-bold">
+                                {project.name}
+                              </h5>
+                              <p className="text-cyan mt-1 text-[9px] leading-relaxed">
+                                {project.period} · {project.client}
+                              </p>
+                              <p className="text-body mt-2 text-pretty text-[11px] leading-[1.7]">
+                                {project.description}
+                              </p>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
-              </Reveal>
-            );
-          })}
+                </details>
+              </article>
+            </Reveal>
+          ))}
         </ol>
       </div>
     </section>

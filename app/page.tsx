@@ -1,5 +1,6 @@
 import BackgroundVeil from "@/components/BackgroundVeil";
 import Footer from "@/components/Footer";
+import LanguageProvider from "@/components/LanguageProvider";
 import Navbar from "@/components/Navbar";
 import NeuralBackground from "@/components/NeuralBackground";
 import About from "@/components/sections/About";
@@ -12,11 +13,12 @@ import Skills from "@/components/sections/Skills";
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider>
       <NeuralBackground />
       <BackgroundVeil />
+      <div aria-hidden="true" className="scanlines" />
       <Navbar />
-      <main id="conteudo" className="relative z-[2]">
+      <main id="content" className="relative z-[2] overflow-clip">
         <Hero />
         <About />
         <Skills />
@@ -26,6 +28,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }
