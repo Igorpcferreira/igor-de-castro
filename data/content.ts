@@ -76,6 +76,7 @@ export interface Education {
 export interface Certification {
   name: string;
   year: string;
+  url?: string;
 }
 
 export interface Language {
@@ -137,6 +138,7 @@ export interface PortfolioContent {
     overline: string;
     title: string;
     certificationsLabel: string;
+    certificationLinkLabel: string;
     education: Education;
     certifications: Certification[];
   };
@@ -434,6 +436,7 @@ const en: PortfolioContent = {
     overline: "05 — EDUCATION",
     title: "Foundations and continuous learning",
     certificationsLabel: "Selected courses and certifications",
+    certificationLinkLabel: "Open certificate",
     education: {
       institution: "PUC Goiás · Pontifical Catholic University of Goiás",
       degree: "Bachelor of Science in Computer Science",
@@ -445,11 +448,31 @@ const en: PortfolioContent = {
       ],
     },
     certifications: [
-      { name: "RESTful APIs from Zero to AWS: Spring Boot 3, Java, and Docker", year: "2024" },
-      { name: "Domain-Driven Design: Tactical Modeling and Patterns", year: "2023" },
-      { name: "Authentication and Keycloak", year: "2023" },
-      { name: "Docker for Developers: Docker Swarm and Kubernetes", year: "2023" },
-      { name: "TDD and Java: Automated Testing with JUnit", year: "2022" },
+      {
+        name: "RESTful APIs from Zero to AWS: Spring Boot 3, Java, and Docker",
+        year: "2024",
+        url: "https://drive.google.com/file/d/1I_0qBAw5l7c1iUxFI66WY0ezewstw4gl/view?usp=sharing",
+      },
+      {
+        name: "Domain-Driven Design: Tactical Modeling and Patterns",
+        year: "2023",
+        url: "https://1drv.ms/b/c/c0cf5f24fce34ea4/EQ3_J5NVuxhLpqf-S-mfyKIB2BAqMgAre4-F3436KU49tA?e=0MC8fE",
+      },
+      {
+        name: "Authentication and Keycloak",
+        year: "2023",
+        url: "https://drive.google.com/file/d/15TgJ-Iv17fVt9fufHfzXiDEOB14wjK0i/view?usp=sharing",
+      },
+      {
+        name: "Docker for Developers: Docker Swarm and Kubernetes",
+        year: "2023",
+        url: "https://www.udemy.com/certificate/UC-4ce4af9f-70ba-4d63-9256-2e4befbf8ba7/",
+      },
+      {
+        name: "TDD and Java: Automated Testing with JUnit",
+        year: "2022",
+        url: "https://cursos.alura.com.br/certificate/c7f7c285-6f34-4c4d-80cb-5a1d5b59e858",
+      },
       { name: "Brazilian Data Protection Law (LGPD) Applied to Management and Quality", year: "2024" },
       { name: "ISO 9001 Quality Management Systems", year: "2024" },
     ],
@@ -709,6 +732,7 @@ const pt: PortfolioContent = {
     overline: "05 — FORMAÇÃO",
     title: "Fundamentos e evolução contínua",
     certificationsLabel: "Cursos e certificações selecionados",
+    certificationLinkLabel: "Abrir certificado",
     education: {
       institution: "PUC Goiás · Pontifícia Universidade Católica de Goiás",
       degree: "Bacharelado em Ciência da Computação",
@@ -720,11 +744,31 @@ const pt: PortfolioContent = {
       ],
     },
     certifications: [
-      { name: "REST APIs RESTful do 0 à AWS: Spring Boot 3, Java e Docker", year: "2024" },
-      { name: "Domain Driven Design: Modelagem Tática e Patterns", year: "2023" },
-      { name: "Autenticação e Keycloak", year: "2023" },
-      { name: "Docker for Developers: Docker Swarm e Kubernetes", year: "2023" },
-      { name: "TDD e Java: testes automatizados com JUnit", year: "2022" },
+      {
+        name: "REST APIs RESTful do 0 à AWS: Spring Boot 3, Java e Docker",
+        year: "2024",
+        url: "https://drive.google.com/file/d/1I_0qBAw5l7c1iUxFI66WY0ezewstw4gl/view?usp=sharing",
+      },
+      {
+        name: "Domain Driven Design: Modelagem Tática e Patterns",
+        year: "2023",
+        url: "https://1drv.ms/b/c/c0cf5f24fce34ea4/EQ3_J5NVuxhLpqf-S-mfyKIB2BAqMgAre4-F3436KU49tA?e=0MC8fE",
+      },
+      {
+        name: "Autenticação e Keycloak",
+        year: "2023",
+        url: "https://drive.google.com/file/d/15TgJ-Iv17fVt9fufHfzXiDEOB14wjK0i/view?usp=sharing",
+      },
+      {
+        name: "Docker for Developers: Docker Swarm e Kubernetes",
+        year: "2023",
+        url: "https://www.udemy.com/certificate/UC-4ce4af9f-70ba-4d63-9256-2e4befbf8ba7/",
+      },
+      {
+        name: "TDD e Java: testes automatizados com JUnit",
+        year: "2022",
+        url: "https://cursos.alura.com.br/certificate/c7f7c285-6f34-4c4d-80cb-5a1d5b59e858",
+      },
       { name: "LGPD aplicada à gestão e qualidade", year: "2024" },
       { name: "Sistemas de Gestão da Qualidade ISO 9001", year: "2024" },
     ],

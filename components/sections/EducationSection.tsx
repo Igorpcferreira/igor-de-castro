@@ -45,14 +45,38 @@ export default function EducationSection() {
             </h3>
             <ul className="divide-cyan/10 cyan-surface divide-y">
               {certifications.map((certification) => (
-                <li
-                  key={certification.name}
-                  className="hover:bg-cyan/[0.035] flex items-start justify-between gap-4 px-4 py-3.5 transition-colors"
-                >
-                  <span className="text-body text-[11px] leading-relaxed sm:text-xs">
-                    {certification.name}
-                  </span>
-                  <span className="text-muted shrink-0 text-[10px]">{certification.year}</span>
+                <li key={certification.name}>
+                  {certification.url ? (
+                    <a
+                      href={certification.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group hover:bg-cyan/[0.035] focus-visible:ring-cyan/50 flex items-start justify-between gap-4 px-4 py-3.5 transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                      aria-label={`${section.certificationLinkLabel}: ${certification.name}`}
+                    >
+                      <span className="text-body group-hover:text-cyan-bright text-[11px] leading-relaxed underline decoration-cyan/25 underline-offset-4 transition-colors sm:text-xs">
+                        {certification.name}
+                      </span>
+                      <span className="flex shrink-0 items-center gap-2">
+                        <span className="text-muted text-[10px]">{certification.year}</span>
+                        <span
+                          aria-hidden="true"
+                          className="text-cyan group-hover:text-cyan-bright text-xs transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        >
+                          ↗
+                        </span>
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="flex items-start justify-between gap-4 px-4 py-3.5">
+                      <span className="text-body text-[11px] leading-relaxed sm:text-xs">
+                        {certification.name}
+                      </span>
+                      <span className="text-muted shrink-0 text-[10px]">
+                        {certification.year}
+                      </span>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
