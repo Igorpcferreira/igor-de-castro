@@ -164,7 +164,7 @@ const links: SocialLinks = {
   whatsapp: "https://wa.me/5562986430079",
   linkedin: "https://www.linkedin.com/in/igor-cferreira",
   github: "https://github.com/Igorpcferreira",
-  portfolio: "https://igordecastro.com.br",
+  portfolio: "https://igor-de-castro.vercel.app",
 };
 
 const sharedSkills = {

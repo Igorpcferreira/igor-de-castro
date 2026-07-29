@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -12,12 +12,13 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const siteTitle = "Igor de Castro — Mid-Level Full Stack Developer";
+const siteUrl = "https://igor-de-castro.vercel.app";
+const siteTitle = "Igor de Castro — Full Stack Developer";
 const siteDescription =
-  "Full Stack Developer specializing in Java, Spring Boot, Angular, enterprise modernization, and high-quality web products. Based in Goiânia, Brazil.";
+  "Modernizo sistemas de grande porte e construo produtos web rápidos, acessíveis e com qualidade mensurável.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://igordecastro.com.br"),
+  metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
   keywords: [
@@ -30,24 +31,47 @@ export const metadata: Metadata = {
     "Enterprise Modernization",
     "Goiânia",
   ],
-  authors: [{ name: "Igor de Castro", url: "https://igordecastro.com.br" }],
+  authors: [{ name: "Igor de Castro", url: siteUrl }],
   creator: "Igor de Castro",
+  manifest: "/manifest.webmanifest",
   alternates: { canonical: "/" },
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    alternateLocale: ["pt_BR"],
+    locale: "pt_BR",
+    alternateLocale: ["en_US"],
     url: "/",
     siteName: "Igor de Castro",
     title: siteTitle,
     description: siteDescription,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: siteTitle,
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#010503",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({

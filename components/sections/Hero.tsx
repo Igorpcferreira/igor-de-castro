@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icon from "@/components/Icon";
 import { useLanguage } from "@/components/LanguageProvider";
 import Reveal from "@/components/Reveal";
 
@@ -136,14 +137,14 @@ export default function Hero() {
                 href="#projects"
                 className="cut-corners bg-neon text-night shadow-neon/30 hover:bg-neon-bright inline-flex min-h-12 items-center justify-center gap-2 px-6 text-[12px] font-bold uppercase tracking-[0.09em] shadow-[0_0_26px] transition-[background-color,box-shadow,translate] duration-fast hover:-translate-y-0.5 hover:shadow-[0_0_38px]"
               >
-                {hero.projectsCta} <span aria-hidden="true">→</span>
+                {hero.projectsCta} <Icon name="arrow-right" size={17} />
               </a>
               <a
                 href={profile.resumePdf}
                 download
                 className="border-cyan/50 text-cyan hover:bg-cyan/10 hover:border-cyan inline-flex min-h-12 items-center justify-center gap-2 border px-5 text-[11px] font-medium uppercase tracking-[0.07em] transition-[border-color,background-color,translate] duration-fast hover:-translate-y-0.5 sm:text-[12px]"
               >
-                {profile.resumeDownloadLabel} <span aria-hidden="true">↓</span>
+                {profile.resumeDownloadLabel} <Icon name="download" size={17} />
               </a>
               <a
                 href="#contact"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -34,12 +35,11 @@ export default function Projects() {
                       {project.tagline}
                     </p>
                   </div>
-                  <span
-                    aria-hidden="true"
+                  <Icon
+                    name="external"
+                    size={19}
                     className="text-cyan group-hover:text-cyan-bright shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  >
-                    ↗
-                  </span>
+                  />
                 </header>
 
                 {project.badge && (

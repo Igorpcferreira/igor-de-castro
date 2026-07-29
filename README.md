@@ -36,6 +36,10 @@ public/                      fotos e currículos finais
 reference/                   protótipos e materiais de referência
 ```
 
+Os assets de marca em `public/` incluem favicons, ícones de instalação e a
+imagem Open Graph usada nos previews de WhatsApp e redes sociais. Os tokens,
+cursores HUD e ícones SVG compartilhados seguem o design system do projeto.
+
 O idioma padrão é inglês. A escolha feita pelas bandeiras do header fica salva
 no navegador. Cada idioma baixa o currículo correspondente, e o contato
 principal abre uma conversa direta no WhatsApp com mensagem localizada.

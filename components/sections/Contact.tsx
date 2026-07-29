@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -47,12 +48,13 @@ export default function Contact() {
               className="cut-corners bg-neon text-night shadow-neon/30 hover:bg-neon-bright inline-flex min-h-13 items-center justify-center gap-2.5 px-7 text-[11px] font-bold uppercase tracking-[0.08em] shadow-[0_0_28px] transition-[background-color,box-shadow,translate] duration-fast hover:-translate-y-0.5 hover:shadow-[0_0_40px] sm:text-xs"
             >
               <WhatsAppIcon />
-              {section.whatsappCta} <span aria-hidden="true">→</span>
+              {section.whatsappCta} <Icon name="arrow-right" size={17} />
             </a>
             <a
               href={`mailto:${profile.links.email}`}
               className="border-cyan/50 text-cyan hover:bg-cyan/10 hover:border-cyan inline-flex min-h-12 items-center justify-center border px-5 text-[11px] uppercase tracking-[0.07em] transition-[border-color,background-color,translate] hover:-translate-y-0.5"
             >
+              <Icon name="mail" size={17} className="mr-2.5" />
               {section.emailCta}
             </a>
             <a
@@ -61,7 +63,8 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="border-cyan/25 text-body hover:border-cyan/60 hover:text-cyan inline-flex min-h-12 items-center justify-center border px-4 text-[11px] transition-colors"
             >
-              LinkedIn ↗
+              <Icon name="linkedin" size={17} className="mr-2.5" />
+              LinkedIn
             </a>
             <a
               href={profile.links.github}
@@ -69,7 +72,8 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="border-cyan/25 text-body hover:border-cyan/60 hover:text-cyan inline-flex min-h-12 items-center justify-center border px-4 text-[11px] transition-colors"
             >
-              GitHub ↗
+              <Icon name="github" size={17} className="mr-2.5" />
+              GitHub
             </a>
           </div>
         </Reveal>
@@ -82,7 +86,10 @@ export default function Contact() {
               download
               className="text-cyan hover:text-cyan-bright border-b border-dashed border-current pb-0.5 transition-colors"
             >
-              {profile.resumeDownloadLabel} ↓
+              <span className="inline-flex items-center gap-1.5">
+                {profile.resumeDownloadLabel}
+                <Icon name="download" size={14} />
+              </span>
             </a>
           </p>
         </Reveal>

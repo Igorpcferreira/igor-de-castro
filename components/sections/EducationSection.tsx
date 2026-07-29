@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -29,9 +30,7 @@ export default function EducationSection() {
                     key={detail}
                     className="text-body flex gap-2.5 text-pretty text-[12px] leading-[1.75] sm:text-[13px]"
                   >
-                    <span aria-hidden="true" className="text-neon shrink-0">
-                      ▹
-                    </span>
+                    <Icon name="check" size={16} className="text-neon mt-0.5 shrink-0" />
                     {detail}
                   </li>
                 ))}
@@ -59,12 +58,11 @@ export default function EducationSection() {
                       </span>
                       <span className="flex shrink-0 items-center gap-2">
                         <span className="text-muted text-[10px]">{certification.year}</span>
-                        <span
-                          aria-hidden="true"
-                          className="text-cyan group-hover:text-cyan-bright text-xs transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                        >
-                          ↗
-                        </span>
+                        <Icon
+                          name="external"
+                          size={15}
+                          className="text-cyan group-hover:text-cyan-bright transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        />
                       </span>
                     </a>
                   ) : (

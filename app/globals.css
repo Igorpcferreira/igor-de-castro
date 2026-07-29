@@ -4,8 +4,8 @@
   --color-night: #010503;
   --color-night-soft: #031008;
   --color-ink: #f4fff8;
-  --color-body: #b6d9c4;
-  --color-muted: #6f9982;
+  --color-body: #9fc4af;
+  --color-muted: #6fa88b;
   --color-neon: #52ff7d;
   --color-neon-bright: #a5ffbe;
   --color-cyan: #35c8ff;
@@ -82,12 +82,21 @@ html {
 body {
   background: var(--color-night);
   color: var(--color-body);
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5" stroke="%2352ff7d" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="%2352ff7d"/></svg>')
+      12 12,
+    crosshair;
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 a,
 button,
-summary {
+summary,
+[role="button"] {
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path d="M4 9V4h5M17 4h5v5M22 17v5h-5M9 22H4v-5" stroke="%2335c8ff" stroke-width="2" fill="none"/><circle cx="13" cy="13" r="2.4" fill="%2352ff7d"/></svg>')
+      13 13,
+    pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -195,6 +204,16 @@ summary {
 
   .section-shell {
     padding-block: 4.5rem;
+  }
+}
+
+@media (pointer: coarse) {
+  body,
+  a,
+  button,
+  summary,
+  [role="button"] {
+    cursor: auto;
   }
 }
 

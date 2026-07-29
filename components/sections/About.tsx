@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -21,7 +22,8 @@ export default function About() {
                 <span aria-hidden="true" className="bg-danger/85 h-2.5 w-2.5 rounded-full" />
                 <span aria-hidden="true" className="bg-warning/85 h-2.5 w-2.5 rounded-full" />
                 <span aria-hidden="true" className="bg-neon/85 h-2.5 w-2.5 rounded-full" />
-                <span className="text-muted ml-2 text-[10px] sm:text-xs">
+                <Icon name="terminal" size={16} className="text-neon/70 ml-2 shrink-0" />
+                <span className="text-muted text-[10px] sm:text-xs">
                   {section.terminalTitle}
                 </span>
               </header>

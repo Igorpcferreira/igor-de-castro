@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icon from "@/components/Icon";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { Locale } from "@/data/content";
 
@@ -184,17 +185,9 @@ export default function Navbar() {
             aria-controls="mobile-menu"
             aria-label={open ? copy.menuCloseLabel : copy.menuOpenLabel}
             onClick={() => setOpen((current) => !current)}
-            className="border-neon/30 text-neon ml-1 flex h-10 w-10 flex-col items-center justify-center gap-1.5 border lg:hidden"
+            className="border-neon/30 text-neon ml-1 grid h-10 w-10 place-items-center border lg:hidden"
           >
-            <span
-              className={`bg-current block h-px w-5 transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
-            />
-            <span
-              className={`bg-current block h-px transition-[width,opacity] ${open ? "w-0 opacity-0" : "w-3.5"}`}
-            />
-            <span
-              className={`bg-current block h-px w-5 transition-transform ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
-            />
+            <Icon name={open ? "close" : "menu"} size={22} />
           </button>
         </div>
       </nav>

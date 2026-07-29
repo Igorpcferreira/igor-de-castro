@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -79,12 +80,11 @@ export default function ExperienceSection() {
 
                 <details className="experience-details border-neon/15 mt-5 border-l pl-4 sm:pl-5">
                   <summary className="text-neon hover:text-neon-bright inline-flex cursor-pointer list-none items-center gap-2 py-1 text-[11px] tracking-[0.05em] transition-colors">
-                    <span
-                      aria-hidden="true"
-                      className="details-arrow inline-block transition-transform duration-fast"
-                    >
-                      ▸
-                    </span>
+                    <Icon
+                      name="arrow-right"
+                      size={15}
+                      className="details-arrow transition-transform duration-fast"
+                    />
                     {section.detailsLabel}
                   </summary>
 
@@ -95,9 +95,7 @@ export default function ExperienceSection() {
                           key={highlight}
                           className="text-body flex gap-2.5 text-pretty text-[12px] leading-[1.75] sm:text-[13px]"
                         >
-                          <span aria-hidden="true" className="text-cyan shrink-0">
-                            ▹
-                          </span>
+                          <Icon name="check" size={16} className="text-cyan mt-0.5 shrink-0" />
                           {highlight}
                         </li>
                       ))}
