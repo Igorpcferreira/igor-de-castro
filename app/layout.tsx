@@ -13,7 +13,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = "https://igor-de-castro.vercel.app";
-const siteTitle = "Igor de Castro — Full Stack Developer";
+const siteTitle = "Igor de Castro - Full Stack Developer";
 const siteDescription =
   "Modernizo sistemas de grande porte e construo produtos web rápidos, acessíveis e com qualidade mensurável.";
 

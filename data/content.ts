@@ -7,6 +7,8 @@ export interface SocialLinks {
   linkedin: string;
   github: string;
   portfolio: string;
+  kyber: string;
+  kyberPricing: string;
 }
 
 export interface Profile {
@@ -64,6 +66,13 @@ export interface Project {
   description: string[];
   stack: string[];
   badge?: string;
+}
+
+export interface Service {
+  index: string;
+  title: string;
+  description: string;
+  items: string[];
 }
 
 export interface Education {
@@ -134,6 +143,18 @@ export interface PortfolioContent {
     visitLabel: string;
     projects: Project[];
   };
+  servicesSection: {
+    overline: string;
+    title: string;
+    lead: string;
+    services: Service[];
+    studioLabel: string;
+    studioName: string;
+    studioBody: string;
+    primaryCta: string;
+    secondaryCta: string;
+    note: string;
+  };
   educationSection: {
     overline: string;
     title: string;
@@ -150,6 +171,8 @@ export interface PortfolioContent {
     emailCta: string;
     whatsappMessage: string;
     resumePrefix: string;
+    businessPrefix: string;
+    businessCta: string;
   };
   languages: Language[];
   footer: {
@@ -165,6 +188,8 @@ const links: SocialLinks = {
   linkedin: "https://www.linkedin.com/in/igor-cferreira",
   github: "https://github.com/Igorpcferreira",
   portfolio: "https://igor-de-castro.vercel.app",
+  kyber: "https://somoskyber.com.br",
+  kyberPricing: "https://somoskyber.com.br/precos",
 };
 
 const sharedSkills = {
@@ -245,6 +270,7 @@ const en: PortfolioContent = {
     { id: "skills", label: "Stack", shortLabel: "stack" },
     { id: "experience", label: "Experience", shortLabel: "exp" },
     { id: "projects", label: "Projects", shortLabel: "projects" },
+    { id: "services", label: "Services", shortLabel: "services" },
     { id: "education", label: "Education", shortLabel: "education" },
     { id: "contact", label: "Contact", shortLabel: "contact" },
   ],
@@ -398,6 +424,39 @@ const en: PortfolioContent = {
         stack: ["Web development", "Automation", "Applied AI", "Product"],
       },
       {
+        name: "Manu's Barbearia",
+        url: "https://manusbarbearia.com.br",
+        tagline: "Barbershop site with subscription plans and booking",
+        badge: "Kyber Tech client",
+        description: [
+          "Single-page site for a barbershop in Goiânia: nine services, four subscription plans compared side by side, salon gallery, and booking that goes straight to Booksy.",
+          "Astro islands architecture: React only where interaction is needed, such as the open/closed badge, the gallery lightbox, and the animated counters. The rest ships as static HTML.",
+        ],
+        stack: ["Astro 7", "React 19", "TypeScript", "Tailwind CSS 4", "shadcn/ui", "Vercel"],
+      },
+      {
+        name: "KOUNTING Streetwear",
+        url: "https://www.kountingstreetwear.com.br",
+        tagline: "Streetwear catalog with orders closed on WhatsApp",
+        badge: "My own brand",
+        description: [
+          "Storefront for KOUNTING, my own streetwear label of oversized tees in limited drops. Catalog with category filter, photos per color, sizing guide, and a button that reaches WhatsApp already carrying the piece, color, and size.",
+          "Statically exported Next.js, no transactional checkout by design. Hand-written CSS, no UI framework, and self-hosted fonts.",
+        ],
+        stack: ["Next.js 14", "React 18", "Static export", "anime.js", "Vercel"],
+      },
+      {
+        name: "Gabriela Camargo",
+        url: "https://gabrielacamargofoto.com.br",
+        tagline: "Photographer portfolio with lightbox gallery",
+        badge: "Zero dependencies",
+        description: [
+          "Site for a photographer working in Goiânia since 2016: a gallery that enlarges photo by photo, the two session formats and what each one includes, weddings by quote, and WhatsApp in every section.",
+          "Pure static HTML and CSS, no build step and no dependencies. The only JavaScript is the gallery lightbox, written by hand. Self-hosted fonts and images served as WebP.",
+        ],
+        stack: ["HTML", "CSS", "Vanilla JavaScript", "WebP", "Vercel"],
+      },
+      {
         name: "Compressify",
         url: "https://compressify-free.vercel.app",
         tagline: "Private in-browser image compression and conversion",
@@ -432,8 +491,43 @@ const en: PortfolioContent = {
       },
     ],
   },
+  servicesSection: {
+    overline: "05 — FOR YOUR BUSINESS",
+    title: "Need a website or automation?",
+    lead: "Beyond my day job, I run a technology studio with another developer. If your business needs a site, an automation, or applied AI, this is where that work happens.",
+    services: [
+      {
+        index: "01",
+        title: "Website and catalog",
+        description:
+          "An address of your own, built for the phone, where people find you and reach you without going through Instagram DMs.",
+        items: ["Institutional site", "Product catalog", "Portfolio and gallery", "Own domain"],
+      },
+      {
+        index: "02",
+        title: "Automation and integrations",
+        description:
+          "Repetitive work that today runs by hand: messages, scheduling, spreadsheets, and systems that do not talk to each other.",
+        items: ["WhatsApp flows", "Booking and forms", "API integrations", "Internal panels"],
+      },
+      {
+        index: "03",
+        title: "Applied AI",
+        description:
+          "AI put to work on a real problem in your operation, not as a demo. Chat assistants, classification, and content support.",
+        items: ["Service assistants", "Content generation", "Data processing", "Custom chatbots"],
+      },
+    ],
+    studioLabel: "studio",
+    studioName: "Kyber Tech",
+    studioBody:
+      "Websites and automation for small businesses, on a monthly subscription. Two developers, direct contact, no agency in between.",
+    primaryCta: "open_kyber_tech",
+    secondaryCta: "see_pricing",
+    note: "Talking to Kyber reaches me or my partner. Either way you talk to the developer who builds it.",
+  },
   educationSection: {
-    overline: "05 — EDUCATION",
+    overline: "06 — EDUCATION",
     title: "Foundations and continuous learning",
     certificationsLabel: "Selected courses and certifications",
     certificationLinkLabel: "Open certificate",
@@ -478,7 +572,7 @@ const en: PortfolioContent = {
     ],
   },
   contactSection: {
-    overline: "06 — CONTACT",
+    overline: "07 — CONTACT",
     title: "Let’s build something that matters.",
     body:
       "Modernizing a critical system, shaping a new product, or solving a technical challenge that needs an end-to-end view? Message me on WhatsApp and tell me what you are building. You will talk directly to me.",
@@ -487,6 +581,8 @@ const en: PortfolioContent = {
     whatsappMessage:
       "Hi Igor! I found your portfolio and would like to talk about a project or professional opportunity.",
     resumePrefix: "Prefer the full version?",
+    businessPrefix: "Looking for a website or an automation for your business?",
+    businessCta: "talk_to_kyber_tech",
   },
   languages: [
     { name: "Portuguese", level: "Native" },
@@ -527,6 +623,7 @@ const pt: PortfolioContent = {
     { id: "skills", label: "Competências", shortLabel: "stack" },
     { id: "experience", label: "Experiência", shortLabel: "exp" },
     { id: "projects", label: "Projetos", shortLabel: "projetos" },
+    { id: "services", label: "Serviços", shortLabel: "serviços" },
     { id: "education", label: "Formação", shortLabel: "formação" },
     { id: "contact", label: "Contato", shortLabel: "contato" },
   ],
@@ -694,6 +791,39 @@ const pt: PortfolioContent = {
         stack: ["Desenvolvimento web", "Automação", "IA aplicada", "Produto"],
       },
       {
+        name: "Manu's Barbearia",
+        url: "https://manusbarbearia.com.br",
+        tagline: "Site de barbearia com planos de assinatura e agendamento",
+        badge: "Cliente Kyber Tech",
+        description: [
+          "Site de uma barbearia em Goiânia: os nove serviços, os quatro planos de assinatura comparados lado a lado, galeria do salão e agendamento direto no Booksy.",
+          "Arquitetura de ilhas com Astro: React só onde precisa de interação, como o selo de aberto/fechado, o lightbox da galeria e os contadores animados. O resto vai como HTML estático.",
+        ],
+        stack: ["Astro 7", "React 19", "TypeScript", "Tailwind CSS 4", "shadcn/ui", "Vercel"],
+      },
+      {
+        name: "KOUNTING Streetwear",
+        url: "https://www.kountingstreetwear.com.br",
+        tagline: "Vitrine de streetwear com pedido fechado no WhatsApp",
+        badge: "Marca própria",
+        description: [
+          "Vitrine da KOUNTING, minha marca de streetwear com camisetas oversized autorais em drops limitados. Catálogo com filtro por categoria, fotos por cor, guia de medidas e um botão que chega no WhatsApp já com a peça, a cor e o tamanho.",
+          "Next.js com exportação estática, sem checkout transacional por decisão de projeto. CSS escrito à mão, sem framework de UI, e fontes self-hospedadas.",
+        ],
+        stack: ["Next.js 14", "React 18", "Exportação estática", "anime.js", "Vercel"],
+      },
+      {
+        name: "Gabriela Camargo",
+        url: "https://gabrielacamargofoto.com.br",
+        tagline: "Portfólio de fotografia com galeria em lightbox",
+        badge: "Zero dependências",
+        description: [
+          "Site de uma fotógrafa que trabalha em Goiânia desde 2016: galeria que amplia foto a foto, os dois formatos de ensaio com o que cada um inclui, casamento sob orçamento e WhatsApp em toda seção.",
+          "HTML e CSS estáticos puros, sem build e sem dependências. O único JavaScript é o lightbox da galeria, escrito à mão. Fontes self-hospedadas e imagens em WebP.",
+        ],
+        stack: ["HTML", "CSS", "JavaScript puro", "WebP", "Vercel"],
+      },
+      {
         name: "Compressify",
         url: "https://compressify-free.vercel.app",
         tagline: "Compressão e conversão privada de imagens no navegador",
@@ -728,8 +858,43 @@ const pt: PortfolioContent = {
       },
     ],
   },
+  servicesSection: {
+    overline: "05 — PARA A SUA EMPRESA",
+    title: "Precisa de um site ou de uma automação?",
+    lead: "Além do meu trabalho como desenvolvedor, toco um estúdio de tecnologia com outro dev. Se o seu negócio precisa de site, automação ou IA aplicada, é ali que esse trabalho acontece.",
+    services: [
+      {
+        index: "01",
+        title: "Site e catálogo",
+        description:
+          "Um endereço próprio, feito para o celular, onde as pessoas te encontram e falam com você sem depender do Direct.",
+        items: ["Site institucional", "Catálogo de produtos", "Portfólio e galeria", "Domínio próprio"],
+      },
+      {
+        index: "02",
+        title: "Automação e integrações",
+        description:
+          "O trabalho repetitivo que hoje é feito na mão: mensagem, agendamento, planilha e sistema que não conversa com outro.",
+        items: ["Fluxos de WhatsApp", "Agendamento e formulários", "Integração com APIs", "Painéis internos"],
+      },
+      {
+        index: "03",
+        title: "IA aplicada",
+        description:
+          "IA resolvendo um problema real da operação, não como demonstração. Assistentes de atendimento, classificação e apoio a conteúdo.",
+        items: ["Assistentes de atendimento", "Geração de conteúdo", "Processamento de dados", "Chatbots sob medida"],
+      },
+    ],
+    studioLabel: "estúdio",
+    studioName: "Kyber Tech",
+    studioBody:
+      "Site e automação para pequenos negócios, por assinatura mensal. Dois desenvolvedores, contato direto, sem agência no meio.",
+    primaryCta: "conhecer_a_kyber",
+    secondaryCta: "ver_os_planos",
+    note: "Falar com a Kyber cai comigo ou com meu sócio. De um jeito ou de outro, você fala com quem desenvolve.",
+  },
   educationSection: {
-    overline: "05 — FORMAÇÃO",
+    overline: "06 — FORMAÇÃO",
     title: "Fundamentos e evolução contínua",
     certificationsLabel: "Cursos e certificações selecionados",
     certificationLinkLabel: "Abrir certificado",
@@ -774,7 +939,7 @@ const pt: PortfolioContent = {
     ],
   },
   contactSection: {
-    overline: "06 — CONTATO",
+    overline: "07 — CONTATO",
     title: "Vamos construir algo que importa.",
     body:
       "Tem um sistema crítico para modernizar, um produto para tirar do papel ou um desafio técnico que pede visão de ponta a ponta? Me chame no WhatsApp e conte o que você está construindo. A conversa é direto comigo.",
@@ -783,6 +948,8 @@ const pt: PortfolioContent = {
     whatsappMessage:
       "Olá, Igor! Encontrei seu portfólio e gostaria de conversar sobre um projeto ou oportunidade profissional.",
     resumePrefix: "Prefere a versão completa?",
+    businessPrefix: "Procurando um site ou uma automação para o seu negócio?",
+    businessCta: "falar_com_a_kyber_tech",
   },
   languages: [
     { name: "Português", level: "Nativo" },

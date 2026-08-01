@@ -78,6 +78,23 @@ export default function Contact() {
           </div>
         </Reveal>
 
+        <Reveal delay={210}>
+          <p className="border-cyan/20 text-muted mx-auto mt-9 max-w-[46ch] border-t pt-6 text-pretty text-[11px] leading-relaxed">
+            {section.businessPrefix}{" "}
+            <a
+              href={profile.links.kyber}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan hover:text-cyan-bright border-b border-dashed border-current pb-0.5 transition-colors"
+            >
+              <span className="inline-flex items-center gap-1.5">
+                {section.businessCta}
+                <Icon name="arrow-right" size={14} />
+              </span>
+            </a>
+          </p>
+        </Reveal>
+
         <Reveal delay={240}>
           <p className="text-muted mt-7 text-[11px]">
             {section.resumePrefix}{" "}

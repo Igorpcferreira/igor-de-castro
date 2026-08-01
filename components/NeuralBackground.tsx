@@ -111,6 +111,7 @@ class NeuralEngine {
   private linkDist = 0;
   private w = 0;
   private h = 0;
+  private dpr = 1;
   private isMobile = false;
   private reduced!: MediaQueryList;
   private cleanup: (() => void) | null = null;
@@ -130,6 +131,14 @@ class NeuralEngine {
 
     const onResize = () => this.setup();
     window.addEventListener("resize", onResize);
+    // Pinch-zoom no celular muda o visualViewport sem disparar "resize" de forma
+    // confiável. Sem isso o canvas fica com a dimensão antiga, o fillRect cobre
+    // só parte da tela e o resto aparece preto.
+    const vv = window.visualViewport;
+    if (vv) {
+      vv.addEventListener("resize", onResize);
+      vv.addEventListener("scroll", onResize);
+    }
 
     const onMove = (e: PointerEvent) => {
       this.mouse.x = e.clientX;
@@ -145,6 +154,12 @@ class NeuralEngine {
       this.mouse.active = false;
     };
     const onTouch = (e: TouchEvent) => {
+      // Dois dedos é pinch-zoom, não interação com a malha. Seguir o primeiro
+      // dedo aqui arrasta os nós para fora da tela enquanto a pessoa dá zoom.
+      if (e.touches.length > 1) {
+        this.mouse.active = false;
+        return;
+      }
       if (e.touches.length) {
         this.mouse.x = e.touches[0].clientX;
         this.mouse.y = e.touches[0].clientY;
@@ -154,8 +169,14 @@ class NeuralEngine {
     window.addEventListener("pointermove", onMove, { passive: true });
     window.addEventListener("pointerdown", onDown, { passive: true });
     document.addEventListener("pointerleave", onLeave);
+    // pointercancel: o navegador tomou o gesto para si (zoom, scroll nativo,
+    // toque longo). Sem tratar isso, mouse.active fica preso em true e a malha
+    // continua grudada na última posição do dedo.
+    window.addEventListener("pointercancel", onLeave);
+    window.addEventListener("pointerup", onLeave);
     window.addEventListener("touchmove", onTouch, { passive: true });
     window.addEventListener("touchend", onLeave);
+    window.addEventListener("touchcancel", onLeave);
 
     const onVis = () => {
       if (document.hidden) cancelAnimationFrame(this.raf);
@@ -166,11 +187,18 @@ class NeuralEngine {
     this.cleanup = () => {
       cancelAnimationFrame(this.raf);
       window.removeEventListener("resize", onResize);
+      if (vv) {
+        vv.removeEventListener("resize", onResize);
+        vv.removeEventListener("scroll", onResize);
+      }
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerdown", onDown);
       document.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("pointercancel", onLeave);
+      window.removeEventListener("pointerup", onLeave);
       window.removeEventListener("touchmove", onTouch);
       window.removeEventListener("touchend", onLeave);
+      window.removeEventListener("touchcancel", onLeave);
       document.removeEventListener("visibilitychange", onVis);
       this.reduced.removeEventListener("change", onReduced);
     };
@@ -190,14 +218,37 @@ class NeuralEngine {
     this.loop();
   }
 
+  /**
+   * Dimensão em CSS px que o canvas precisa cobrir, e o dpr efetivo.
+   *
+   * Durante o pinch-zoom o visualViewport encolhe (é a área realmente visível),
+   * mas o canvas é `position: fixed` e continua ocupando o layout viewport
+   * inteiro. Por isso a medida vem de innerWidth/innerHeight, e do
+   * visualViewport aproveitamos só a escala, para o canvas não perder nitidez
+   * quando a pessoa dá zoom.
+   */
+  private viewport() {
+    const vv = window.visualViewport;
+    const scale = vv ? vv.scale : 1;
+    return {
+      w: window.innerWidth,
+      h: window.innerHeight,
+      dpr: Math.min((window.devicePixelRatio || 1) * Math.max(scale, 1), 3),
+    };
+  }
+
   private setup() {
     const canvas = this.canvas;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
+    const { w, h, dpr } = this.viewport();
+    // Um resize de 1px de altura (barra de endereço do celular aparecendo ou
+    // sumindo durante o scroll) não justifica reconstruir a malha inteira.
+    const sameSize = this.w === w && this.h === h;
+    const samePixels = canvas.width === Math.round(w * dpr);
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    this.dpr = dpr;
     this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (sameSize && samePixels && this.nodes.length) return;
     this.w = w;
     this.h = h;
     const density = this.opts.density;
@@ -262,12 +313,21 @@ class NeuralEngine {
   }
 
   private loop() {
+    // Um loop de cada vez. Sem isso, um visibilitychange durante o pinch-zoom
+    // agenda um segundo requestAnimationFrame e o primeiro fica órfão.
+    cancelAnimationFrame(this.raf);
     const step = () => {
       this.t += 1;
-      this.frame(this.reduced.matches);
+      // Se um frame quebrar, o rAF não é reagendado e o fundo congela preto.
+      // Melhor perder um frame do que perder a animação inteira.
+      try {
+        this.frame(this.reduced.matches);
+      } catch {
+        // ignorado de propósito: o próximo frame tenta de novo
+      }
       if (!this.reduced.matches) this.raf = requestAnimationFrame(step);
     };
-    step();
+    this.raf = requestAnimationFrame(step);
   }
 
   private frame(still: boolean) {
@@ -284,8 +344,7 @@ class NeuralEngine {
     const strength = this.opts.interaction;
     const iRad = 190 * strength;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     ctx.globalCompositeOperation = "source-over";
     ctx.fillStyle = "#020409";
     ctx.fillRect(0, 0, w, h);
@@ -696,7 +755,10 @@ export default function NeuralBackground({
       <canvas
         ref={canvasRef}
         aria-hidden
-        className="fixed inset-0 z-0 block h-full w-full"
+        // touch-action: none impede o navegador de tratar o gesto sobre o canvas
+        // como pinch-zoom/pan, que era o que interrompia a animação. O conteúdo
+        // fica em <main>, acima, então o scroll da página segue normal.
+        className="fixed inset-0 z-0 block h-full w-full touch-none bg-[#020409]"
       />
       {/* Overlay de gradiente escuro: garante a legibilidade do texto sobre a malha */}
       <div
