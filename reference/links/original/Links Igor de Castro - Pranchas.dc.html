@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<style>
+@font-face{font-family:Display;src:url('links/assets/fonts/display.woff') format('woff');font-weight:700;font-display:swap}
+@font-face{font-family:Text;src:url('links/assets/fonts/text.woff') format('woff');font-weight:400;font-display:swap}
+body{margin:0;background:#08090a}
+a{color:#ffd23f}a:hover{color:#fff0b8}
+</style>
+</helmet>
+
+<section style="font-family:Text,Helvetica,Arial,sans-serif;color:#f4f3f0;background:#08090a;padding:64px 56px 96px;display:flex;flex-direction:column;gap:72px">
+
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:900px">
+    <div style="display:flex;align-items:center;gap:16px">
+      <span style="font-family:Display;font-size:44px;letter-spacing:-0.08em;line-height:0.86">I<span style="color:#ffd23f">C</span></span>
+      <span style="width:1px;height:34px;background:#3c424a"></span>
+      <span style="font-size:11px;letter-spacing:0.14em;color:#9ea3a8;line-height:1.6">IGOR DE CASTRO / LINKS<br>ENTREGA DE DESIGN</span>
+    </div>
+    <h1 style="font-family:Display;font-size:56px;letter-spacing:-0.03em;line-height:0.95;text-transform:uppercase;margin:0">Pranchas e design system</h1>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#b9bdc0;max-width:70ch">Protótipo funcional em <code style="color:#ffd23f">links/index.html</code> — HTML, CSS e JS puros, caminhos relativos, fontes locais, sem rede. As pranchas abaixo são o arquivo real renderizado nas três larguras de referência.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:16px;border-bottom:1px solid #2a2e33;padding-bottom:12px">
+      <h2 style="font-family:Display;font-size:28px;letter-spacing:-0.02em;text-transform:uppercase;margin:0">Pranchas</h2>
+      <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">01 — DESKTOP 1440 / TABLET 834 / MOBILE 390</span>
+    </div>
+
+    <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <figcaption style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">DESKTOP — 1440 × 1600 (escala 50%)</figcaption>
+        <div style="width:720px;height:800px;overflow:hidden;border:1px solid #2a2e33;background:#0b0c0d">
+          <iframe src="links/index.html" title="Prancha desktop 1440" style="width:1440px;height:1600px;border:0;transform:scale(0.5);transform-origin:top left"></iframe>
+        </div>
+      </figure>
+
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <figcaption style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">TABLET — 834 × 1400 (escala 55%)</figcaption>
+        <div style="width:459px;height:770px;overflow:hidden;border:1px solid #2a2e33;background:#0b0c0d">
+          <iframe src="links/index.html" title="Prancha tablet 834" style="width:834px;height:1400px;border:0;transform:scale(0.55);transform-origin:top left"></iframe>
+        </div>
+      </figure>
+
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <figcaption style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">MOBILE — 390 × 844 (escala 90%)</figcaption>
+        <div style="width:351px;height:760px;overflow:hidden;border:1px solid #2a2e33;background:#0b0c0d">
+          <iframe src="links/index.html" title="Prancha mobile 390" style="width:390px;height:844px;border:0;transform:scale(0.9);transform-origin:top left"></iframe>
+        </div>
+      </figure>
+    </div>
+    <p style="margin:0;font-size:13.5px;color:#9ea3a8">As pranchas são iframes vivos: rolam e respondem a hover e foco como a página publicada.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:16px;border-bottom:1px solid #2a2e33;padding-bottom:12px">
+      <h2 style="font-family:Display;font-size:28px;letter-spacing:-0.02em;text-transform:uppercase;margin:0">Estados</h2>
+      <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">02</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px">
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">LINK — REPOUSO</span>
+        <div style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;padding:24px;min-height:96px;background:#1d2024;border:1px solid #2a2e33">
+          <span style="font-size:11px;letter-spacing:0.1em;color:#9ea3a8;align-self:start;padding-top:5px">02</span>
+          <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+            <span style="font-family:Display;font-size:30px;letter-spacing:-0.015em;text-transform:uppercase;line-height:1.1">Kyber Tech</span>
+            <span style="font-size:15px;color:#b9bdc0">Meu estúdio de tecnologia em Goiânia.</span>
+          </span>
+          <span style="font-size:20px;color:#9ea3a8">↗</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">LINK — HOVER (+4px NO EIXO X)</span>
+        <div style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;padding:24px;min-height:96px;background:#1d2024;border:1px solid #3c424a;transform:translateX(4px)">
+          <span style="font-size:11px;letter-spacing:0.1em;color:#9ea3a8;align-self:start;padding-top:5px">02</span>
+          <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+            <span style="font-family:Display;font-size:30px;letter-spacing:-0.015em;text-transform:uppercase;line-height:1.1">Kyber Tech</span>
+            <span style="font-size:15px;color:#b9bdc0">Meu estúdio de tecnologia em Goiânia.</span>
+          </span>
+          <span style="font-size:20px;color:#ffd23f;transform:translate(2px,-2px)">↗</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">CTA — FOCO VISÍVEL</span>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;padding:20px 24px;min-height:80px;background:#ffd23f;color:#0b0c0d;outline:2px solid #ffd23f;outline-offset:3px">
+          <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.7">Orçamento sem compromisso</span>
+          <span style="grid-column:2;grid-row:1 / span 2;font-size:26px">↗</span>
+          <span style="grid-column:1;grid-row:2;font-family:Display;font-size:30px;line-height:1.05;letter-spacing:-0.02em;text-transform:uppercase">Falar comigo no WhatsApp</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">DOCK MOBILE — CTA FIXO</span>
+        <div style="padding:10px 20px;background:rgba(11,12,13,0.86);border-top:1px solid #2a2e33">
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;background:#ffd23f;color:#0b0c0d;font-family:Display;font-size:19px;letter-spacing:-0.01em;text-transform:uppercase">Pedir um orçamento no WhatsApp <span>↗</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">MONOGRAMA — ESTADO FINAL / MOVIMENTO REDUZIDO</span>
+        <div style="display:flex;align-items:center;gap:16px;height:66px;padding:0 24px;border:1px solid #2a2e33;background:#0b0c0d">
+          <span style="font-family:Display;font-size:58px;line-height:0.86;letter-spacing:-0.08em">I<span style="color:#ffd23f">C</span></span>
+          <span style="width:1px;height:44px;background:#3c424a"></span>
+          <span style="font-size:11px;letter-spacing:0.14em;line-height:1.6;color:#9ea3a8">IGOR DE CASTRO<br>DESENVOLVEDOR FULL STACK</span>
+        </div>
+        <p style="margin:0;font-size:13px;color:#9ea3a8">Com <code style="color:#ffd23f">prefers-reduced-motion: reduce</code> a página abre exatamente neste frame.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">MONOGRAMA 32 px — FAVICON</span>
+        <div style="display:flex;align-items:center;gap:20px;padding:20px 24px;border:1px solid #2a2e33;background:#0b0c0d">
+          <img src="links/assets/favicon-32.png" alt="Favicon 32 px" width="32" height="32" style="display:block;image-rendering:auto">
+          <img src="links/assets/favicon-64.png" alt="Ícone 64 px" width="64" height="64" style="display:block">
+          <img src="links/assets/apple-touch-icon.png" alt="Ícone iOS 180 px" width="90" height="90" style="display:block">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:16px;border-bottom:1px solid #2a2e33;padding-bottom:12px">
+      <h2 style="font-family:Display;font-size:28px;letter-spacing:-0.02em;text-transform:uppercase;margin:0">Animação de abertura</h2>
+      <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">03 — 0 → 1,24 s</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+      <div style="border-top:2px solid #ffd23f;padding-top:16px"><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">0 → 0,62 s</span><p style="margin:8px 0 0;font-size:14.5px;color:#b9bdc0">O <strong style="font-weight:400;color:#f4f3f0">I</strong> desce do eixo vertical, o <strong style="font-weight:400;color:#ffd23f">C</strong> entra pelo eixo horizontal com 0,1 s de atraso.</p></div>
+      <div style="border-top:2px solid #ffd23f;padding-top:16px"><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">0,62 → 0,72 s</span><p style="margin:8px 0 0;font-size:14.5px;color:#b9bdc0">As duas letras travam no <code style="color:#ffd23f">letter-spacing</code> de −0,08em e o I dá um pulso âmbar de confirmação.</p></div>
+      <div style="border-top:2px solid #ffd23f;padding-top:16px"><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">0,72 → 1,24 s</span><p style="margin:8px 0 0;font-size:14.5px;color:#b9bdc0">O filete vertical cresce em <code style="color:#ffd23f">scaleY</code> e a assinatura em caixa alta aparece à direita.</p></div>
+      <div style="border-top:2px solid #2a2e33;padding-top:16px"><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">RESTRIÇÕES</span><p style="margin:8px 0 0;font-size:14.5px;color:#b9bdc0">CSS puro, roda uma vez, sem laço. Só o monograma se move: nome, CTA e links estão no HTML e legíveis no primeiro frame, mesmo sem JS.</p></div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:16px;border-bottom:1px solid #2a2e33;padding-bottom:12px">
+      <h2 style="font-family:Display;font-size:28px;letter-spacing:-0.02em;text-transform:uppercase;margin:0">Design system</h2>
+      <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">04</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">COR</span>
+        <div style="display:flex;flex-direction:column;gap:1px">
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0c0d;border:1px solid #2a2e33;padding:12px 14px"><span style="width:36px;height:36px;background:#0b0c0d;border:1px solid #3c424a"></span><span style="font-size:13px"><strong style="font-weight:400">--ink</strong> #0b0c0d<br><span style="color:#9ea3a8">fundo da página</span></span></div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0c0d;border:1px solid #2a2e33;padding:12px 14px"><span style="width:36px;height:36px;background:#15171a"></span><span style="font-size:13px"><strong style="font-weight:400">--panel</strong> #15171a<br><span style="color:#9ea3a8">card de link</span></span></div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0c0d;border:1px solid #2a2e33;padding:12px 14px"><span style="width:36px;height:36px;background:#1d2024"></span><span style="font-size:13px"><strong style="font-weight:400">--panel-hi</strong> #1d2024<br><span style="color:#9ea3a8">link prioritário e hover</span></span></div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0c0d;border:1px solid #2a2e33;padding:12px 14px"><span style="width:36px;height:36px;background:#f4f3f0"></span><span style="font-size:13px"><strong style="font-weight:400">--paper</strong> #f4f3f0<br><span style="color:#9ea3a8">texto — 17,4:1 sobre ink</span></span></div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0c0d;border:1px solid #2a2e33;padding:12px 14px"><span style="width:36px;height:36px;background:#9ea3a8"></span><span style="font-size:13px"><strong style="font-weight:400">--muted</strong> #9ea3a8<br><span style="color:#9ea3a8">apoio — 7,3:1 sobre ink</span></span></div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0c0d;border:1px solid #2a2e33;padding:12px 14px"><span style="width:36px;height:36px;background:#ffd23f"></span><span style="font-size:13px"><strong style="font-weight:400">--amber</strong> #ffd23f<br><span style="color:#9ea3a8">CTA, rótulo, foco — 12,4:1</span></span></div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0c0d;border:1px solid #2a2e33;padding:12px 14px"><span style="width:36px;height:36px;background:#2a2e33"></span><span style="font-size:13px"><strong style="font-weight:400">--line</strong> #2a2e33 / <strong style="font-weight:400">--line-hi</strong> #3c424a<br><span style="color:#9ea3a8">filetes e bordas</span></span></div>
+        </div>
+        <p style="margin:0;font-size:13px;color:#9ea3a8">Um acento só. Âmbar marca exclusivamente o que converte: CTA, rótulo de grupo e anel de foco.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">TIPOGRAFIA</span>
+        <div style="border:1px solid #2a2e33;padding:20px;display:flex;flex-direction:column;gap:18px">
+          <div><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">DISPLAY — 700, CAIXA ALTA, −0,035em</span><p style="margin:6px 0 0;font-family:Display;font-size:44px;line-height:0.92;text-transform:uppercase;letter-spacing:-0.035em">Igor de Castro</p></div>
+          <div><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">DISPLAY — TÍTULO DE LINK, 22 a 34 px</span><p style="margin:6px 0 0;font-family:Display;font-size:26px;text-transform:uppercase;letter-spacing:-0.015em">Portfólio de desenvolvedor</p></div>
+          <div><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">TEXT — CORPO 16 px / 1,55</span><p style="margin:6px 0 0;font-size:16px;color:#b9bdc0">Sites, sistemas e automações sob medida — construídos, não montados em template.</p></div>
+          <div><span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">TEXT — RÓTULO 11 px / 0,16em</span><p style="margin:6px 0 0;font-size:11px;letter-spacing:0.16em;color:#9ea3a8">TRABALHO · OUTRAS FRENTES · REDES</p></div>
+        </div>
+        <p style="margin:0;font-size:13px;color:#9ea3a8">Duas famílias locais em <code style="color:#ffd23f">assets/fonts/</code> (URW base35, licença junto), as mesmas do <code style="color:#ffd23f">/modelo</code>. Nenhuma requisição de rede.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">ESPAÇO, GRADE E REGRAS</span>
+        <div style="border:1px solid #2a2e33;padding:20px;display:flex;flex-direction:column;gap:14px;font-size:13.5px;color:#b9bdc0">
+          <div style="display:flex;align-items:flex-end;gap:6px;height:64px">
+            <span style="width:14px;height:4px;background:#3c424a"></span>
+            <span style="width:14px;height:8px;background:#3c424a"></span>
+            <span style="width:14px;height:12px;background:#3c424a"></span>
+            <span style="width:14px;height:16px;background:#3c424a"></span>
+            <span style="width:14px;height:24px;background:#3c424a"></span>
+            <span style="width:14px;height:32px;background:#3c424a"></span>
+            <span style="width:14px;height:48px;background:#ffd23f"></span>
+            <span style="width:14px;height:64px;background:#ffd23f"></span>
+          </div>
+          <p style="margin:0">Escala 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96. Goteira <code style="color:#ffd23f">clamp(20px, 4vw, 64px)</code>.</p>
+          <p style="margin:0">Grade: duas colunas até 1080 px — identidade fixa à esquerda, conteúdo rolando à direita. Abaixo disso, coluna única e CTA fixo no rodapé a partir de 760 px.</p>
+          <p style="margin:0">Raio 2 px, sem sombra colorida. Movimento sempre ≤ 0,3 s, exceto a abertura.</p>
+          <p style="margin:0">Alvos de toque com 44 px mínimo — cards de link têm 76 px, o CTA tem 80 px e o dock 56 px.</p>
+          <p style="margin:0">Foco: <code style="color:#ffd23f">outline 2px #ffd23f</code>, offset 3 px, em tudo que é focável. Nunca removido.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;align-items:baseline;gap:16px;border-bottom:1px solid #2a2e33;padding-bottom:12px">
+      <h2 style="font-family:Display;font-size:28px;letter-spacing:-0.02em;text-transform:uppercase;margin:0">Pendências</h2>
+      <span style="font-size:11px;letter-spacing:0.16em;color:#9ea3a8">05</span>
+    </div>
+    <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;max-width:80ch">
+      <li style="display:grid;grid-template-columns:26px 1fr;gap:14px;font-size:14.5px;color:#b9bdc0"><span style="color:#ffd23f">01</span><span><strong style="font-weight:400;color:#f4f3f0">WhatsApp com 8 dígitos.</strong> Usei <code style="color:#ffd23f">556284196646</code>, como você confirmou. Continua sendo um número de 8 dígitos depois do DDD; se não abrir a conversa, troque a constante <code style="color:#ffd23f">WHATSAPP</code> no topo do <code style="color:#ffd23f">app.js</code> por <code style="color:#ffd23f">5562984196646</code>. É uma linha, e os <code style="color:#ffd23f">href</code> do HTML são reescritos por ela.</span></li>
+      <li style="display:grid;grid-template-columns:26px 1fr;gap:14px;font-size:14.5px;color:#b9bdc0"><span style="color:#ffd23f">02</span><span><strong style="font-weight:400;color:#f4f3f0">Miniaturas dos quatro sites.</strong> Estão como placeholders gerados, marcados na própria imagem. Me manda os prints em 1200 × 750 e eu troco os arquivos em <code style="color:#ffd23f">assets/sites/</code>.</span></li>
+      <li style="display:grid;grid-template-columns:26px 1fr;gap:14px;font-size:14.5px;color:#b9bdc0"><span style="color:#ffd23f">03</span><span><strong style="font-weight:400;color:#f4f3f0">Imagem OG.</strong> Gerada como asset local em <code style="color:#ffd23f">assets/og-image.png</code> (1200 × 630), tipografia da própria página. Sem foto — se quiser retrato no preview do WhatsApp, precisa me mandar uma.</span></li>
+      <li style="display:grid;grid-template-columns:26px 1fr;gap:14px;font-size:14.5px;color:#b9bdc0"><span style="color:#ffd23f">04</span><span><strong style="font-weight:400;color:#f4f3f0">UTM.</strong> O objeto <code style="color:#ffd23f">UTM</code> no <code style="color:#ffd23f">app.js</code> está vazio de propósito. Preencha e todos os links externos passam a carregar os parâmetros, com <code style="color:#ffd23f">utm_content</code> vindo do <code style="color:#ffd23f">data-link</code> de cada um.</span></li>
+      <li style="display:grid;grid-template-columns:26px 1fr;gap:14px;font-size:14.5px;color:#b9bdc0"><span style="color:#ffd23f">05</span><span><strong style="font-weight:400;color:#f4f3f0">Não validado em navegador real.</strong> Nada foi testado em iOS ou Android de verdade — em especial o <code style="color:#ffd23f">.vcf</code>, o Web Share e o <code style="color:#ffd23f">backdrop-filter</code> do dock.</span></li>
+    </ul>
+  </div>
+
+</section>
+
+</x-dc>
+</body>
+</html>

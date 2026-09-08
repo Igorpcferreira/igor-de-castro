@@ -1,0 +1,14 @@
+[
+  "1440px: layout, assets, alvos, galeria, CTA, movimento reduzido, zero MP4 inicial OK",
+  "834px: layout, assets, alvos, galeria, CTA, movimento reduzido, zero MP4 inicial OK",
+  "390px: layout, assets, alvos, galeria, CTA, movimento reduzido, zero MP4 inicial OK",
+  "320px: layout, assets, alvos, galeria, CTA, movimento reduzido, zero MP4 inicial OK",
+  "Vídeo 1: reprodução real e seek OK (56.4s)",
+  "Vídeo 2: reprodução real e seek OK (35.4s)",
+  "Vídeo 3: reprodução real e seek OK (61.2s)",
+  "Vídeo 4: reprodução real e seek OK (53.7s)",
+  "Vídeo 5: reprodução real e seek OK (48.2s)",
+  "Vídeo 6: reprodução real e seek OK (52.4s)",
+  "Falha de mídia, tentar novamente, Escape, foco restaurado, travamento de rolagem e limpeza de src OK",
+  "Player mobile, contato, compartilhamento, pausa IC e HTML offline/sem JS OK"
+]

@@ -33,8 +33,44 @@ components/sections/         hero, sobre, stack, experiência, projetos,
                              formação e contato
 data/content.ts              conteúdo tipado em inglês e português
 public/                      fotos e currículos finais
+public/modelo/               site do portfólio de modelo, servido em /modelo
+public/links/                página comercial da bio, servida em /links
 reference/                   protótipos e materiais de referência
 ```
+
+## Rota /links
+
+Página da bio do Instagram com a identidade **Verde assinatura**, contato direto,
+seis projetos com vídeo e site, duas ferramentas gratuitas e portfólio de modelo.
+HTML, CSS e JavaScript locais em `public/links/`, copiados pelo export para
+`out/links/`. Os vídeos existentes da Kyber são carregados da VPS só após o clique.
+
+Em `next dev`, abra `http://localhost:3000/links/index.html`. No export estático,
+abra `/links/`. O guia do Instagram, as pranchas e a documentação de manutenção
+ficam em `reference/links/`. Veja `reference/links/README.md` para os detalhes.
+
+## Rota /modelo
+
+`igordecastro.com.br/modelo` é o portfólio de modelo, um site estático próprio
+em HTML, CSS e JavaScript, com fotos e fontes locais. Ele não usa Next, React
+nem Tailwind: os arquivos ficam em `public/modelo/` e o export estático os copia
+verbatim para `out/modelo/`, preservando o endereço `/modelo`.
+
+Todas as referências internas são relativas, então a página funciona igual em
+qualquer subpasta. Para editar, mexa direto nos arquivos:
+
+```text
+public/modelo/index.html     estrutura e conteúdo
+public/modelo/styles.css     tokens, tipografia, layout e cena 3D
+public/modelo/photos.js      ordem, arquivos, legendas e filtros das fotos
+public/modelo/app.js         galeria, filtros, lightbox e interação 3D
+public/modelo/assets/        fotografias e fontes locais
+```
+
+Em `next dev` os arquivos de `public/` não recebem índice de diretório: abra
+`http://localhost:3000/modelo/index.html`. Na build estática, `/modelo` resolve
+sozinho. O design system, as pranchas responsivas e a composição Remotion do
+pacote ficam em `reference/modelo/`, fora do que vai ao ar.
 
 Os assets de marca em `public/` incluem favicons, ícones de instalação e a
 imagem Open Graph usada nos previews de WhatsApp e redes sociais. Os tokens,

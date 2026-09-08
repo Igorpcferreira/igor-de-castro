@@ -1,0 +1,65 @@
+[
+  {
+    "source": "andre-mei.webp",
+    "output": "andre-mei.webp",
+    "bytes": 61164,
+    "width": 800,
+    "height": 396
+  },
+  {
+    "source": "bruma.webp",
+    "output": "bruma.webp",
+    "bytes": 21278,
+    "width": 800,
+    "height": 500
+  },
+  {
+    "source": "casa-umbra.webp",
+    "output": "casa-umbra.webp",
+    "bytes": 36612,
+    "width": 800,
+    "height": 500
+  },
+  {
+    "source": "compressify.webp",
+    "output": "compressify.webp",
+    "bytes": 16756,
+    "width": 800,
+    "height": 555
+  },
+  {
+    "source": "gabriela-camargo.webp",
+    "output": "gabriela-camargo.webp",
+    "bytes": 12794,
+    "width": 800,
+    "height": 445
+  },
+  {
+    "source": "igor-de-castro-modelo.png",
+    "output": "igor-de-castro-modelo.webp",
+    "bytes": 24652,
+    "width": 800,
+    "height": 440
+  },
+  {
+    "source": "kountingstreetwear.png",
+    "output": "kountingstreetwear.webp",
+    "bytes": 23310,
+    "width": 800,
+    "height": 441
+  },
+  {
+    "source": "manusbarbearia.webp",
+    "output": "manusbarbearia.webp",
+    "bytes": 15982,
+    "width": 800,
+    "height": 440
+  },
+  {
+    "source": "qr-code-studio.webp",
+    "output": "qr-code-studio.webp",
+    "bytes": 28310,
+    "width": 800,
+    "height": 555
+  }
+]

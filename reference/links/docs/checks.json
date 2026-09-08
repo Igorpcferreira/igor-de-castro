@@ -1,0 +1,12 @@
+[
+  "verde / 1440: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "verde / 834: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "verde / 390: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "verde / 320: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "azul / 1440: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "azul / 834: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "azul / 390: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "azul / 320: layout, imagens, sem erros JS, CTA, movimento reduzido, alvos >=44px OK",
+  "Animação contínua/pausa, vCard, compartilhar/copiar/fallback/cancelar, hover/foco OK",
+  "file:// offline e sem JavaScript: nome, links, CTA e imagens disponíveis OK"
+]

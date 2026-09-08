@@ -1,0 +1,207 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "</>\nPortfólio de desenvolvedor\nProjetos, experiência e o que eu construo.\n↗",
+      "url": "https://igordecastro.com.br/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://www.igordecastro.com.br/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Kyber Tech COFUNDADOR\nMeu estúdio. Tecnologia para negócios reais.\n↗",
+      "url": "https://somoskyber.com.br/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://somoskyber.com.br/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Ver vídeo de Manu’s Barbearia",
+      "url": "https://media.somoskyber.com.br/portfolio/manus-barbearia/manus-barbearia-v1.mp4",
+      "video": true,
+      "status": 206,
+      "finalUrl": "https://media.somoskyber.com.br/portfolio/manus-barbearia/manus-barbearia-v1.mp4",
+      "contentType": "video/mp4",
+      "range": "bytes 0-1023/9683196"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Visitar site de Manu’s Barbearia",
+      "url": "https://manusbarbearia.com.br/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://www.manusbarbearia.com.br/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Ver vídeo de Gabriela Camargo",
+      "url": "https://media.somoskyber.com.br/portfolio/gabriela-camargo/gabriela-camargo-v1.mp4",
+      "video": true,
+      "status": 206,
+      "finalUrl": "https://media.somoskyber.com.br/portfolio/gabriela-camargo/gabriela-camargo-v1.mp4",
+      "contentType": "video/mp4",
+      "range": "bytes 0-1023/7848002"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Visitar site de Gabriela Camargo",
+      "url": "https://gabrielacamargofoto.com.br/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://www.gabrielacamargofoto.com.br/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Ver vídeo de André Mei",
+      "url": "https://media.somoskyber.com.br/portfolio/andre-mei/andre-mei-v1.mp4",
+      "video": true,
+      "status": 206,
+      "finalUrl": "https://media.somoskyber.com.br/portfolio/andre-mei/andre-mei-v1.mp4",
+      "contentType": "video/mp4",
+      "range": "bytes 0-1023/14487944"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Visitar site de André Mei",
+      "url": "https://www.andremei.com.br/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://www.andremei.com.br/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Ver vídeo de Kounting Streetwear",
+      "url": "https://media.somoskyber.com.br/portfolio/kounting-streetwear/kounting-streetwear-v1.mp4",
+      "video": true,
+      "status": 206,
+      "finalUrl": "https://media.somoskyber.com.br/portfolio/kounting-streetwear/kounting-streetwear-v1.mp4",
+      "contentType": "video/mp4",
+      "range": "bytes 0-1023/10360930"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Visitar site da Kounting Streetwear",
+      "url": "https://www.kountingstreetwear.com.br/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://www.kountingstreetwear.com.br/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Ver vídeo de Casa Umbra",
+      "url": "https://media.somoskyber.com.br/portfolio/casa-umbra/casa-umbra-v1.mp4",
+      "video": true,
+      "status": 206,
+      "finalUrl": "https://media.somoskyber.com.br/portfolio/casa-umbra/casa-umbra-v1.mp4",
+      "contentType": "video/mp4",
+      "range": "bytes 0-1023/8302132"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Visitar site de Casa Umbra, experiência para computador",
+      "url": "https://casa-umbra-portfolio.vercel.app/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://casa-umbra-portfolio.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Ver vídeo de BRUMA",
+      "url": "https://media.somoskyber.com.br/portfolio/bruma/bruma-v1.mp4",
+      "video": true,
+      "status": 206,
+      "finalUrl": "https://media.somoskyber.com.br/portfolio/bruma/bruma-v1.mp4",
+      "contentType": "video/mp4",
+      "range": "bytes 0-1023/13733253"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Visitar site de BRUMA",
+      "url": "https://bruma-portfolio.vercel.app/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://bruma-portfolio.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "GRATUITO\nQR Code Studio\nCrie QR Codes personalizados direto no navegador.\nCriar meu QR Code\n↗",
+      "url": "https://qr-code-studio-free.vercel.app/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://qr-code-studio-free.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "GRATUITO\nCompressify\nComprima e converta imagens sem enviar seus arquivos.\nComprimir imagens\n↗",
+      "url": "https://compressify-free.vercel.app/",
+      "video": false,
+      "status": 200,
+      "finalUrl": "https://compressify-free.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "range": null
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "Na frente da câmera.\nEditorial, streetwear e retrato.\nMeu portfólio de modelo ↗",
+      "url": "https://igordecastro.com.br/modelo",
+      "video": false,
+      "status": 404,
+      "finalUrl": "https://www.igordecastro.com.br/modelo",
+      "contentType": "text/html; charset=utf-8",
+      "range": null,
+      "note": "Portfólio de modelo existe localmente; rota pública ainda aguarda publicação do export."
+    }
+  }
+]

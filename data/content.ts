@@ -286,7 +286,7 @@ const en: PortfolioContent = {
     terminalTitle: "cat about.txt",
     paragraphs: [
       "Mid-Level Full Stack Developer with over four years of professional experience in technology, working continuously in software development since 2022. At Minsait, an Indra Group company from Spain, I contribute to large-scale enterprise systems for public healthcare, traffic, and defense.",
-      "I bring solid experience across Java 11, 21 and 25, Spring Boot, Quarkus, Angular, Vue, TypeScript, PostgreSQL, and Oracle. I currently contribute to the modernization of SINGRA 2 for the Brazilian Navy, migrating a legacy Angular 6 and DWR architecture to Angular 21, REST/JSON APIs with JWT Bearer authentication, and Spring Boot 4 with Java 25.",
+      "I bring solid experience across Java 11, 21 and 25, Spring Boot, Quarkus, Angular, Vue, TypeScript, PostgreSQL, and Oracle. I currently contribute to the modernization of SINGRA 2 for the Brazilian Navy, migrating a legacy frontend architecture to Angular 21 and REST/JSON APIs with JWT Bearer authentication, and upgrading the backend to Spring Boot 4 with Java 25.",
       "My work spans technical analysis, business rules, integrations, relational databases, SonarQube, automated testing, and agile delivery. In my own products, I turn the same engineering discipline toward privacy, performance, accessibility, and measurable quality.",
     ],
     statusLabel: "current_status",
@@ -324,48 +324,48 @@ const en: PortfolioContent = {
           "Implementation of APIs, business rules, validations, integrations, and data access with Java, Spring Boot, and Quarkus, plus interfaces in Angular, Vue, and TypeScript.",
           "Creation, analysis, and optimization of SQL queries in PostgreSQL and Oracle, with a focus on consistency, traceability, and performance.",
           "Simultaneous work across legacy and modern stacks, contributing to incremental improvements and technology migrations without compromising existing business rules.",
-          "Responsible for running and monitoring SonarQube in the Brazilian Navy project, supporting the identification of vulnerabilities, code smells, duplication, and technical debt.",
+          "Static code analysis with SonarQube on the Brazilian Navy project, supporting continuous improvement of code quality and maintainability.",
           "Daily collaboration with analysts, QA, architects, DBAs, and technical managers in dailies, planning, reviews, and retrospectives.",
         ],
         projects: [
           {
             name: "SINGRA 2 / SINGRA21 Modernization",
-            period: "Apr 13, 2026 — Present",
-            client: "MAR-DAbM / Brazilian Navy",
+            period: "Apr 2026 — Present",
+            client: "Brazilian Navy",
             description:
-              "Migration of the Angular 6/DWR frontend to Angular 21 and REST/JSON APIs with JWT Bearer authentication; backend upgrade to Java 25 and Spring Boot 4 while preserving service, business, and persistence layers. Node.js 20.19.0 and Oracle.",
+              "Migration of a legacy frontend architecture to Angular 21 and REST/JSON APIs with JWT Bearer authentication; backend upgrade to Java 25 and Spring Boot 4 while preserving the service, business, and persistence layers. Oracle.",
           },
           {
             name: "Legacy SINGRA 2",
-            period: "Sep 10, 2025 — Apr 10, 2026",
-            client: "MAR-DAbM / Brazilian Navy",
+            period: "Sep 2025 — Apr 2026",
+            client: "Brazilian Navy",
             description:
-              "Enhancement and support of enterprise modules with Java 21, Spring Boot 2.x, Angular 6.1.0, Node.js 10.16.0, and Oracle, plus DWR, Redis, Caffeine, and Guava.",
+              "Enhancement and support of enterprise modules on a legacy Java, Spring Boot, and Angular stack with Oracle, including caching and session-handling layers.",
           },
           {
             name: "SIDOAR",
-            period: "Apr 12, 2025 — Sep 10, 2025",
+            period: "Apr 2025 — Sep 2025",
             client: "Goiás State Department of Health",
             description:
               "Integrated Organ Donation and Recipient Evaluation System. Java 11, Spring Boot, AngularJS, and PostgreSQL.",
           },
           {
             name: "SRIE",
-            period: "Dec 10, 2025 — Feb 4, 2026",
+            period: "Dec 2025 — Feb 2026",
             client: "Goiás State Department of Health",
             description:
               "Immunobiological Products System for People with Special Conditions. Java 21, Spring Boot, AngularJS, and PostgreSQL.",
           },
           {
             name: "BATEU — Citizen / Police Officer",
-            period: "May 2, 2025 — Jun 3, 2025",
+            period: "May 2025 — Jun 2025",
             client: "CELEPAR",
             description:
               "State Traffic Accident Registry for the Paraná Military Police. Java 21, Quarkus, Vue, and PostgreSQL.",
           },
           {
             name: "SISESG",
-            period: "Mar 25, 2025 — Apr 12, 2025",
+            period: "Mar 2025 — Apr 2025",
             client: "Goiás State Department of Health",
             description: "Health School System. Java 11, Spring Boot, AngularJS, and PostgreSQL.",
           },
@@ -609,7 +609,7 @@ const pt: PortfolioContent = {
       "Modernizo sistemas de grande porte e construo produtos web rápidos, acessíveis e com qualidade mensurável.",
     location: "Goiânia, GO, Brasil",
     timezone: "UTC−3",
-    resumePdf: "/Igor_de_Castro_Curr%C3%ADculo_pt-BR_2026.pdf",
+    resumePdf: "/Igor_de_Castro_Resume_pt-BR_2026.pdf",
     resumeDownloadLabel: "baixar_curriculo.pdf",
     links,
   },
@@ -639,7 +639,7 @@ const pt: PortfolioContent = {
     terminalTitle: "cat sobre.txt",
     paragraphs: [
       "Desenvolvedor Full Stack Pleno com mais de quatro anos de experiência profissional em tecnologia e trajetória contínua em desenvolvimento de software desde 2022. Na Minsait, empresa do Grupo Indra, atuo em sistemas corporativos de grande porte para saúde pública, trânsito e defesa.",
-      "Tenho experiência sólida com Java 11, 21 e 25, Spring Boot, Quarkus, Angular, Vue, TypeScript, PostgreSQL e Oracle. Atualmente participo da modernização do SINGRA 2 para a Marinha do Brasil, migrando uma arquitetura legada Angular 6 e DWR para Angular 21, APIs REST/JSON com JWT Bearer e Spring Boot 4 com Java 25.",
+      "Tenho experiência sólida com Java 11, 21 e 25, Spring Boot, Quarkus, Angular, Vue, TypeScript, PostgreSQL e Oracle. Atualmente participo da modernização do SINGRA 2 para a Marinha do Brasil, migrando uma arquitetura frontend legada para Angular 21 e APIs REST/JSON com JWT Bearer, e atualizando o backend para Spring Boot 4 com Java 25.",
       "Minha atuação envolve análise técnica, regras de negócio, integrações, bancos relacionais, SonarQube, testes automatizados e entregas ágeis. Em produtos próprios, aplico a mesma disciplina de engenharia a privacidade, performance, acessibilidade e qualidade mensurável.",
     ],
     statusLabel: "status_atual",
@@ -691,48 +691,48 @@ const pt: PortfolioContent = {
           "Implementação de APIs, regras de negócio, validações, integrações e acesso a dados com Java, Spring Boot e Quarkus, além de interfaces com Angular, Vue e TypeScript.",
           "Criação, análise e otimização de consultas SQL em PostgreSQL e Oracle, com foco em consistência, rastreabilidade e desempenho.",
           "Atuação simultânea em stacks legadas e modernas, contribuindo para evoluções incrementais e migrações tecnológicas sem perda das regras de negócio existentes.",
-          "Responsável pela execução e acompanhamento do SonarQube no projeto da Marinha, apoiando a identificação de vulnerabilidades, code smells, duplicações e débito técnico.",
+          "Análise estática de código com SonarQube no projeto da Marinha, apoiando a evolução contínua da qualidade e da manutenibilidade.",
           "Colaboração diária com analistas, QA, arquitetos, DBA e gestão técnica em dailies, plannings, reviews e retrospectivas.",
         ],
         projects: [
           {
             name: "Modernização do SINGRA 2 / SINGRA21",
-            period: "13/04/2026 — atual",
-            client: "MAR-DAbM / Marinha do Brasil",
+            period: "abr 2026 — atual",
+            client: "Marinha do Brasil",
             description:
-              "Migração do frontend Angular 6 com DWR para Angular 21 e APIs REST/JSON com JWT Bearer; atualização do backend para Java 25 e Spring Boot 4, preservando as camadas de serviço, negócio e persistência. Node.js 20.19.0 e Oracle.",
+              "Migração de uma arquitetura frontend legada para Angular 21 e APIs REST/JSON com JWT Bearer; atualização do backend para Java 25 e Spring Boot 4, preservando as camadas de serviço, negócio e persistência. Oracle.",
           },
           {
             name: "SINGRA 2 legado",
-            period: "10/09/2025 — 10/04/2026",
-            client: "MAR-DAbM / Marinha do Brasil",
+            period: "set 2025 — abr 2026",
+            client: "Marinha do Brasil",
             description:
-              "Evolução e sustentação de módulos corporativos em Java 21, Spring Boot 2.x, Angular 6.1.0, Node.js 10.16.0 e Oracle, com DWR, Redis, Caffeine e Guava.",
+              "Evolução e sustentação de módulos corporativos em stack legada Java, Spring Boot e Angular com Oracle, incluindo camadas de cache e de sessão.",
           },
           {
             name: "SIDOAR",
-            period: "12/04/2025 — 10/09/2025",
+            period: "abr 2025 — set 2025",
             client: "Secretaria de Estado da Saúde de Goiás",
             description:
               "Sistema Integrado de Doação de Órgãos e Avaliação de Receptores. Java 11, Spring Boot, AngularJS e PostgreSQL.",
           },
           {
             name: "SRIE",
-            period: "10/12/2025 — 04/02/2026",
+            period: "dez 2025 — fev 2026",
             client: "Secretaria de Estado da Saúde de Goiás",
             description:
               "Sistema de Imunológicos para Pessoas com Situações Especiais. Java 21, Spring Boot, AngularJS e PostgreSQL.",
           },
           {
             name: "BATEU — Cidadão / Policial",
-            period: "02/05/2025 — 03/06/2025",
+            period: "mai 2025 — jun 2025",
             client: "CELEPAR",
             description:
               "Registro Estadual de Sinistros de Trânsito para a Polícia Militar do Paraná. Java 21, Quarkus, Vue e PostgreSQL.",
           },
           {
             name: "SISESG",
-            period: "25/03/2025 — 12/04/2025",
+            period: "mar 2025 — abr 2025",
             client: "Secretaria de Estado da Saúde de Goiás",
             description: "Sistema da Escola de Saúde. Java 11, Spring Boot, AngularJS e PostgreSQL.",
           },
