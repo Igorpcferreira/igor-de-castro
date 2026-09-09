@@ -6,14 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "motion:studio": "remotion studio motion/src/index.ts --no-open"
   },
   "dependencies": {
+    "@remotion/player": "4.0.523",
+    "@remotion/transitions": "4.0.523",
     "next": "16.2.12",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "remotion": "4.0.523"
   },
   "devDependencies": {
+    "@remotion/cli": "4.0.523",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

@@ -186,8 +186,8 @@ export interface PortfolioContent {
 
 const links: SocialLinks = {
   email: "igorpcferreira@gmail.com",
-  phone: "+55 (62) 98643-0079",
-  whatsapp: "https://wa.me/5562986430079",
+  phone: "+55 (62) 8419-6646",
+  whatsapp: "https://wa.me/556284196646",
   linkedin: "https://www.linkedin.com/in/igor-cferreira",
   github: "https://github.com/Igorpcferreira",
   portfolio: "https://igor-de-castro.vercel.app",

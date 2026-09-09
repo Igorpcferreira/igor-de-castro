@@ -11,6 +11,7 @@ import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 import Skills from "@/components/sections/Skills";
+import StartProject from "@/components/sections/StartProject";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <Skills />
         <ExperienceSection />
         <Projects />
+        <StartProject />
         <Services />
         <EducationSection />
         <Contact />
