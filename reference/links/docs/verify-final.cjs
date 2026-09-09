@@ -18,7 +18,7 @@ const checks=[];
       await page.evaluate(()=>Promise.all([...document.images].map(img=>{img.loading='eager';return img.decode()})));
       assert.deepEqual(errors,[]);assert.deepEqual(mediaRequests,[],'Não carregar MP4 antes de interação');
       assert.equal(await page.locator('h1').count(),1);
-      assert.equal(await page.locator('.project').count(),6);assert.equal(await page.locator('.video-link').count(),6);assert.equal(await page.locator('.tool-card').count(),2);
+      assert.equal(await page.locator('.project').count(),7);assert.equal(await page.locator('.video-link').count(),7);assert.equal(await page.locator('.tool-card').count(),2);
       assert.equal(await page.locator('.tool-card .video-link').count(),0);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`overflow ${width}`);
       assert.equal(await page.locator('.tool-card>img').evaluateAll(imgs=>imgs.every(img=>{const r=img.getBoundingClientRect();return r.height<r.width})),true,'Capas das ferramentas em formato horizontal');
@@ -26,14 +26,14 @@ const checks=[];
       const small=await page.locator('a,button,summary').evaluateAll(els=>els.filter(el=>el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden'&&!el.classList.contains('skip')&&el.getBoundingClientRect().height<43).map(el=>el.textContent.trim()));assert.deepEqual(small,[],`alvos 44px ${width}`);
       if(width<=760){
         await page.locator('#project-gallery').scrollIntoViewIfNeeded();
-        for(let i=1;i<6;i++){
-          await page.locator('#gallery-next').click();await page.waitForFunction(expected=>document.querySelector('#gallery-position').textContent===expected,`${i+1} / 6`);
+        for(let i=1;i<7;i++){
+          await page.locator('#gallery-next').click();await page.waitForFunction(expected=>document.querySelector('#gallery-position').textContent===expected,`${i+1} / 7`);
           const rect=await page.locator('.project').nth(i).boundingBox();assert.ok(rect.x>=0&&rect.x<width);
         }
         assert.equal(await page.locator('#gallery-next').isDisabled(),true);
-        await page.locator('#gallery-prev').click();await page.waitForFunction(()=>document.querySelector('#gallery-position').textContent==='5 / 6');
-        await page.locator('#project-gallery').focus();await page.keyboard.press('ArrowLeft');await page.waitForFunction(()=>document.querySelector('#gallery-position').textContent==='4 / 6');
-        await page.locator('#project-gallery').evaluate(el=>el.scrollLeft=0);await page.waitForFunction(()=>document.querySelector('#gallery-position').textContent==='1 / 6');
+        await page.locator('#gallery-prev').click();await page.waitForFunction(()=>document.querySelector('#gallery-position').textContent==='6 / 7');
+        await page.locator('#project-gallery').focus();await page.keyboard.press('ArrowLeft');await page.waitForFunction(()=>document.querySelector('#gallery-position').textContent==='5 / 7');
+        await page.locator('#project-gallery').evaluate(el=>el.scrollLeft=0);await page.waitForFunction(()=>document.querySelector('#gallery-position').textContent==='1 / 7');
         await page.locator('.socials').scrollIntoViewIfNeeded();await page.waitForFunction(()=>!document.querySelector('.mobile-dock').hidden);
         await page.screenshot({path:path.join(output,`${name}-dock.png`)});
       }else{
@@ -46,7 +46,7 @@ const checks=[];
     }
     const page=await browser.newPage({viewport:{width:1440,height:1000},acceptDownloads:true});
     await page.goto(url);
-    for(let i=0;i<6;i++){
+    for(let i=0;i<7;i++){
       const trigger=page.locator('.video-link').nth(i);
       await trigger.click();assert.equal(await page.locator('#video-dialog').isVisible(),true);
       await page.waitForFunction(()=>{const v=document.querySelector('#video-stage video');return v&&v.readyState>=2&&v.currentTime>0},{},{timeout:35000});
@@ -74,7 +74,7 @@ const checks=[];
     const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await mobile.goto(url);await mobile.locator('.video-link').first().click();await mobile.waitForFunction(()=>document.querySelector('#video-stage video')?.currentTime>0,{},{timeout:35000});await mobile.screenshot({path:path.join(output,'video-mobile.png')});await mobile.locator('#close-video').click();await mobile.close();
     const context=await browser.newContext({javaScriptEnabled:false,offline:true,viewport:{width:390,height:844}});const nojs=await context.newPage();
     await nojs.goto(pathToFileURL(path.join(root,'public/links/index.html')).href);await nojs.evaluate(()=>Promise.all([...document.images].map(img=>{img.loading='eager';return img.decode()})));
-    assert.equal(await nojs.locator('.project').count(),6);assert.ok((await nojs.locator('.video-link').first().getAttribute('href')).endsWith('.mp4'));assert.ok((await nojs.locator('.primary-cta').getAttribute('href')).includes('556284196646'));await context.close();
+    assert.equal(await nojs.locator('.project').count(),7);assert.ok((await nojs.locator('.video-link').first().getAttribute('href')).endsWith('.mp4'));assert.ok((await nojs.locator('.primary-cta').getAttribute('href')).includes('556284196646'));await context.close();
     checks.push('Player mobile, contato, compartilhamento, pausa IC e HTML offline/sem JS OK');
     fs.writeFileSync(path.join(output,'checks.json'),JSON.stringify(checks,null,2)+'\n');console.log(checks.join('\n'));
   }finally{await browser.close()}

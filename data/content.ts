@@ -60,6 +60,9 @@ export interface Experience {
 }
 
 export interface Project {
+  image?: string;
+  video?: string;
+  desktopOnly?: boolean;
   name: string;
   url: string;
   tagline: string;
@@ -412,8 +415,88 @@ const en: PortfolioContent = {
     title: "Products with evidence, not promises",
     visitLabel: "Open project",
     projects: [
+{
+  "name": "Aura",
+  "url": "https://aura-joalheria-portfolio.vercel.app/",
+  "image": "/links/assets/projects/aura.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/aura/aura-v1.mp4",
+  "tagline": "Concept jewelry experience with a 3D configurator",
+  "badge": "Kyber concept project",
+  "description": [
+    "An original study for a fictional jewelry brand, with editorial art direction and an interactive ring to explore gemstones, metals, and the structure of the piece.",
+    "Photography and opening film created with AI. Includes alternatives for reduced motion and unavailable WebGL."
+  ],
+  "stack": [
+    "React",
+    "Three.js",
+    "WebGL",
+    "Vite"
+  ]
+},
+{
+  "name": "BRUMA",
+  "url": "https://bruma-portfolio.vercel.app",
+  "image": "/links/assets/projects/bruma.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/bruma/bruma-v1.mp4",
+  "tagline": "Interactive experience for a fictional gin brand",
+  "badge": "Kyber concept project",
+  "description": [
+    "A concept study featuring a real-time 3D bottle and floating botanicals, exploring visual direction and interaction to present a fictional product."
+  ],
+  "stack": [
+    "3D",
+    "WebGL"
+  ]
+},
+{
+  "name": "Casa Umbra",
+  "url": "https://casa-umbra-portfolio.vercel.app",
+  "image": "/links/assets/projects/casa-umbra.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/casa-umbra/casa-umbra-v1.mp4",
+  "desktopOnly": true,
+  "tagline": "Concept architecture in a scroll-driven tour",
+  "badge": "Kyber concept project",
+  "description": [
+    "A fictional desert residence presented in eight scenes, with transitions and an amber light guiding the tour. Images created with AI."
+  ],
+  "stack": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ]
+},
+{
+  "name": "André Mei",
+  "url": "https://www.andremei.com.br",
+  "image": "/links/assets/projects/andre-mei.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/andre-mei/andre-mei-v1.mp4",
+  "tagline": "Surfing, ultramarathons, and partnerships in a personal website",
+  "description": [
+    "An athlete website bringing together his story, surf gallery, destinations, and partnership contact. The opening features interactive WebGL water and automatically updated channel videos."
+  ],
+  "stack": [
+    "WebGL",
+    "Responsive design"
+  ]
+},
+{
+  "name": "Igor de Castro · Model",
+  "url": "https://igordecastro.com.br/modelo/",
+  "image": "/links/assets/projects/igor-de-castro-modelo.webp",
+  "tagline": "Editorial, streetwear, and portrait portfolio",
+  "badge": "Personal project",
+  "description": [
+    "A modeling portfolio with selected photography, gallery navigation, and a personal presentation in a responsive editorial interface."
+  ],
+  "stack": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ]
+},
       {
         name: "Kyber Tech",
+        image: "/links/assets/projects/kyber.webp",
         url: "https://somoskyber.com.br",
         tagline: "Technology studio — websites, automation, and AI",
         badge: "Co-founder · 2026 — Present",
@@ -425,6 +508,8 @@ const en: PortfolioContent = {
       },
       {
         name: "Manu's Barbearia",
+        image: "/links/assets/projects/manusbarbearia.webp",
+        video: "https://media.somoskyber.com.br/portfolio/manus-barbearia/manus-barbearia-v1.mp4",
         url: "https://manusbarbearia.com.br",
         tagline: "Barbershop site with subscription plans and booking",
         badge: "Kyber Tech client",
@@ -436,6 +521,8 @@ const en: PortfolioContent = {
       },
       {
         name: "KOUNTING Streetwear",
+        image: "/links/assets/projects/kountingstreetwear.webp",
+        video: "https://media.somoskyber.com.br/portfolio/kounting-streetwear/kounting-streetwear-v1.mp4",
         url: "https://www.kountingstreetwear.com.br",
         tagline: "Streetwear catalog with orders closed on WhatsApp",
         badge: "My own brand",
@@ -447,6 +534,8 @@ const en: PortfolioContent = {
       },
       {
         name: "Gabriela Camargo",
+        image: "/links/assets/projects/gabriela-camargo.webp",
+        video: "https://media.somoskyber.com.br/portfolio/gabriela-camargo/gabriela-camargo-v1.mp4",
         url: "https://gabrielacamargofoto.com.br",
         tagline: "Photographer portfolio with lightbox gallery",
         badge: "Zero dependencies",
@@ -458,6 +547,7 @@ const en: PortfolioContent = {
       },
       {
         name: "Compressify",
+        image: "/links/assets/projects/compressify.webp",
         url: "https://compressify-free.vercel.app",
         tagline: "Private in-browser image compression and conversion",
         badge: "−86% in a measured batch",
@@ -469,6 +559,7 @@ const en: PortfolioContent = {
       },
       {
         name: "QR Code Studio",
+        image: "/links/assets/projects/qr-code-studio.webp",
         url: "https://qr-code-studio-free.vercel.app",
         tagline: "Static vector QR generator with automatic verification",
         badge: "Lighthouse 100 · a11y / best practices / SEO",
@@ -779,8 +870,88 @@ const pt: PortfolioContent = {
     title: "Produtos com evidências, não promessas",
     visitLabel: "Abrir projeto",
     projects: [
+{
+  "name": "Aura",
+  "url": "https://aura-joalheria-portfolio.vercel.app/",
+  "image": "/links/assets/projects/aura.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/aura/aura-v1.mp4",
+  "tagline": "Joalheria conceitual com configurador 3D",
+  "badge": "Projeto conceitual Kyber",
+  "description": [
+    "Estudo autoral para uma joalheria fictícia, com direção de arte editorial e um anel interativo para explorar pedras, metais e a estrutura da peça.",
+    "Fotografias e filme de abertura produzidos com IA. Inclui alternativas para movimento reduzido e ausência de WebGL."
+  ],
+  "stack": [
+    "React",
+    "Three.js",
+    "WebGL",
+    "Vite"
+  ]
+},
+{
+  "name": "BRUMA",
+  "url": "https://bruma-portfolio.vercel.app",
+  "image": "/links/assets/projects/bruma.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/bruma/bruma-v1.mp4",
+  "tagline": "Experiência interativa para uma marca fictícia de gin",
+  "badge": "Projeto conceitual Kyber",
+  "description": [
+    "Estudo conceitual com frasco em 3D em tempo real e botânicos flutuantes. Explora direção visual e interação para apresentar um produto fictício."
+  ],
+  "stack": [
+    "3D",
+    "WebGL"
+  ]
+},
+{
+  "name": "Casa Umbra",
+  "url": "https://casa-umbra-portfolio.vercel.app",
+  "image": "/links/assets/projects/casa-umbra.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/casa-umbra/casa-umbra-v1.mp4",
+  "desktopOnly": true,
+  "tagline": "Arquitetura conceitual em uma visita guiada pelo scroll",
+  "badge": "Projeto conceitual Kyber",
+  "description": [
+    "Residência fictícia no deserto apresentada em oito cenas, com transições e uma linha de luz âmbar que acompanha a visita. Imagens produzidas com IA."
+  ],
+  "stack": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ]
+},
+{
+  "name": "André Mei",
+  "url": "https://www.andremei.com.br",
+  "image": "/links/assets/projects/andre-mei.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/andre-mei/andre-mei-v1.mp4",
+  "tagline": "Surf, ultramaratona e parcerias em um site pessoal",
+  "description": [
+    "Site de atleta que reúne trajetória, galeria de surf, destinos e contato para parcerias. A abertura traz água em WebGL interativa e os vídeos do canal são atualizados automaticamente."
+  ],
+  "stack": [
+    "WebGL",
+    "Design responsivo"
+  ]
+},
+{
+  "name": "Igor de Castro · Modelo",
+  "url": "https://igordecastro.com.br/modelo/",
+  "image": "/links/assets/projects/igor-de-castro-modelo.webp",
+  "tagline": "Portfólio editorial, streetwear e retrato",
+  "badge": "Projeto pessoal",
+  "description": [
+    "Portfólio de modelo com seleção de fotografias, navegação por galerias e apresentação pessoal em uma interface editorial responsiva."
+  ],
+  "stack": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ]
+},
       {
         name: "Kyber Tech",
+        image: "/links/assets/projects/kyber.webp",
         url: "https://somoskyber.com.br",
         tagline: "Estúdio de tecnologia — sites, automações e IA",
         badge: "Co-fundador · 2026 — atual",
@@ -792,6 +963,8 @@ const pt: PortfolioContent = {
       },
       {
         name: "Manu's Barbearia",
+        image: "/links/assets/projects/manusbarbearia.webp",
+        video: "https://media.somoskyber.com.br/portfolio/manus-barbearia/manus-barbearia-v1.mp4",
         url: "https://manusbarbearia.com.br",
         tagline: "Site de barbearia com planos de assinatura e agendamento",
         badge: "Cliente Kyber Tech",
@@ -803,6 +976,8 @@ const pt: PortfolioContent = {
       },
       {
         name: "KOUNTING Streetwear",
+        image: "/links/assets/projects/kountingstreetwear.webp",
+        video: "https://media.somoskyber.com.br/portfolio/kounting-streetwear/kounting-streetwear-v1.mp4",
         url: "https://www.kountingstreetwear.com.br",
         tagline: "Vitrine de streetwear com pedido fechado no WhatsApp",
         badge: "Marca própria",
@@ -814,6 +989,8 @@ const pt: PortfolioContent = {
       },
       {
         name: "Gabriela Camargo",
+        image: "/links/assets/projects/gabriela-camargo.webp",
+        video: "https://media.somoskyber.com.br/portfolio/gabriela-camargo/gabriela-camargo-v1.mp4",
         url: "https://gabrielacamargofoto.com.br",
         tagline: "Portfólio de fotografia com galeria em lightbox",
         badge: "Zero dependências",
@@ -825,6 +1002,7 @@ const pt: PortfolioContent = {
       },
       {
         name: "Compressify",
+        image: "/links/assets/projects/compressify.webp",
         url: "https://compressify-free.vercel.app",
         tagline: "Compressão e conversão privada de imagens no navegador",
         badge: "−86% em lote medido",
@@ -836,6 +1014,7 @@ const pt: PortfolioContent = {
       },
       {
         name: "QR Code Studio",
+        image: "/links/assets/projects/qr-code-studio.webp",
         url: "https://qr-code-studio-free.vercel.app",
         tagline: "Gerador vetorial de QR Code com verificação automática",
         badge: "Lighthouse 100 · a11y / boas práticas / SEO",
