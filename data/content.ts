@@ -416,6 +416,23 @@ const en: PortfolioContent = {
     visitLabel: "Open project",
     projects: [
 {
+  "name": "Lume",
+  "url": "https://lume-portfolio.vercel.app",
+  "image": "/links/assets/projects/lume.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/lume/lume-v1.mp4",
+  "tagline": "Editorial concept experience for a contact lens brand",
+  "badge": "Kyber concept project",
+  "description": [
+    "An original study for a fictional contact lens brand, combining editorial art direction with an interactive collection of four tones.",
+    "Images and video created with AI. The products, packaging, and colors are conceptual and are not for sale."
+  ],
+  "stack": [
+    "React",
+    "Vite",
+    "Responsive design"
+  ]
+},
+{
   "name": "Aura",
   "url": "https://aura-joalheria-portfolio.vercel.app/",
   "image": "/links/assets/projects/aura.webp",
@@ -870,6 +887,23 @@ const pt: PortfolioContent = {
     title: "Produtos com evidências, não promessas",
     visitLabel: "Abrir projeto",
     projects: [
+{
+  "name": "Lume",
+  "url": "https://lume-portfolio.vercel.app",
+  "image": "/links/assets/projects/lume.webp",
+  "video": "https://media.somoskyber.com.br/portfolio/lume/lume-v1.mp4",
+  "tagline": "Experiência editorial para uma marca conceitual de lentes de contato",
+  "badge": "Projeto conceitual Kyber",
+  "description": [
+    "Estudo autoral para uma marca fictícia de lentes de contato, unindo direção de arte editorial a uma coleção interativa de quatro tons.",
+    "Imagens e vídeo produzidos com IA. Produtos, embalagens e cores são conceituais e não estão à venda."
+  ],
+  "stack": [
+    "React",
+    "Vite",
+    "Design responsivo"
+  ]
+},
 {
   "name": "Aura",
   "url": "https://aura-joalheria-portfolio.vercel.app/",

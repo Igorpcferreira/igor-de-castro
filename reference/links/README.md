@@ -27,6 +27,8 @@ HTML, CSS e JavaScript puros. Sem dependências de runtime ou build próprio. O 
 
 | Projeto | Identificação | Vídeo | Site |
 | --- | --- | --- | --- |
+| Lume | Projeto conceitual da Kyber | 35 s | lume-portfolio.vercel.app |
+| Aura | Projeto conceitual da Kyber | 33 s | aura-joalheria-portfolio.vercel.app |
 | Manu’s Barbearia | Cliente / barbearia | 56 s | manusbarbearia.com.br |
 | Gabriela Camargo | Cliente / fotografia | 35 s | gabrielacamargofoto.com.br |
 | André Mei | Cliente / atleta, conforme o pedido atual de Igor | 61 s | www.andremei.com.br |
@@ -38,9 +40,9 @@ Os endereços de vídeo vêm de `kyber-tech/components/content.jsx`, usando a in
 
 Cada projeto tem dois links independentes: vídeo e site. Com JavaScript, o vídeo abre num dialog nativo; sem ele, o link abre o MP4 diretamente. Nenhum MP4 é carregado antes do clique. O player tem controles, reprodução inline, estado de erro e nova tentativa; ao fechar, pausa, remove o src, descarrega o elemento e devolve o foco. O IC pausa durante o dialog e quando não está visível.
 
-Casa Umbra mantém acesso ao site e à gravação, conforme o pedido atual, com uma indicação de que a experiência do site é para computador. Casa Umbra e BRUMA são identificadas como conceitos; não são apresentados como clientes.
+Casa Umbra mantém acesso ao site e à gravação, conforme o pedido atual, com uma indicação de que a experiência do site é para computador. Lume, Aura, Casa Umbra e BRUMA são identificadas como conceitos; não são apresentados como clientes.
 
-No desktop, seis cartões em grade. No celular, uma galeria nativa deslizante com encaixe dos cartões, contador e setas, sem autoplay. Todos os projetos continuam no HTML e acessíveis sem JavaScript.
+No desktop, oito cartões em grade. No celular, uma galeria nativa deslizante com encaixe dos cartões, contador e setas, sem autoplay. Todos os projetos continuam no HTML e acessíveis sem JavaScript.
 
 ## Ferramentas e modelo
 
