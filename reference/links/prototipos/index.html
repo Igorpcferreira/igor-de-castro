@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>/links · três direções</title>
+  <meta name="theme-color" content="#020409">
+  <link rel="icon" type="image/svg+xml" href="../../../public/links/assets/favicon.svg">
+  <style>
+    @font-face { font-family: "JetBrains Mono"; src: url("../../../public/links/assets/fonts/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; }
+    @font-face { font-family: "Space Grotesk"; src: url("../../../public/links/assets/fonts/space-grotesk.woff2") format("woff2"); font-weight: 300 700; }
+    :root { color-scheme: dark; --night: #020409; --ink: #f4fff8; --body: #9fc4af; --muted: #6fa88b; --neon: #52ff7d; --cyan: #35c8ff; --line: rgb(82 255 125 / .16); }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--body); font: 400 14px/1.6 "Space Grotesk", system-ui, sans-serif; background: radial-gradient(80% 50% at 0% 0%, rgb(82 255 125 / .08), transparent 60%), radial-gradient(60% 40% at 100% 0%, rgb(53 200 255 / .07), transparent 60%), var(--night); }
+    header { max-width: 1320px; margin: 0 auto; padding: 36px 28px 8px; }
+    .eyebrow { font: 600 12.5px "JetBrains Mono", monospace; color: var(--neon); }
+    h1 { margin: 8px 0 0; font: 700 clamp(30px, 4vw, 44px)/1.05 "Space Grotesk", sans-serif; letter-spacing: -.035em; color: var(--ink); }
+    header p { max-width: 70ch; margin: 12px 0 0; font-size: 15.5px; }
+    .switch { display: inline-flex; gap: 4px; margin-top: 18px; padding: 4px; background: rgb(255 255 255 / .05); border: 1px solid var(--line); border-radius: 999px; }
+    .switch button { min-height: 40px; padding: 0 18px; font: 600 13.5px "Space Grotesk", sans-serif; color: var(--body); background: none; border: 0; border-radius: 999px; cursor: pointer; }
+    .switch button[aria-pressed="true"] { color: var(--night); background: var(--neon); }
+    main { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; max-width: 1320px; margin: 0 auto; padding: 22px 28px 60px; }
+    .option { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+    .tag { display: flex; align-items: baseline; gap: 10px; }
+    .tag b { display: grid; place-items: center; width: 34px; height: 34px; font: 700 16px "JetBrains Mono", monospace; color: var(--night); background: var(--neon); border-radius: 50%; }
+    .tag h2 { margin: 0; font: 700 22px "Space Grotesk", sans-serif; letter-spacing: -.02em; color: var(--ink); }
+    .concept { margin: 0; font-size: 14.5px; min-height: 4.8em; }
+    .frame { position: relative; overflow: hidden; background: #000; border: 1px solid rgb(255 255 255 / .12); box-shadow: 0 30px 70px -30px rgb(0 0 0 / .95); }
+    .frame iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; }
+    .is-phone .frame { width: 100%; max-width: 330px; aspect-ratio: 390 / 844; margin: 0 auto; border-radius: 42px; border-width: 6px; border-color: #1a221d; }
+    .is-desktop main { grid-template-columns: 1fr; }
+    .is-desktop .frame { width: 100%; aspect-ratio: 1280 / 800; border-radius: 16px; }
+    .is-desktop .option { display: grid; grid-template-columns: 300px minmax(0, 1fr); align-items: start; gap: 24px; }
+    .is-desktop .option > :not(.frame-wrap) { grid-column: 1; }
+    .is-desktop .frame-wrap { grid-column: 2; grid-row: 1 / span 5; }
+    .open { align-self: center; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; font: 600 14px "Space Grotesk", sans-serif; color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; }
+    .open:hover { border-color: var(--neon); color: var(--neon); }
+    dl { display: grid; gap: 8px; margin: 0; padding: 14px 16px; background: rgb(255 255 255 / .03); border: 1px solid var(--line); border-radius: 18px; }
+    dl div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; font-size: 13.5px; }
+    dt { color: var(--muted); }
+    dd { margin: 0; color: var(--ink); }
+    ul { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    li { position: relative; padding-left: 18px; font-size: 13.5px; }
+    li::before { content: ""; position: absolute; top: .62em; left: 2px; width: 7px; height: 7px; background: var(--neon); border-radius: 50%; }
+    footer { max-width: 1320px; margin: 0 auto; padding: 0 28px 40px; font-size: 13px; color: var(--muted); }
+    @media (max-width: 1100px) { main { grid-template-columns: 1fr; } .is-phone .option { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; } .is-phone .option > :not(.frame-wrap) { grid-column: 1; } .is-phone .frame-wrap { grid-column: 2; grid-row: 1 / span 6; } }
+    @media (max-width: 720px) { .is-phone .option, .is-desktop .option { display: flex; } }
+  </style>
+</head>
+<body class="is-phone">
+  <header>
+    <p class="eyebrow">igor@dev:~/links$ ls prototipos/</p>
+    <h1>Três direções para a /links</h1>
+    <p>Mesmo conteúdo e a mesma identidade do portfólio: cores, Space Grotesk e JetBrains Mono, e o fundo em rede neural. O que muda de uma para outra são os componentes, as interações e o jeito de navegar. As três funcionam de verdade: dá para tocar, filtrar e abrir os vídeos.</p>
+    <div class="switch" role="group" aria-label="Tamanho da prévia">
+      <button type="button" aria-pressed="true" data-size="phone">Celular</button>
+      <button type="button" aria-pressed="false" data-size="desktop">Computador</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="option">
+      <div class="tag"><b>A</b><h2>IgorOS</h2></div>
+      <p class="concept">A página como a tela inicial de um sistema operacional: widgets arredondados sobre o papel de parede neural, um dock fixo com o WhatsApp e a ilha dinâmica mostrando onde você está.</p>
+      <dl>
+        <div><dt>Formas</dt><dd>Muito arredondado (raios de 18 a 34 px, pílulas)</dd></div>
+        <div><dt>Pegada</dt><dd>Produto premium, familiar como um celular</dd></div>
+        <div><dt>Destaque</dt><dd>Seu retrato grande, como pôster de contato</dd></div>
+      </dl>
+      <ul>
+        <li>"Deslize para conversar" no retrato (um toque também abre)</li>
+        <li>Projetos em carrossel com o cartão do centro em destaque</li>
+        <li>Central de serviços: marque o que precisa e a mensagem sai pronta</li>
+        <li>Atalhos como ícones de app e "IgorOS" no estilo Ajustes</li>
+      </ul>
+      <div class="frame-wrap"><div class="frame"><iframe src="a-os/" title="Direção A, IgorOS" loading="lazy"></iframe></div></div>
+      <a class="open" href="a-os/" target="_blank" rel="noopener">Abrir A em tela cheia ↗</a>
+    </section>
+
+    <section class="option">
+      <div class="tag"><b>B</b><h2>Console</h2></div>
+      <p class="concept">Um app de terminal moderno, no estilo Warp e lazygit: painéis arredondados com o título na borda, o WhatsApp como um comando que você executa e uma paleta de busca para achar qualquer coisa digitando.</p>
+      <dl>
+        <div><dt>Formas</dt><dd>Arredondado médio (painéis de 18 px, pílulas e teclas)</dd></div>
+        <div><dt>Pegada</dt><dd>A mais "dev", próxima do portfólio</dd></div>
+        <div><dt>Destaque</dt><dd>Paleta de comandos e barra de status</dd></div>
+      </dl>
+      <ul>
+        <li>Busca estilo ⌘K: "barbearia" acha a Manu's, "site" acha o serviço</li>
+        <li>Projetos como gerenciador de arquivos, com prévia que abre na linha</li>
+        <li>Serviços em formato <code>igor --help</code>, cada opção vira conversa</li>
+        <li>Barra de status powerline com o modo, o caminho e o WhatsApp</li>
+      </ul>
+      <div class="frame-wrap"><div class="frame"><iframe src="b-console/" title="Direção B, Console" loading="lazy"></iframe></div></div>
+      <a class="open" href="b-console/" target="_blank" rel="noopener">Abrir B em tela cheia ↗</a>
+    </section>
+
+    <section class="option">
+      <div class="tag"><b>C</b><h2>Stories</h2></div>
+      <p class="concept">Fala a língua de quem chega pelo Instagram: avatar com anel de story, destaques em círculo e projetos em formato de stories, em que "Responder" vira conversa no WhatsApp sobre aquele projeto.</p>
+      <dl>
+        <div><dt>Formas</dt><dd>O máximo de arredondado (círculos e pílulas)</dd></div>
+        <div><dt>Pegada</dt><dd>Familiar e emocional para o cliente do Instagram</dd></div>
+        <div><dt>Destaque</dt><dd>Stories com vídeo, figurinha de link e enquete</dd></div>
+      </dl>
+      <ul>
+        <li>Toque para avançar, segure para pausar, arraste para baixo para fechar</li>
+        <li>Destaques: Projetos, Clientes, Conceitos, Serviços, Sobre, Kyber, Modelo</li>
+        <li>Grade 3×4 com o último quadro "Seu projeto aqui"</li>
+        <li>Barra de mensagem fixa: "Mande uma mensagem para o Igor…"</li>
+      </ul>
+      <div class="frame-wrap"><div class="frame"><iframe src="c-stories/" title="Direção C, Stories" loading="lazy"></iframe></div></div>
+      <a class="open" href="c-stories/" target="_blank" rel="noopener">Abrir C em tela cheia ↗</a>
+    </section>
+  </main>
+
+  <footer>Os protótipos ficam em <code>reference/links/prototipos/</code>, fora do site publicado. A escolhida vira a /links de verdade, em HTML estático como a atual.</footer>
+
+  <script>
+    // As molduras mostram cada protótipo no tamanho real e reduzem para caber.
+    const frames = [...document.querySelectorAll('.frame')];
+    const sizes = { phone: [390, 844], desktop: [1280, 800] };
+    let mode = 'phone';
+    const fit = () => frames.forEach(frame => {
+      const [width, height] = sizes[mode];
+      const iframe = frame.querySelector('iframe');
+      iframe.style.width = `${width}px`;
+      iframe.style.height = `${height}px`;
+      iframe.style.transform = `scale(${frame.clientWidth / width})`;
+    });
+    document.querySelectorAll('[data-size]').forEach(button => button.addEventListener('click', () => {
+      mode = button.dataset.size;
+      document.body.className = `is-${mode}`;
+      document.querySelectorAll('[data-size]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      fit();
+    }));
+    new ResizeObserver(fit).observe(document.body);
+    fit();
+  </script>
+</body>
+</html>
