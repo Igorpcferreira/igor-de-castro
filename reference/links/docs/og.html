@@ -1,1 +1,51 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Prévia de compartilhamento</title><link rel="stylesheet" href="../styles.css"><style>html,body{width:1200px;height:630px;overflow:hidden}body{padding:65px 78px;background-image:radial-gradient(ellipse at 85% 30%,var(--halo),transparent 60%)}.og-top{display:flex;justify-content:space-between;align-items:center}.og-sign{display:flex;align-items:center;gap:24px}.og-name{font-size:22px}.og-name span{display:block;font-size:13px;color:var(--muted);margin-top:4px}.og-photo{width:92px;height:92px;border-radius:50%;object-fit:cover}.og-main{font-size:82px;letter-spacing:-4px;line-height:1.04;font-weight:bold;margin-top:42px}.og-main span{color:var(--accent)}.og-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:42px;border-top:1px solid var(--line);padding-top:25px;font-size:17px;color:var(--muted)}.og-bottom b{color:var(--accent);font-weight:400}</style></head><body><div class="og-top"><div class="og-sign"><span class="monogram" aria-hidden="true">I<span class="letter-c" style="animation:none">C</span></span><div class="og-name">Igor de Castro<span>DESENVOLVEDOR & EMPREENDEDOR</span></div></div><img class="og-photo" src="../assets/igor.webp" alt="Igor de Castro"></div><p class="og-main">Seu negócio.<br><span>Software sob medida.</span></p><div class="og-bottom"><span>Sites · Sistemas · Automação & IA</span><b>Vamos conversar ↗</b></div><script>document.documentElement.dataset.theme=new URLSearchParams(location.search).get('tema')==='azul'?'azul':'verde';</script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Prévia de compartilhamento — /links</title>
+  <!-- Fonte da imagem public/links/assets/og-image.png. Renderize em 1200x630 (ver docs/render-og.cjs). -->
+  <style>
+    @font-face { font-family: "JetBrains Mono"; src: url("../../../public/links/assets/fonts/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; }
+    @font-face { font-family: "Space Grotesk"; src: url("../../../public/links/assets/fonts/space-grotesk.woff2") format("woff2"); font-weight: 300 700; }
+    html, body { width: 1200px; height: 630px; margin: 0; overflow: hidden; background: #020409; }
+    body { position: relative; font-family: "Space Grotesk", sans-serif; color: #f4fff8; -webkit-font-smoothing: antialiased; }
+    canvas { position: absolute; inset: 0; width: 1200px; height: 630px; }
+    .shade { position: absolute; inset: 0; background: linear-gradient(to right, rgb(2 4 9 / .82) 0%, rgb(2 4 9 / .55) 46%, rgb(2 4 9 / .2) 70%); }
+    .frame { position: absolute; inset: 56px 64px 56px 72px; display: grid; grid-template-columns: minmax(0, 1fr) 372px; gap: 56px; align-items: center; }
+    .copy { display: flex; flex-direction: column; }
+    .island { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 20px; font: 600 17px "Space Grotesk", sans-serif; background: #000; border-radius: 999px; box-shadow: 0 0 0 1px rgb(255 255 255 / .08); }
+    .island i, .kicker i { width: 10px; height: 10px; border-radius: 50%; background: #52ff7d; box-shadow: 0 0 12px #52ff7d; }
+    h1 { margin: 30px 0 0; font: 700 112px/.86 "Space Grotesk", sans-serif; letter-spacing: -.055em; }
+    h1 span { display: block; }
+    .kicker { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 9px 16px 9px 13px; font: 600 17px "JetBrains Mono", monospace; color: #52ff7d; background: rgb(2 4 9 / .6); border: 1px solid rgb(82 255 125 / .35); border-radius: 999px; }
+    .lead { margin: 22px 0 0; max-width: 26ch; font: 500 31px/1.25 "Space Grotesk", sans-serif; color: rgb(244 255 248 / .9); }
+    .lead b { color: #52ff7d; font-weight: 600; white-space: nowrap; }
+    .url { margin-top: 26px; font: 500 19px "JetBrains Mono", monospace; color: #6fa88b; }
+    .poster { position: relative; height: 518px; overflow: hidden; border-radius: 40px; box-shadow: 0 30px 80px -30px rgb(0 0 0 / .95), inset 0 0 0 1px rgb(255 255 255 / .12); }
+    .poster img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; }
+    .poster::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgb(2 4 9 / .85)); }
+    .slide { position: absolute; right: 16px; bottom: 16px; left: 16px; z-index: 1; display: flex; align-items: center; gap: 16px; height: 72px; padding: 7px; font: 600 19px "Space Grotesk", sans-serif; color: rgb(244 255 248 / .85); background: rgb(244 255 248 / .12); border: 1px solid rgb(255 255 255 / .18); border-radius: 999px; }
+    .slide b { display: grid; place-items: center; width: 58px; height: 58px; background: #52ff7d; border-radius: 50%; }
+    .slide svg { width: 28px; height: 28px; fill: #020409; }
+  </style>
+</head>
+<body>
+  <canvas class="neural"></canvas>
+  <div class="shade"></div>
+  <div class="frame">
+    <div class="copy">
+      <span class="island"><i></i>Disponível para projetos</span>
+      <h1><span>Igor</span><span>de Castro</span></h1>
+      <span class="kicker"><i></i>Cofundador da Kyber Tech</span>
+      <p class="lead">Sites, sistemas e automações <b>sob medida</b> para o seu negócio.</p>
+      <p class="url">igordecastro.com.br/links</p>
+    </div>
+    <div class="poster">
+      <img src="../../../public/links/assets/igor-poster.webp" alt="">
+      <span class="slide"><b><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.633A8.92 8.92 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a9 9 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.93 8.93 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.45 7.45 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.45 7.45 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.41 7.41 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73s-.354-.112-.504.112-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393s.149-.224.224-.374.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a10 10 0 0 0-.429-.008.83.83 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321 1.582 2.415 3.832 3.387c.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066s.187-.973.131-1.067-.207-.151-.43-.263"/></svg></b>deslize para conversar</span>
+    </div>
+  </div>
+  <script src="../../../public/links/neural.js"></script>
+  <script>window.mountNeural(document.querySelector('.neural'));</script>
+</body>
+</html>

@@ -1,134 +1,276 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="verde">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Igor de Castro — Software sob medida</title>
-  <meta name="description" content="Sites, sistemas, automações e IA aplicada ao seu negócio. Conheça meu trabalho e converse comigo sobre seu projeto.">
-  <meta name="theme-color" content="#090e0c">
-  <meta property="og:title" content="Igor de Castro — Software sob medida">
-  <meta property="og:description" content="Seu próximo projeto começa com uma conversa. Sites, sistemas, automações e IA aplicada.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Igor de Castro — Sites, sistemas e automações sob medida</title>
+  <meta name="description" content="Desenvolvedor Full Stack e cofundador da Kyber Tech. Sites, sistemas e automações sob medida para o seu negócio. Veja projetos no ar e fale direto comigo no WhatsApp.">
+  <meta name="theme-color" content="#020409">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://igordecastro.com.br/links/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <link rel="canonical" href="https://igordecastro.com.br/links/">
+  <meta property="og:site_name" content="Igor de Castro">
   <meta property="og:url" content="https://igordecastro.com.br/links/">
-  <meta property="og:image" content="https://igordecastro.com.br/links/assets/og-image.png">
+  <meta property="og:title" content="Igor de Castro — Software sob medida">
+  <meta property="og:description" content="Sites, sistemas e automações para o seu negócio. Veja projetos no ar e fale direto comigo.">
+  <meta property="og:image" content="https://igordecastro.com.br/links/assets/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Igor de Castro — Seu negócio. Software sob medida. Sites, sistemas, automação e IA.">
+  <meta property="og:image:alt" content="Igor de Castro, desenvolvedor full stack. Sites, sistemas e automações sob medida.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/igor-poster.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="projects.css">
+  <script src="neural.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#destinos">Ir para os links</a>
-  <div class="shell">
-    <header class="topbar">
-      <a href="https://igordecastro.com.br" class="brand" aria-label="Igor de Castro — portfólio" data-link="marca">
-        <span class="monogram" aria-hidden="true"><span class="letter-i">I</span><span class="letter-c">C</span><span class="mono-dot"></span></span>
-        <span class="brand-caption">IGOR DE CASTRO<span>TECNOLOGIA & IDEIAS</span></span>
-      </a>
-      <span class="location">GOIÂNIA, GO <span>↗ TODO O BRASIL</span></span>
-    </header>
+  <a class="skip" href="#projetos">Pular para os projetos</a>
 
-    <main class="layout">
-      <section class="intro" aria-labelledby="nome">
-        <div class="profile">
-          <img class="portrait" src="assets/igor.webp" alt="Igor de Castro" width="240" height="240" fetchpriority="high">
-          <div><span class="eyebrow">PRAZER, IGOR.</span><h1 id="nome">Igor de Castro<span>Desenvolvedor & empreendedor</span></h1></div>
-        </div>
-        <p class="headline">Seu negócio.<br>Software<br><span>sob medida.</span><span class="headline-period" aria-hidden="true">↗</span></p>
-        <p class="intro-copy">Crio <strong>sites, sistemas e automações sob medida</strong> para o seu negócio. Tecnologia com propósito, do primeiro papo à entrega.</p>
-        <div class="offer-tags" aria-label="Serviços"><span>Software sob medida</span><span>Automação & IA</span></div>
-        <a class="primary-cta" data-wa data-link="whatsapp-principal" href="https://wa.me/556284196646?text=Oi%2C%20Igor!%20Vim%20do%20Instagram%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><span><small>VAMOS TIRAR SUA IDEIA DO PAPEL?</small><strong>Conversar sobre meu projeto</strong></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-        <p class="cta-note"><span aria-hidden="true">↳</span> Direto comigo, no WhatsApp. Sem compromisso.</p>
-        <div class="credentials"><span class="credential-number">4<span>+</span></span><p>anos construindo software<br><span>Experiência na Minsait · Grupo Indra</span></p></div>
-        <details class="experience"><summary>Um pouco da minha trajetória <span aria-hidden="true">+</span></summary><p>Sou cofundador da Kyber Tech, ao lado de Pedro Lourençoni Lima. Ciência da Computação na PUC Goiás. Atuação em sistemas corporativos de saúde pública, trânsito e defesa, incluindo a modernização do SINGRA 2 para a Marinha do Brasil, pela Minsait.</p></details>
-        <details class="experience services"><summary>O que podemos construir juntos <span aria-hidden="true">+</span></summary><dl><dt>Sites e sistemas</dt><dd>Uma presença própria na internet ou um sistema que acompanha a rotina do seu negócio.</dd><dt>Automação e integrações</dt><dd>Menos trabalho repetitivo com mensagens, agendamentos, planilhas e sistemas conectados.</dd><dt>IA aplicada</dt><dd>Atendimento, classificação e apoio à operação, com um problema real para resolver.</dd></dl></details>
-      </section>
+  <!-- Ícones: Boxicons (MIT), licença em assets/boxicons-LICENSE.txt. -->
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M18.403 5.633A8.92 8.92 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a9 9 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.93 8.93 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.45 7.45 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.45 7.45 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.41 7.41 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73s-.354-.112-.504.112-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393s.149-.224.224-.374.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a10 10 0 0 0-.429-.008.83.83 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321 1.582 2.415 3.832 3.387c.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066s.187-.973.131-1.067-.207-.151-.43-.263" clip-rule="evenodd"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.983 2.821a2.188 2.188 0 1 0 0 4.376 2.188 2.188 0 1 0 0-4.376M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66zm-6.142 0H6.87v12.139H3.095z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248m0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008M16.806 6.129a1.078 1.078 0 1 0 0 2.156 1.078 1.078 0 1 0 0-2.156"/><path d="M20.533 6.111A4.6 4.6 0 0 0 17.9 3.479a6.6 6.6 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.6 6.6 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.6 6.6 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71s0 2.753.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632 6.6 6.6 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.6 6.6 0 0 0 2.186-.419 4.61 4.61 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.6 6.6 0 0 0-.421-2.217m-1.218 9.532a5 5 0 0 1-.311 1.688 2.99 2.99 0 0 1-1.712 1.711 5 5 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a5 5 0 0 1-1.669-.311 2.99 2.99 0 0 1-1.719-1.711 5.1 5.1 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654s0-2.686.053-3.655a5 5 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5 5 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a5 5 0 0 1 1.67.311 3 3 0 0 1 1.712 1.712 5.1 5.1 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655s0 2.698-.043 3.654z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.6 9.6 0 0 1 2.496-.336 9.6 9.6 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2" clip-rule="evenodd"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="m11.79 10.79-4.5 4.5 1.42 1.42 4.5-4.5L17 16V7H8z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m7.76 14.83-2.83 2.83 1.41 1.41 2.83-2.83 2.12-2.12.71-.71.71.71 1.41 1.42 3.54 3.53 1.41-1.41-3.53-3.54-1.42-1.41-.71-.71 5.66-5.66-1.41-1.41L12 10.59 6.34 4.93 4.93 6.34 10.59 12l-.71.71z"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M14.29 6.29 8.59 12l5.7 5.71 1.42-1.42-4.3-4.29 4.3-4.29z"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9.71 17.71 5.7-5.71-5.7-5.71-1.42 1.42 4.3 4.29-4.3 4.29z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M5.5 15.5c1.07 0 2.02-.5 2.67-1.26l6.87 3.87c-.01.13-.04.26-.04.39 0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5c-1.07 0-2.02.5-2.67 1.26l-6.87-3.87c.01-.13.04-.26.04-.39s-.02-.26-.04-.39l6.87-3.87C16.47 8.5 17.42 9 18.5 9 20.43 9 22 7.43 22 5.5S20.43 2 18.5 2 15 3.57 15 5.5c0 .13.02.26.04.39L8.17 9.76A3.48 3.48 0 0 0 5.5 8.5C3.57 8.5 2 10.07 2 12s1.57 3.5 3.5 3.5m13 1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5m0-13c.83 0 1.5.67 1.5 1.5S19.33 7 18.5 7 17 6.33 17 5.5 17.67 4 18.5 4m-13 6.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5S4 12.83 4 12s.67-1.5 1.5-1.5"/></symbol>
+    <symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M22 11h-3V8h-2v3h-3v2h3v3h2v-3h3zM4 8c0 2.28 1.72 4 4 4s4-1.72 4-4-1.72-4-4-4-4 1.72-4 4m6 0c0 1.18-.82 2-2 2s-2-.82-2-2 .82-2 2-2 2 .82 2 2M3 20h10c.55 0 1-.45 1-1v-1c0-2.76-2.24-5-5-5H7c-2.76 0-5 2.24-5 5v1c0 .55.45 1 1 1m4-5h2c1.65 0 3 1.35 3 3H4c0-1.65 1.35-3 3-3"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16.71 16.71 4.7-4.71-4.7-4.71-1.42 1.42 3.3 3.29-3.3 3.29zM8.71 15.29 5.41 12l3.3-3.29-1.42-1.42L2.59 12l4.7 4.71zM14 3l-.98-.22-2 9-2 9L10 21l.98.22 2-9 2-9z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M6.51 18.87c.15.09.32.13.49.13s.36-.05.51-.14l10-6c.3-.18.49-.51.49-.86s-.18-.68-.49-.86l-10-6a.99.99 0 0 0-1.01-.01c-.31.18-.51.51-.51.87v12c0 .36.19.69.51.87Z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M21.21 8.11c-.25-.59-.56-1.16-.92-1.7-.36-.53-.77-1.03-1.22-1.48s-.95-.86-1.48-1.22c-.54-.36-1.11-.67-1.7-.92-.6-.26-1.24-.45-1.88-.58-1.31-.27-2.72-.27-4.03 0-.64.13-1.27.33-1.88.58-.59.25-1.16.56-1.7.92-.53.36-1.03.77-1.48 1.22-.17.17-.32.35-.48.52L1.99 3v6h6L5.86 6.87c.15-.18.31-.36.48-.52.36-.36.76-.69 1.18-.98.43-.29.89-.54 1.36-.74.48-.2.99-.36 1.5-.47 1.05-.21 2.18-.21 3.23 0 .51.11 1.02.26 1.5.47.47.2.93.45 1.36.74.42.29.82.62 1.18.98s.69.76.98 1.18c.29.43.54.89.74 1.36.2.48.36.99.47 1.5.11.53.16 1.07.16 1.61a7.85 7.85 0 0 1-.63 3.11c-.2.47-.45.93-.74 1.36-.29.42-.62.82-.98 1.18s-.76.69-1.18.98c-.43.29-.89.54-1.36.74-.48.2-.99.36-1.5.47-1.05.21-2.18.21-3.23 0a8 8 0 0 1-1.5-.47c-.47-.2-.93-.45-1.36-.74-.42-.29-.82-.62-1.18-.98s-.69-.76-.98-1.18c-.29-.43-.54-.89-.74-1.36-.2-.48-.36-.99-.47-1.5A8 8 0 0 1 3.99 12h-2c0 .68.07 1.35.2 2.01.13.64.33 1.27.58 1.88.25.59.56 1.16.92 1.7.36.53.77 1.03 1.22 1.48s.95.86 1.48 1.22c.54.36 1.11.67 1.7.92.6.26 1.24.45 1.88.58.66.13 1.33.2 2.01.2s1.36-.07 2.01-.2c.64-.13 1.27-.33 1.88-.58.59-.25 1.16-.56 1.7-.92.53-.36 1.03-.77 1.48-1.22s.86-.95 1.22-1.48c.36-.54.67-1.11.92-1.7.26-.6.45-1.24.58-1.88.13-.66.2-1.34.2-2.01s-.07-1.35-.2-2.01c-.13-.64-.33-1.27-.58-1.88Z"/><path d="M11 7v6h6v-2h-4V7z"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><path d="M9 9h6v6H9z"/><path d="M20 6c0-1.1-.9-2-2-2h-2V2h-2v2h-4V2H8v2H6c-1.1 0-2 .9-2 2v2H2v2h2v4H2v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h4v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2v-4h2V8h-2zM6 18V6h12v12z"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m21.45 11.11-3-1.5-2.7-1.35-1.35-2.7-1.5-3c-.34-.68-1.45-.68-1.79 0l-1.5 3-1.35 2.7-2.7 1.35-3 1.5c-.34.17-.55.52-.55.89s.21.72.55.89l3 1.5 2.7 1.35 1.35 2.7 1.5 3c.17.34.52.55.89.55s.73-.21.89-.55l1.5-3 1.35-2.7 2.7-1.35 3-1.5c.34-.17.55-.52.55-.89s-.21-.72-.55-.89Zm-3.89 1.5-.84.42-2.16 1.08-.3.15-.15.3L12 18.77l-2.11-4.21-.15-.3-.3-.15-2.16-1.08-.84-.42L5.23 12l1.21-.61.84-.42 2.16-1.08.3-.15.15-.3L12 5.23l2.11 4.21.15.3.3.15 2.16 1.08.84.42 1.21.61zM19.5 1.5l-.94 2.06-2.06.94 2.06.94.94 2.06.94-2.06 2.06-.94-2.06-.94z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2M4 12c0-.9.16-1.76.43-2.57L6 11l2 2v2l2 2 1 1v1.93c-3.94-.49-7-3.86-7-7.93m14.33 4.87c-.65-.53-1.64-.87-2.33-.87v-1c0-1.1-.9-2-2-2h-4v-3c1.1 0 2-.9 2-2V7h1c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 1.83-.63 3.52-1.67 4.87"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m19,9h-5V3c0-.43-.28-.82-.69-.95-.41-.13-.86.01-1.12.36L4.19,13.41c-.22.3-.25.71-.08,1.04.17.34.52.55.89.55h5v6c0,.43.28.82.69.95.1.03.21.05.31.05.31,0,.62-.15.81-.41l8-11c.22-.3.25-.71.08-1.04-.17-.34-.52-.55-.89-.55Zm-7,8.92v-3.92c0-.55-.45-1-1-1h-4.04l5.04-6.92v3.92c0,.55.45,1,1,1h4.04l-5.04,6.92Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 15.59 4.71 11.3 3.3 12.71l5 5c.2.2.45.29.71.29s.51-.1.71-.29l11-11-1.41-1.41L9.02 15.59Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M8 6h9v2H8z"/><path d="M20 2H6C4.35 2 3 3.35 3 5v14c0 1.65 1.35 3 3 3h15v-2H6c-.55 0-1-.45-1-1s.45-1 1-1h14c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1m-6 14H6c-.35 0-.69.07-1 .18V5c0-.55.45-1 1-1h13v12z"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><path d="M3 4.5v5c0 .83.67 1.5 1.5 1.5h5c.83 0 1.5-.67 1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5h-5C3.67 3 3 3.67 3 4.5M5 5h4v4H5zM3 19.5c0 .83.67 1.5 1.5 1.5h5c.83 0 1.5-.67 1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5h-5c-.83 0-1.5.67-1.5 1.5zM5 15h4v4H5zM19.5 3h-5c-.83 0-1.5.67-1.5 1.5v5c0 .83.67 1.5 1.5 1.5h5c.83 0 1.5-.67 1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5M19 9h-4V5h4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 17h2v2h-2zM19 19h2v2h-2zM15 19h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><path d="M5 21h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2m0-2v-1.59l3-3 1.29 1.29c.39.39 1.02.39 1.41 0l5.29-5.29 3 3V19h-14ZM19 5v5.59L16.71 8.3a.996.996 0 0 0-1.41 0l-5.29 5.29-1.29-1.29a.996.996 0 0 0-1.41 0l-2.29 2.29V5h14Z"/><path d="M8.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 1 0 0-3"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M12 8c-2.17 0-4 1.83-4 4s1.83 4 4 4 4-1.83 4-4-1.83-4-4-4m0 6c-1.07 0-2-.93-2-2s.93-2 2-2 2 .93 2 2-.93 2-2 2"/><path d="M20 5h-2.59L14.7 2.29a1 1 0 0 0-.71-.29h-4c-.27 0-.52.11-.71.29L6.57 5H3.98c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 13H4V7h3c.27 0 .52-.11.71-.29L10.42 4h3.17l2.71 2.71c.19.19.44.29.71.29h3v11Z"/></symbol>
+  </svg>
 
-      <div class="content" id="destinos">
-        <section aria-labelledby="trabalho-title">
-          <div class="section-heading"><h2 id="trabalho-title">Explore meu trabalho</h2><span>01 / CONEXÕES</span></div>
-          <div class="work-links">
-            <a class="link-card" href="https://igordecastro.com.br" target="_blank" rel="noopener" data-link="portfolio-dev"><span class="link-icon code-icon" aria-hidden="true">&lt;/&gt;</span><span class="link-copy"><strong>Portfólio de desenvolvedor</strong><span>Projetos, experiência e o que eu construo.</span></span><span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="link-card kyber-card" href="https://somoskyber.com.br" target="_blank" rel="noopener" data-link="kyber"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m16 2 9 14-9 14-9-14Z M16 2v28 M7 16h18"/></svg></span><span class="link-copy"><strong>Kyber Tech <span class="tiny-tag">COFUNDADOR</span></strong><span>Estúdio de tecnologia que cofundei.</span></span><span class="arrow" aria-hidden="true">↗</span></a>
-          </div>
-        </section>
+  <canvas class="neural" aria-hidden="true"></canvas>
+  <div class="neural-shade" aria-hidden="true"></div>
+  <div class="neural-veil" aria-hidden="true"></div>
 
-        <section class="projects" aria-labelledby="projetos-title">
-          <div class="section-heading"><h2 id="projetos-title">Do código para o mundo</h2><span>08 / PROJETOS</span></div>
-          <p class="section-description">Veja os projetos funcionando. Dê o play ou explore cada site.</p>
-          <div class="project-grid" id="project-gallery" role="region" aria-label="Galeria de projetos" tabindex="0">
-            <article class="project" data-project="lume">
-              <div class="project-image"><img src="assets/projects/lume.webp" alt="Lume, experiência conceitual de lentes de contato em tons suaves de azul" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind concept-kind">CONCEITO KYBER · BELEZA</span><h3>Lume</h3><p>Cor, luz e identidade em uma experiência editorial.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/lume/lume-v1.mp4" data-video-title="Lume · projeto conceitual Kyber" data-video-poster="assets/projects/lume.webp" aria-label="Ver vídeo de Lume" data-link="video-lume"><span aria-hidden="true">▷</span> Ver vídeo <small>0:35</small></a><a href="https://lume-portfolio.vercel.app" target="_blank" rel="noopener" data-link="site-lume" aria-label="Visitar site de Lume">Visitar site <span aria-hidden="true">↗</span></a></div></div>
-            </article>
-            <article class="project" data-project="aura">
-              <div class="project-image"><img src="assets/projects/aura.webp" alt="Aura, joia dourada com diamante sobre fundo escuro" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind concept-kind">CONCEITO KYBER · JOALHERIA</span><h3>Aura</h3><p>Joalheria conceitual com um anel em 3D interativo.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/aura/aura-v1.mp4" data-video-title="Aura · projeto conceitual Kyber" data-video-poster="assets/projects/aura.webp" aria-label="Ver vídeo de Aura" data-link="video-aura"><span aria-hidden="true">▷</span> Ver vídeo <small>0:33</small></a><a href="https://aura-joalheria-portfolio.vercel.app/" target="_blank" rel="noopener" data-link="site-aura" aria-label="Visitar site de Aura">Visitar site <span aria-hidden="true">↗</span></a></div></div>
-            </article>
-            <article class="project" data-project="bruma">
-              <div class="project-image"><img src="assets/projects/bruma.webp" alt="Frasco de gin da marca conceitual BRUMA em uma cena 3D" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind concept-kind">CONCEITO KYBER · 3D INTERATIVO</span><h3>BRUMA</h3><p>Uma marca fictícia. Uma experiência em 3D.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/bruma/bruma-v1.mp4" data-video-title="BRUMA — projeto conceitual Kyber" data-video-poster="assets/projects/bruma.webp" aria-label="Ver vídeo de BRUMA" data-link="video-bruma"><span aria-hidden="true">▷</span> Ver vídeo <small>0:52</small></a><a href="https://bruma-portfolio.vercel.app" target="_blank" rel="noopener" data-link="site-bruma" aria-label="Visitar site de BRUMA">Visitar site <span aria-hidden="true">↗</span></a></div></div>
-            </article>
-            <article class="project" data-project="andre-mei">
-              <div class="project-image"><img src="assets/projects/andre-mei.webp" alt="André Mei surfando na abertura do seu site" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind">CLIENTE · SITE DE ATLETA</span><h3>André Mei</h3><p>Surf, trajetória e conexão com marcas.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/andre-mei/andre-mei-v1.mp4" data-video-title="André Mei" data-video-poster="assets/projects/andre-mei.webp" aria-label="Ver vídeo de André Mei" data-link="video-andre"><span aria-hidden="true">▷</span> Ver vídeo <small>1:01</small></a><a href="https://www.andremei.com.br" target="_blank" rel="noopener" data-link="site-andre" aria-label="Visitar site de André Mei">Visitar site <span aria-hidden="true">↗</span></a></div></div>
-            </article>
-            <article class="project" data-project="manus-barbearia">
-              <div class="project-image"><img src="assets/projects/manusbarbearia.webp" alt="Página inicial da Manu’s Barbearia" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind">CLIENTE · BARBEARIA</span><h3>Manu’s Barbearia</h3><p>Serviços e agendamento a um toque.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/manus-barbearia/manus-barbearia-v1.mp4" data-video-title="Manu’s Barbearia" data-video-poster="assets/projects/manusbarbearia.webp" aria-label="Ver vídeo de Manu’s Barbearia" data-link="video-manus"><span aria-hidden="true">▷</span> Ver vídeo <small>0:56</small></a><a href="https://manusbarbearia.com.br" target="_blank" rel="noopener" data-link="site-manus" aria-label="Visitar site de Manu’s Barbearia">Visitar site <span aria-hidden="true">↗</span></a></div></div>
-            </article>
-            <article class="project" data-project="gabriela-camargo">
-              <div class="project-image"><img src="assets/projects/gabriela-camargo.webp" alt="Página inicial de Gabriela Camargo Fotografia" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind">CLIENTE · FOTOGRAFIA</span><h3>Gabriela Camargo</h3><p>Um portfólio para ver, sentir e agendar.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/gabriela-camargo/gabriela-camargo-v1.mp4" data-video-title="Gabriela Camargo" data-video-poster="assets/projects/gabriela-camargo.webp" aria-label="Ver vídeo de Gabriela Camargo" data-link="video-gabriela"><span aria-hidden="true">▷</span> Ver vídeo <small>0:35</small></a><a href="https://gabrielacamargofoto.com.br" target="_blank" rel="noopener" data-link="site-gabriela" aria-label="Visitar site de Gabriela Camargo">Visitar site <span aria-hidden="true">↗</span></a></div></div>
-            </article>
-            <article class="project" data-project="kounting-streetwear">
-              <div class="project-image"><img src="assets/projects/kountingstreetwear.webp" alt="Vitrine da Kounting Streetwear" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind">MINHA MARCA · STREETWEAR</span><h3>Kounting Streetwear</h3><p>A marca que fundei. A vitrine que construí.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/kounting-streetwear/kounting-streetwear-v1.mp4" data-video-title="Kounting Streetwear" data-video-poster="assets/projects/kountingstreetwear.webp" aria-label="Ver vídeo de Kounting Streetwear" data-link="video-kounting"><span aria-hidden="true">▷</span> Ver vídeo <small>0:53</small></a><a href="https://www.kountingstreetwear.com.br" target="_blank" rel="noopener" data-link="site-kounting" aria-label="Visitar site da Kounting Streetwear">Visitar site <span aria-hidden="true">↗</span></a></div></div>
-            </article>
-            <article class="project" data-project="casa-umbra">
-              <div class="project-image"><img src="assets/projects/casa-umbra.webp" alt="Arquitetura conceitual da Casa Umbra no deserto" width="800" height="500" loading="lazy"></div>
-              <div class="project-body"><span class="project-kind concept-kind">CONCEITO KYBER · ARQUITETURA</span><h3>Casa Umbra</h3><p>Uma experiência visual guiada pelo scroll.</p><div class="project-actions"><a class="video-link" href="https://media.somoskyber.com.br/portfolio/casa-umbra/casa-umbra-v1.mp4" data-video-title="Casa Umbra — projeto conceitual Kyber" data-video-poster="assets/projects/casa-umbra.webp" aria-label="Ver vídeo de Casa Umbra" data-link="video-casa"><span aria-hidden="true">▷</span> Ver vídeo <small>0:48</small></a><a href="https://casa-umbra-portfolio.vercel.app" target="_blank" rel="noopener" data-link="site-casa" aria-label="Visitar site de Casa Umbra, experiência para computador">Visitar site <span aria-hidden="true">↗</span></a></div><p class="project-note">Site para computador. No celular, veja o vídeo.</p></div>
-            </article>
-          </div>
-          <div class="gallery-controls" hidden><p><span id="gallery-position" aria-live="polite">1 / 8</span> <span>Deslize para explorar</span></p><div><button id="gallery-prev" aria-label="Projeto anterior" aria-controls="project-gallery" type="button">←</button><button id="gallery-next" aria-label="Próximo projeto" aria-controls="project-gallery" type="button">→</button></div></div>
-          <p class="concept-note">Lume, Aura, Casa Umbra e BRUMA são estudos conceituais que desenvolvi para o portfólio da Kyber.</p>
-        </section>
+  <header class="status">
+    <span class="status-time" data-clock></span>
+    <!-- Status comercial: troque o texto ou apague a ilha quando a agenda fechar. -->
+    <span class="island" data-island><span class="island-dot" aria-hidden="true"></span><span class="island-text" data-island-text>Disponível</span></span>
+    <span class="status-icons" aria-hidden="true"><i class="sig"><b></b><b></b><b></b><b></b></i><i class="bat"><b></b></i></span>
+  </header>
 
-        <section class="tools" aria-labelledby="tools-title">
-          <div class="section-heading"><h2 id="tools-title">Feitas por mim. Grátis para você.</h2><span>02 / FERRAMENTAS</span></div>
-          <div class="tools-grid">
-            <a class="tool-card" href="https://qr-code-studio-free.vercel.app" target="_blank" rel="noopener" data-link="qr-code-studio"><img src="assets/projects/qr-code-studio.webp" alt="Interface do QR Code Studio" width="800" height="500" loading="lazy"><span class="tool-body"><span class="project-kind">GRATUITO</span><strong>QR Code Studio</strong><span>Crie QR Codes personalizados direto no navegador.</span><span class="tool-action">Criar meu QR Code <span aria-hidden="true">↗</span></span></span></a>
-            <a class="tool-card" href="https://compressify-free.vercel.app" target="_blank" rel="noopener" data-link="compressify"><img src="assets/projects/compressify.webp" alt="Interface do Compressify" width="800" height="500" loading="lazy"><span class="tool-body"><span class="project-kind">GRATUITO</span><strong>Compressify</strong><span>Comprima e converta imagens sem enviar seus arquivos.</span><span class="tool-action">Comprimir imagens <span aria-hidden="true">↗</span></span></span></a>
-          </div>
-        </section>
-
-        <section class="personal" aria-labelledby="personal-title">
-          <div class="section-heading"><h2 id="personal-title">Além do código</h2><span>03 / OUTRA PERSPECTIVA</span></div>
-          <a class="model-card" href="https://igordecastro.com.br/modelo" target="_blank" rel="noopener" data-link="portfolio-modelo"><img src="assets/projects/igor-de-castro-modelo.webp" alt="Capa do portfólio de modelo de Igor de Castro, com retrato de terno" width="800" height="500" loading="lazy"><span><strong>Na frente da câmera.</strong><span>Editorial, streetwear e retrato.</span><span class="model-action">Meu portfólio de modelo ↗</span></span></a>
-        </section>
-
-        <nav class="socials" aria-label="Redes sociais">
-          <a href="https://www.linkedin.com/in/igor-cferreira" target="_blank" rel="noopener" data-link="linkedin"><strong>LinkedIn ↗</strong><span>Trajetória e conexões</span></a>
-          <a href="https://www.instagram.com/igor_cferreira" target="_blank" rel="noopener" data-link="instagram"><strong>Instagram ↗</strong><span>Bastidores e dia a dia</span></a>
-          <a href="https://github.com/Igorpcferreira" target="_blank" rel="noopener" data-link="github"><strong>GitHub ↗</strong><span>Código aberto</span></a>
-        </nav>
+  <main class="home" id="inicio">
+    <section class="poster" aria-labelledby="nome">
+      <img class="poster-photo" src="assets/igor-poster.webp" alt="Igor de Castro, de terno bege" width="720" height="960" fetchpriority="high">
+      <div class="poster-top"><span class="chip">Desenvolvedor Full Stack</span><span class="chip chip-dim">Goiânia, GO</span></div>
+      <div class="poster-copy">
+        <p class="poster-kicker">Cofundador da Kyber Tech</p>
+        <h1 class="poster-name" id="nome"><span>Igor</span> <span>de Castro</span></h1>
+        <p class="poster-lead">Sites, sistemas e automações <b>sob medida</b> para o seu negócio.</p>
       </div>
-    </main>
-    <footer class="footer"><p>Uma pessoa. Várias formas de criar<span>© 2026 Igor de Castro</span></p><div><button id="save-contact" type="button">Salvar contato <span aria-hidden="true">↓</span></button><button id="share-page" type="button">Compartilhar <span aria-hidden="true">↗</span></button><button id="toggle-motion" type="button" aria-pressed="false">Pausar animação</button></div></footer>
-  </div>
-  <div class="mobile-dock" hidden><a data-wa data-link="whatsapp-mobile" href="https://wa.me/556284196646" target="_blank" rel="noopener">Vamos conversar sobre seu projeto <span aria-hidden="true">↗</span></a></div>
-  <p class="toast" role="status" aria-live="polite"></p>
-  <dialog id="share-dialog"><h2>Compartilhar página</h2><p>Copie o endereço abaixo:</p><input id="share-url" aria-label="Endereço da página" readonly><button id="close-share" type="button">Fechar</button></dialog>
-  <dialog id="video-dialog" class="video-dialog" aria-labelledby="video-title" aria-describedby="video-description">
-    <div class="video-dialog-header"><div><span class="eyebrow">PROJETO EM MOVIMENTO</span><h2 id="video-title">Demonstração do projeto</h2></div><button id="close-video" type="button" aria-label="Fechar vídeo" autofocus>✕</button></div>
-    <div id="video-stage"></div>
-    <div id="video-error" class="video-error" hidden role="alert"><p>Não foi possível carregar o vídeo agora.</p><button id="retry-video" type="button">Tentar novamente</button></div>
-    <div class="video-dialog-footer"><p id="video-description">Demonstração visual do site, sem áudio.</p><a id="video-site" target="_blank" rel="noopener">Visitar site ↗</a><a id="video-direct" target="_blank" rel="noopener">Abrir vídeo ↗</a></div>
+      <div class="slide" data-slide>
+        <span class="slide-fill" aria-hidden="true"></span>
+        <span class="slide-label" aria-hidden="true">deslize para conversar</span>
+        <a class="slide-thumb" href="https://wa.me/556284196646?text=Oi%2C%20Igor!%20Vim%20do%20Instagram%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" data-link="whatsapp-principal" aria-label="Conversar no WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+      </div>
+    </section>
+
+    <section class="row-2" aria-label="Credenciais">
+      <article class="w w-stat"><p class="w-label"><svg class="ic" aria-hidden="true"><use href="#i-history"/></svg> Experiência</p><p class="w-big">4+</p><p class="w-small">anos em sistemas de grande porte</p></article>
+      <article class="w w-stat"><p class="w-label"><svg class="ic" aria-hidden="true"><use href="#i-chip"/></svg> Hoje na</p><p class="w-mid">Minsait</p><p class="w-small">Grupo Indra</p></article>
+    </section>
+
+    <section class="stack" aria-label="Trabalho">
+      <a class="w w-link" href="https://igordecastro.com.br" target="_blank" rel="noopener" data-link="portfolio-dev">
+        <span class="w-link-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></span>
+        <span class="w-link-copy">
+          <span class="w-link-title">Portfólio de desenvolvedor</span>
+          <span class="w-small">Experiência, stack e projetos em detalhe.</span>
+          <span class="w-domain">igordecastro.com.br</span>
+        </span>
+        <span class="w-link-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
+      </a>
+      <a class="w w-link" href="https://somoskyber.com.br" target="_blank" rel="noopener" data-link="kyber">
+        <span class="w-link-icon is-kyber" aria-hidden="true"><img src="assets/kyber-mark.webp" alt="" width="53" height="120"></span>
+        <span class="w-link-copy">
+          <span class="w-link-title">Kyber Tech<em>Cofundador</em></span>
+          <span class="w-small">O estúdio de tecnologia que cofundei: sites, automações e IA.</span>
+          <span class="w-domain">somoskyber.com.br</span>
+        </span>
+        <span class="w-link-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
+      </a>
+    </section>
+
+    <section class="w w-projects" id="projetos" aria-labelledby="projetos-titulo">
+      <div class="w-head"><h2 id="projetos-titulo"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg> Projetos no ar</h2><span class="w-count" data-count>11</span></div>
+      <div class="seg" role="group" aria-label="Filtrar projetos" hidden>
+        <span class="seg-thumb" aria-hidden="true"></span>
+        <button type="button" aria-pressed="true" data-filter="todos">Todos</button>
+        <button type="button" aria-pressed="false" data-filter="reais">Reais</button>
+        <button type="button" aria-pressed="false" data-filter="conceito">Conceitos</button>
+      </div>
+      <!-- Cada cartão leva ao site sem JavaScript; com JavaScript, abre a demonstração em vídeo. -->
+      <div class="cards" data-cards>
+          <a class="card" href="https://lume-portfolio.vercel.app" target="_blank" rel="noopener" data-link="projeto-lume" data-index="0" data-kind="conceito" data-name="Lume" data-label="Conceito Kyber · Beleza" data-video="https://media.somoskyber.com.br/portfolio/lume/lume-v1.mp4" data-more="Estudo autoral para uma marca fictícia de lentes de contato: direção de arte editorial e um seletor interativo de quatro tons. Imagens e vídeo produzidos com IA; os produtos não estão à venda." data-stack="React|Vite|Direção criativa">
+            <img src="assets/projects/lume.webp" alt="Lume, experiência conceitual de lentes de contato em tons suaves de azul" width="1200" height="676" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:35</span>
+            <span class="card-copy"><span class="card-kind is-concept">Conceito · Beleza</span><span class="card-name">Lume</span><span class="card-text">Cor, luz e identidade numa experiência editorial.</span></span>
+          </a>
+          <a class="card" href="https://aura-joalheria-portfolio.vercel.app/" target="_blank" rel="noopener" data-link="projeto-aura" data-index="1" data-kind="conceito" data-name="Aura" data-label="Conceito Kyber · Joalheria" data-video="https://media.somoskyber.com.br/portfolio/aura/aura-v1.mp4" data-more="Estudo autoral para uma joalheria fictícia: filme de abertura e um anel em 3D para escolher pedras e metais, girar a peça e ver a estrutura. Fotografias e filme produzidos com IA." data-stack="React|Three.js|WebGL">
+            <img src="assets/projects/aura.webp" alt="Aura, joia dourada com diamante sobre fundo escuro" width="1200" height="676" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:33</span>
+            <span class="card-copy"><span class="card-kind is-concept">Conceito · Joias</span><span class="card-name">Aura</span><span class="card-text">Joalheria conceitual com um anel interativo em 3D.</span></span>
+          </a>
+          <a class="card" href="https://bruma-portfolio.vercel.app" target="_blank" rel="noopener" data-link="projeto-bruma" data-index="2" data-kind="conceito" data-name="BRUMA" data-label="Conceito Kyber · 3D em tempo real" data-video="https://media.somoskyber.com.br/portfolio/bruma/bruma-v1.mp4" data-more="Marca fictícia de gin do cerrado em oito capítulos guiados pelo scroll. Frasco, líquido e botânicos modelados em código e renderizados em 3D no próprio navegador." data-stack="Three.js|WebGL|Direção criativa">
+            <img src="assets/projects/bruma.webp" alt="Frasco de gin da marca conceitual BRUMA em uma cena 3D" width="800" height="500" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:52</span>
+            <span class="card-copy"><span class="card-kind is-concept">Conceito · Bebidas</span><span class="card-name">BRUMA</span><span class="card-text">Uma marca fictícia de gin numa cena 3D em tempo real.</span></span>
+          </a>
+          <a class="card" href="https://premiumconstrutora.com.br" target="_blank" rel="noopener" data-link="projeto-construtora-premium" data-index="3" data-kind="cliente" data-name="Construtora Premium" data-label="Cliente Kyber · Construtora" data-video="https://media.somoskyber.com.br/portfolio/construtora-premium/construtora-premium-v1.mp4" data-more="Site institucional de uma construtora de obras públicas em Goiânia, Goiás e DF: obras, serviços e os órgãos atendidos, como PM-GO, PC-GO, PC-DF e MPGO." data-stack="Site institucional|Portfólio de obras|SEO">
+            <img src="assets/projects/construtora-premium.webp" alt="Página inicial da Construtora Premium, construtora de obras públicas" width="800" height="385" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:45</span>
+            <span class="card-copy"><span class="card-kind">Construtora</span><span class="card-name">Construtora Premium</span><span class="card-text">Obras públicas em Goiás e no DF, com foco em credibilidade.</span></span>
+          </a>
+          <a class="card" href="https://www.andremei.com.br" target="_blank" rel="noopener" data-link="projeto-andre-mei" data-index="4" data-kind="atleta" data-name="André Mei" data-label="Site de atleta" data-video="https://media.somoskyber.com.br/portfolio/andre-mei/andre-mei-v1.mp4" data-more="Site de um surfista e ultramaratonista do litoral norte de São Paulo: água em WebGL que responde ao toque, a ultra de 106 km, galeria de surf e contato para parcerias. Os vídeos do canal entram sozinhos." data-stack="WebGL|YouTube automático|Feito para o celular">
+            <img src="assets/projects/andre-mei.webp" alt="André Mei surfando na abertura do seu site" width="800" height="396" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>1:01</span>
+            <span class="card-copy"><span class="card-kind">Site de atleta</span><span class="card-name">André Mei</span><span class="card-text">Surf, ultramaratona e parcerias num site pessoal.</span></span>
+          </a>
+          <a class="card" href="https://manusbarbearia.com.br" target="_blank" rel="noopener" data-link="projeto-manus-barbearia" data-index="5" data-kind="cliente" data-name="Manu’s Barbearia" data-label="Cliente Kyber · Barbearia" data-video="https://media.somoskyber.com.br/portfolio/manus-barbearia/manus-barbearia-v1.mp4" data-more="Barbearia com mais de nove anos em Goiânia: os nove serviços, os quatro planos de assinatura lado a lado, galeria do salão e agendamento direto no Booksy." data-stack="Astro|React|TypeScript|Tailwind CSS">
+            <img src="assets/projects/manusbarbearia.webp" alt="Página inicial da Manu’s Barbearia" width="800" height="440" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:56</span>
+            <span class="card-copy"><span class="card-kind">Barbearia</span><span class="card-name">Manu’s Barbearia</span><span class="card-text">Serviços, planos de assinatura e agendamento a um toque.</span></span>
+          </a>
+          <a class="card" href="https://gabrielacamargofoto.com.br" target="_blank" rel="noopener" data-link="projeto-gabriela-camargo" data-index="6" data-kind="cliente" data-name="Gabriela Camargo" data-label="Cliente Kyber · Fotografia" data-video="https://media.somoskyber.com.br/portfolio/gabriela-camargo/gabriela-camargo-v1.mp4" data-more="Fotógrafa em Goiânia desde 2016: galeria que amplia foto a foto, os dois formatos de ensaio com valor na página e WhatsApp em toda seção. HTML e CSS puros, sem dependências." data-stack="HTML|CSS|JavaScript puro">
+            <img src="assets/projects/gabriela-camargo.webp" alt="Página inicial de Gabriela Camargo Fotografia" width="800" height="445" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:35</span>
+            <span class="card-copy"><span class="card-kind">Fotografia</span><span class="card-name">Gabriela Camargo</span><span class="card-text">Um portfólio para ver, sentir e agendar.</span></span>
+          </a>
+          <a class="card" href="https://www.infinitafisio.com.br" target="_blank" rel="noopener" data-link="projeto-infinita-saude" data-index="7" data-kind="cliente" data-name="Infinita Saúde" data-label="Cliente Kyber · Saúde" data-video="https://media.somoskyber.com.br/portfolio/infinita-saude/infinita-saude-v1.mp4" data-more="Site da Dra. Stela Steckelberg, fisioterapia pélvica, obstétrica e acupuntura em Goianésia: a profissional, os serviços, a localização e o agendamento pelo WhatsApp." data-stack="Site institucional|SEO local|Agendamento">
+            <img src="assets/projects/infinita-saude.webp" alt="Página inicial da Infinita Saúde, fisioterapia pélvica em Goianésia" width="800" height="384" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:47</span>
+            <span class="card-copy"><span class="card-kind">Fisioterapia</span><span class="card-name">Infinita Saúde</span><span class="card-text">Clínica em Goianésia, com agendamento pelo WhatsApp.</span></span>
+          </a>
+          <a class="card" href="https://www.jordannasantostecnica.com.br" target="_blank" rel="noopener" data-link="projeto-jordanna-santos" data-index="8" data-kind="cliente" data-name="Jordanna Santos" data-label="Cliente Kyber · Beleza" data-video="https://media.somoskyber.com.br/portfolio/jordanna-santos/jordanna-santos-v1.mp4" data-more="Técnica capilar em Senador Canedo: os oito serviços de cabelo natural, os cursos que ela dá, avaliações reais do Google e agendamento pelo WhatsApp em cada bloco." data-stack="Site estático|SEO local|WhatsApp">
+            <img src="assets/projects/jordanna-santos.webp" alt="Página inicial de Jordanna Santos, técnica capilar em Senador Canedo" width="800" height="400" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:44</span>
+            <span class="card-copy"><span class="card-kind">Técnica capilar</span><span class="card-name">Jordanna Santos</span><span class="card-text">Serviços, cursos e avaliações reais numa página só.</span></span>
+          </a>
+          <a class="card" href="https://www.kountingstreetwear.com.br" target="_blank" rel="noopener" data-link="projeto-kounting-streetwear" data-index="9" data-kind="marca" data-name="Kounting Streetwear" data-label="Minha marca · Streetwear" data-video="https://media.somoskyber.com.br/portfolio/kounting-streetwear/kounting-streetwear-v1.mp4" data-more="Vitrine da minha marca de camisetas oversized em drops limitados: catálogo com filtro, fotos por cor, guia de medidas e pedido que chega no WhatsApp com peça, cor e tamanho." data-stack="Next.js|React|Exportação estática">
+            <img src="assets/projects/kountingstreetwear.webp" alt="Vitrine da Kounting Streetwear" width="800" height="441" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:53</span>
+            <span class="card-copy"><span class="card-kind">Minha marca</span><span class="card-name">Kounting Streetwear</span><span class="card-text">A marca que fundei. A vitrine que construí.</span></span>
+          </a>
+          <a class="card" href="https://casa-umbra-portfolio.vercel.app" target="_blank" rel="noopener" data-link="projeto-casa-umbra" data-index="10" data-kind="conceito" data-name="Casa Umbra" data-label="Conceito Kyber · Arquitetura" data-video="https://media.somoskyber.com.br/portfolio/casa-umbra/casa-umbra-v1.mp4" data-more="Residência fictícia no deserto em oito cenas, com uma linha de luz âmbar que guia a visita e marca o progresso. Motor de scroll em JavaScript puro; imagens produzidas com IA." data-stack="HTML|CSS|JavaScript" data-note="O site foi feito para computador. No celular, a demonstração mostra a experiência completa." data-desktop-only>
+            <img src="assets/projects/casa-umbra.webp" alt="Arquitetura conceitual da Casa Umbra no deserto" width="800" height="500" loading="lazy" decoding="async">
+            <span class="card-play" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>0:48</span>
+            <span class="card-copy"><span class="card-kind is-concept">Conceito · Imóveis</span><span class="card-name">Casa Umbra</span><span class="card-text">Uma residência fictícia numa visita guiada pelo scroll.</span></span>
+          </a>
+      </div>
+      <div class="dots" data-dots aria-hidden="true"></div>
+      <p class="w-note">Lume, Aura, BRUMA e Casa Umbra são estudos conceituais da Kyber, com marcas fictícias.</p>
+    </section>
+
+    <section class="w w-control" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="w-head"><h2 id="servicos-titulo"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg> Do que você precisa?</h2></div>
+      <p class="w-sub">Marque um ou mais e a mensagem já vai pronta.</p>
+      <div class="toggles">
+          <button class="toggle" type="button" aria-pressed="false" data-service="site" data-topic="um site para o meu negócio" data-short="um site ou catálogo">
+            <span class="toggle-icon"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <span class="toggle-copy"><span class="toggle-title">Site e catálogo</span><span class="toggle-desc">Um endereço próprio, feito para o celular, onde as pessoas te encontram e falam com você sem depender do Direct.</span></span>
+            <span class="toggle-check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </button>
+          <button class="toggle" type="button" aria-pressed="false" data-service="automacao" data-topic="automatizar uma parte do meu negócio" data-short="automação">
+            <span class="toggle-icon"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+            <span class="toggle-copy"><span class="toggle-title">Automação e integrações</span><span class="toggle-desc">O trabalho repetitivo que hoje é feito na mão: mensagem, agendamento, planilha e sistema que não conversa com outro.</span></span>
+            <span class="toggle-check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </button>
+          <button class="toggle" type="button" aria-pressed="false" data-service="ia" data-topic="IA aplicada ao meu negócio" data-short="IA aplicada">
+            <span class="toggle-icon"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
+            <span class="toggle-copy"><span class="toggle-title">IA aplicada</span><span class="toggle-desc">IA resolvendo um problema real da operação, não como demonstração. Atendimento, classificação e apoio a conteúdo.</span></span>
+            <span class="toggle-check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </button>
+      </div>
+      <a class="pill pill-neon pill-wide" data-order href="https://wa.me/556284196646?text=Oi%2C%20Igor!%20Vim%20do%20Instagram%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" data-link="whatsapp-servicos"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-order-label>Conversar sobre um projeto</span></a>
+    </section>
+
+    <section class="apps" aria-label="Atalhos">
+      <a class="app" href="https://www.linkedin.com/in/igor-cferreira" target="_blank" rel="noopener" data-link="linkedin"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></span><span class="app-label">LinkedIn</span></a>
+      <a class="app" href="https://www.instagram.com/igor_cferreira" target="_blank" rel="noopener" data-link="instagram"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span><span class="app-label">Instagram</span></a>
+      <a class="app" href="https://github.com/Igorpcferreira" target="_blank" rel="noopener" data-link="github"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg></span><span class="app-label">GitHub</span></a>
+      <a class="app" href="https://igordecastro.com.br/Igor_de_Castro_Resume_pt-BR_2026.pdf" target="_blank" rel="noopener" data-link="curriculo-pdf"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><span class="app-label">Currículo</span></a>
+      <a class="app" href="https://qr-code-studio-free.vercel.app" target="_blank" rel="noopener" data-link="qr-code-studio"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg></span><span class="app-label">QR Studio</span></a>
+      <a class="app" href="https://compressify-free.vercel.app" target="_blank" rel="noopener" data-link="compressify"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span><span class="app-label">Compressify</span></a>
+      <a class="app" href="https://igordecastro.com.br/modelo" target="_blank" rel="noopener" data-link="portfolio-modelo"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg></span><span class="app-label">Modelo</span></a>
+      <a class="app" href="assets/igor-de-castro.vcf" download="igor-de-castro.vcf" data-link="salvar-contato"><span class="app-icon" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg></span><span class="app-label">Contato</span></a>
+    </section>
+
+    <section class="w w-about" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="about-head"><svg class="about-logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#031008"/><rect x=".75" y=".75" width="62.5" height="62.5" rx="15.25" fill="none" stroke="rgba(82,255,125,.4)" stroke-width="1.5"/><path d="M13 15h8v34h-8z" fill="#f4fff8"/><path d="M52 19H37l-6 6v14l6 6h15" fill="none" stroke="#52ff7d" stroke-width="8"/></svg><div><h2 id="sobre-titulo">IgorOS</h2><p>Versão 4+ · anos em tecnologia</p></div></div>
+      <dl class="specs">
+        <div><dt>Função</dt><dd>Dev Full Stack Pleno</dd></div>
+        <div><dt>Empresa</dt><dd>Minsait · Grupo Indra</dd></div>
+        <div><dt>Formação</dt><dd>Ciência da Computação · PUC Goiás</dd></div>
+        <div><dt>Estúdio</dt><dd>Kyber Tech · cofundador</dd></div>
+        <div><dt>Marca</dt><dd>Kounting Streetwear · fundador</dd></div>
+        <div><dt>Stack</dt><dd>Java · Spring Boot · Angular · React · Next.js · PostgreSQL</dd></div>
+        <div><dt>Base</dt><dd>Goiânia, GO · todo o Brasil</dd></div>
+        <div><dt>Uptime</dt><dd>4+ anos em tecnologia</dd></div>
+        <div data-clock-row hidden><dt>Hora</dt><dd><span data-clock></span> em Goiânia</dd></div>
+      </dl>
+      <details class="about-more"><summary>Mais informações <svg class="ic" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><p>Sou cofundador da Kyber Tech, ao lado de Pedro Lourençoni Lima, e fundador da Kounting Streetwear. Formação em Ciência da Computação pela PUC Goiás. Trabalho com desenvolvimento de software desde 2022 e hoje estou na Minsait (Grupo Indra), em sistemas corporativos de grande porte.</p></details>
+    </section>
+
+    <section class="w w-photos" aria-labelledby="fotos-titulo">
+      <a class="photos" href="https://igordecastro.com.br/modelo" target="_blank" rel="noopener" data-link="portfolio-modelo-fotos">
+        <img src="assets/model/estudio.webp" alt="" width="360" height="480" loading="lazy" decoding="async" class="is-on">
+        <img src="assets/model/rua.webp" alt="" width="360" height="480" loading="lazy" decoding="async">
+        <img src="assets/model/textura.webp" alt="" width="360" height="480" loading="lazy" decoding="async">
+        <span class="photos-copy"><span class="w-label"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> Modelo · Goiânia e região</span><span class="photos-title" id="fotos-titulo">Na frente da câmera</span><span class="w-small">Editorial, streetwear e retrato. Meu portfólio de modelo.</span></span>
+        <span class="photos-go" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
+      </a>
+    </section>
+  </main>
+
+  <nav class="dock" aria-label="Atalhos principais">
+    <a class="dock-main" href="https://wa.me/556284196646?text=Oi%2C%20Igor!%20Vim%20do%20Instagram%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" data-link="whatsapp-dock"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Conversar</span></a>
+    <a class="dock-btn" href="#projetos"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg><span>Projetos</span></a>
+    <button class="dock-btn" type="button" data-share hidden><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg><span>Enviar</span></button>
+  </nav>
+
+  <dialog class="sheet" id="viewer" aria-labelledby="viewer-title">
+    <div class="sheet-grab" data-grab><span></span></div>
+    <button class="round sheet-close" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+    <div class="sheet-media" data-stage></div>
+    <div class="sheet-error" data-error role="alert" hidden><p>Não foi possível carregar o vídeo agora.</p><button class="pill pill-glass" type="button" data-retry>Tentar de novo</button></div>
+    <div class="sheet-body">
+      <p class="sheet-kind" data-kind></p>
+      <h2 class="sheet-title" id="viewer-title" data-title></h2>
+      <p class="sheet-text" data-more></p>
+      <p class="sheet-note" data-note hidden></p>
+      <ul class="chips" data-stack></ul>
+      <div class="sheet-actions">
+        <a class="pill pill-neon" data-wa target="_blank" rel="noopener" data-link="whatsapp-projeto"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Quero um projeto assim</a>
+        <a class="pill pill-glass" data-site target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>Visitar site</a>
+      </div>
+      <div class="sheet-nav">
+        <button class="round" type="button" data-prev aria-label="Projeto anterior"><svg class="ic" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+        <span class="sheet-count" data-position></span>
+        <button class="round" type="button" data-next aria-label="Próximo projeto"><svg class="ic" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+      </div>
+    </div>
   </dialog>
+
+  <p class="toast" role="status" aria-live="polite"></p>
 </body>
 </html>
