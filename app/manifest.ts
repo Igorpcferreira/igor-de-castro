@@ -4,14 +4,15 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Igor de Castro — Full Stack Developer",
+    name: "Igor de Castro — Sites, sistemas e automações sob medida",
     short_name: "Igor de Castro",
     description:
-      "Modernizo sistemas de grande porte e construo produtos web rápidos, acessíveis e com qualidade mensurável.",
+      "Desenvolvedor Full Stack e cofundador da Kyber Tech. Sites, sistemas e automações sob medida para o seu negócio.",
     start_url: "/",
     display: "standalone",
-    background_color: "#010503",
-    theme_color: "#010503",
+    background_color: "#020409",
+    theme_color: "#020409",
+    lang: "pt-BR",
     icons: [
       {
         src: "/icon-192.png",

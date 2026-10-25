@@ -1,37 +1,28 @@
 import BackgroundVeil from "@/components/BackgroundVeil";
-import Footer from "@/components/Footer";
-import LanguageProvider from "@/components/LanguageProvider";
-import Navbar from "@/components/Navbar";
 import NeuralBackground from "@/components/NeuralBackground";
-import About from "@/components/sections/About";
-import Contact from "@/components/sections/Contact";
-import EducationSection from "@/components/sections/EducationSection";
-import ExperienceSection from "@/components/sections/ExperienceSection";
-import Hero from "@/components/sections/Hero";
-import Projects from "@/components/sections/Projects";
-import Services from "@/components/sections/Services";
-import Skills from "@/components/sections/Skills";
-import StartProject from "@/components/sections/StartProject";
+import Journey from "@/components/journey/Journey";
+import { profile, SITE_URL, socials } from "@/data/journey";
+
+// Dados estruturados só com fatos publicados no próprio site.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.role,
+  url: SITE_URL,
+  image: `${SITE_URL}${profile.poster}`,
+  email: `mailto:${profile.email}`,
+  address: { "@type": "PostalAddress", addressLocality: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
+  sameAs: socials.map((social) => social.href),
+};
 
 export default function Home() {
   return (
-    <LanguageProvider>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <NeuralBackground />
-      <BackgroundVeil />
-      <div aria-hidden="true" className="scanlines" />
-      <Navbar />
-      <main id="content" className="relative z-[2] overflow-clip">
-        <Hero />
-        <About />
-        <Skills />
-        <ExperienceSection />
-        <Projects />
-        <StartProject />
-        <Services />
-        <EducationSection />
-        <Contact />
-      </main>
-      <Footer />
-    </LanguageProvider>
+      <BackgroundVeil mobile={0.46} desktop={0.52} />
+      <Journey />
+    </>
   );
 }

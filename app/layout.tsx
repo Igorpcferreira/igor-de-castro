@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/data/journey";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -12,26 +13,24 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://igor-de-castro.vercel.app";
-const siteTitle = "Igor de Castro - Full Stack Developer";
+const siteTitle = "Igor de Castro — Sites, sistemas e automações sob medida";
 const siteDescription =
-  "Modernizo sistemas de grande porte e construo produtos web rápidos, acessíveis e com qualidade mensurável.";
+  "Desenvolvedor Full Stack e cofundador da Kyber Tech. Sites, sistemas e automações sob medida, com projetos reais, preço claro e conversa direta no WhatsApp.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: siteTitle,
   description: siteDescription,
   keywords: [
     "Igor de Castro",
-    "Full Stack Developer",
-    "Java",
-    "Spring Boot",
-    "Angular",
-    "React",
-    "Enterprise Modernization",
-    "Goiânia",
+    "criação de sites Goiânia",
+    "site para pequenos negócios",
+    "automação de WhatsApp",
+    "sistema sob medida",
+    "desenvolvedor full stack",
+    "Kyber Tech",
   ],
-  authors: [{ name: "Igor de Castro", url: siteUrl }],
+  authors: [{ name: "Igor de Castro", url: SITE_URL }],
   creator: "Igor de Castro",
   manifest: "/manifest.webmanifest",
   alternates: { canonical: "/" },
@@ -46,32 +45,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    alternateLocale: ["en_US"],
     url: "/",
     siteName: "Igor de Castro",
     title: siteTitle,
     description: siteDescription,
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: siteTitle,
-      },
-    ],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: siteTitle, type: "image/jpeg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#010503",
+  themeColor: "#020409",
   colorScheme: "dark",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -80,16 +72,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full">
-        <noscript>
-          <style>{`.reveal{opacity:1 !important;translate:0 0 !important}`}</style>
-        </noscript>
-        {children}
-      </body>
+    <html lang="pt-BR" className={`${spaceGrotesk.variable} ${jetBrainsMono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Marca que há JavaScript antes da primeira pintura: só então os cartões entram com animação. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

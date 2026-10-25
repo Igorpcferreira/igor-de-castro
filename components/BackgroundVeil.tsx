@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react";
  * das seções seguintes ganhe contraste. Anima só opacity de um único elemento
  * fixo (barato, roda no compositor), atualizado via requestAnimationFrame.
  */
-export default function BackgroundVeil() {
+export default function BackgroundVeil({ mobile = 0.34, desktop = 0.55 }: { mobile?: number; desktop?: number }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function BackgroundVeil() {
       const progress = Math.min(window.scrollY / window.innerHeight, 1);
       // No mobile, mantém mais da rede visível entre os cards. As superfícies
       // já fornecem contraste, então um véu pesado apagaria a sensação de vida.
-      const maxOpacity = window.innerWidth < 700 ? 0.34 : 0.55;
+      const maxOpacity = window.innerWidth < 700 ? mobile : desktop;
       el.style.opacity = (progress * maxOpacity).toFixed(3);
     };
     const onScrollOrResize = () => {
@@ -34,7 +34,7 @@ export default function BackgroundVeil() {
       window.removeEventListener("scroll", onScrollOrResize);
       window.removeEventListener("resize", onScrollOrResize);
     };
-  }, []);
+  }, [mobile, desktop]);
 
   return (
     <div
