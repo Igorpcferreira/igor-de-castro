@@ -1,0 +1,59 @@
+/* Base comum dos protótipos do site principal: fontes do portfólio, tokens de cor e o fundo neural. */
+@font-face { font-family: "JetBrains Mono"; src: url("../../../../public/links/assets/fonts/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("../../../../public/links/assets/fonts/space-grotesk.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+
+:root {
+  color-scheme: dark;
+  --night: #020409;
+  --night-2: #050b09;
+  --ink: #f4fff8;
+  --body: #a9cbb8;
+  --muted: #7aa892;
+  --neon: #52ff7d;
+  --neon-bright: #a5ffbe;
+  --neon-deep: #0c2a17;
+  --cyan: #35c8ff;
+  --amber: #ffc46b;
+  --line: rgb(165 255 190 / .12);
+  --glass: rgb(9 16 13 / .62);
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--night); scroll-padding-top: 84px; }
+html.is-locked { overflow: hidden; }
+body { margin: 0; min-height: 100vh; font: 400 16px/1.55 var(--display); color: var(--body); background: var(--night); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-tap-highlight-color: transparent; overflow-x: clip; }
+h1, h2, h3, h4, p, figure, dl, dd, ul, ol, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--neon); outline-offset: 3px; }
+::selection { color: var(--night); background: var(--neon); }
+.ic { width: 1.25em; height: 1.25em; flex: none; fill: currentColor; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Fundo neural fixo, igual ao do portfólio, e o véu que escurece com a rolagem. */
+.neural { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; background: var(--night); }
+.neural-veil { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: var(--night); opacity: 0; }
+.neural-shade { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(120% 70% at 50% 0%, rgb(2 4 9 / 0), rgb(2 4 9 / .35) 70%), linear-gradient(to top, rgb(2 4 9 / .5), rgb(2 4 9 / 0) 30%); }
+
+/* Na largura de celular a barra de rolagem é sobreposta; assim a moldura do painel fica fiel ao aparelho. */
+@media (max-width: 500px) { html { scrollbar-width: none; } html::-webkit-scrollbar { display: none; } }
+
+/* Entrada suave só quando há JavaScript: sem ele, tudo aparece pronto. */
+.js .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .7s var(--ease); }
+.js .rv.is-in { opacity: 1; transform: none; }
+
+.kit-toast { position: fixed; bottom: calc(108px + var(--safe-b)); left: 50%; z-index: 90; max-width: calc(100% - 32px); padding: 12px 18px; font: 500 14.5px/1.3 var(--display); color: var(--night); background: var(--ink); border-radius: 999px; opacity: 0; transform: translate(-50%, 10px); transition: opacity .2s, transform .3s var(--ease); pointer-events: none; }
+.kit-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
+  .js .rv { opacity: 1; transform: none; }
+}

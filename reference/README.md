@@ -25,9 +25,15 @@ localizações.
 ## links/
 
 Material de apoio da página comercial `/links`, cuja implementação fica em
-`public/links/`. `links/index.html` abre a versão final Verde assinatura;
-`comparacao.html` preserva as propostas iniciais. Inclui o guia `INSTAGRAM.md`,
-as pranchas em `docs/pranchas-final.html` e os relatórios de verificação.
+`public/links/`. A versão atual é a IgorOS (25/10/2026), escolhida entre as três
+direções de `links/prototipos/`; o resumo está em `links/README.md`.
+`links/index.html` e `comparacao.html` guardam a versão anterior (Verde
+assinatura) e as propostas iniciais. Inclui o guia `INSTAGRAM.md`, as pranchas
+em `docs/pranchas-final.html` e os relatórios de verificação.
+
+## portfolio/
+
+Três protótipos do site principal (A · IgorOS, B · Estúdio, C · Jornada) com foco em fechar cliente, aguardando a escolha. Abra `portfolio/prototipos/index.html`; o resumo está em `portfolio/README.md`.
 
 ## modelo/
 

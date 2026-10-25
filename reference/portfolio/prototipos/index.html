@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site principal · três direções</title>
+  <meta name="theme-color" content="#020409">
+  <link rel="icon" type="image/svg+xml" href="../../../public/links/assets/favicon.svg">
+  <style>
+    @font-face { font-family: "JetBrains Mono"; src: url("../../../public/links/assets/fonts/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; }
+    @font-face { font-family: "Space Grotesk"; src: url("../../../public/links/assets/fonts/space-grotesk.woff2") format("woff2"); font-weight: 300 700; }
+    :root { color-scheme: dark; --night: #020409; --ink: #f4fff8; --body: #a9cbb8; --muted: #7aa892; --neon: #52ff7d; --cyan: #35c8ff; --gold: #ffc46b; --line: rgb(82 255 125 / .16); }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--body); font: 400 15px/1.6 "Space Grotesk", system-ui, sans-serif; background: radial-gradient(80% 50% at 0% 0%, rgb(82 255 125 / .08), transparent 60%), radial-gradient(60% 40% at 100% 0%, rgb(53 200 255 / .06), transparent 60%), var(--night); }
+    header, .fixes, main, footer { max-width: 1320px; margin: 0 auto; padding-inline: 28px; }
+    header { padding-top: 36px; }
+    .eyebrow { margin: 0; font: 600 13px "JetBrains Mono", monospace; color: var(--neon); }
+    h1 { margin: 8px 0 0; font: 700 clamp(30px, 4vw, 46px)/1.05 "Space Grotesk", sans-serif; letter-spacing: -.035em; color: var(--ink); }
+    header p { max-width: 74ch; margin: 12px 0 0; font-size: 16px; }
+    .switch { display: inline-flex; gap: 4px; margin-top: 18px; padding: 4px; background: rgb(255 255 255 / .05); border: 1px solid var(--line); border-radius: 999px; }
+    .switch button { min-height: 42px; padding: 0 18px; font: 600 14px "Space Grotesk", sans-serif; color: var(--body); background: none; border: 0; border-radius: 999px; cursor: pointer; }
+    .switch button[aria-pressed="true"] { color: var(--night); background: var(--neon); }
+    .fixes { margin-top: 26px; }
+    .fixes details { padding: 4px 20px 16px; background: rgb(255 255 255 / .03); border: 1px solid var(--line); border-radius: 22px; }
+    .fixes summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; font: 600 16px "Space Grotesk", sans-serif; color: var(--ink); list-style: none; cursor: pointer; }
+    .fixes summary::-webkit-details-marker { display: none; }
+    .fixes summary span { font: 600 12.5px "JetBrains Mono", monospace; color: var(--neon); }
+    .fixes ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; margin: 4px 0 0; padding: 0; list-style: none; }
+    .fixes li { position: relative; padding-left: 26px; font-size: 14.5px; }
+    .fixes li::before { content: ""; position: absolute; top: .3em; left: 0; width: 16px; height: 16px; background: var(--neon); border-radius: 50%; -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center / 12px no-repeat, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+    .fixes b { color: var(--ink); font-weight: 600; }
+    main { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 26px; padding-bottom: 50px; }
+    .option { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+    .tag { display: flex; align-items: center; gap: 10px; }
+    .tag b { display: grid; place-items: center; width: 34px; height: 34px; font: 700 16px "JetBrains Mono", monospace; color: var(--night); background: var(--neon); border-radius: 50%; }
+    .tag h2 { margin: 0; font: 700 23px "Space Grotesk", sans-serif; letter-spacing: -.02em; color: var(--ink); }
+    .concept { margin: 0; font-size: 15px; min-height: 6.4em; }
+    .frame { position: relative; overflow: hidden; background: #000; border: 1px solid rgb(255 255 255 / .12); box-shadow: 0 30px 70px -30px rgb(0 0 0 / .95); }
+    .frame iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; }
+    .is-phone .frame { width: 100%; max-width: 330px; aspect-ratio: 390 / 844; margin: 0 auto; border-radius: 42px; border-width: 6px; border-color: #1a221d; }
+    .is-phone .frame-wrap { margin-top: auto; }
+    .is-desktop main { grid-template-columns: 1fr; }
+    .is-desktop .frame { width: 100%; aspect-ratio: 1280 / 800; border-radius: 16px; }
+    .is-desktop .option { display: grid; grid-template-columns: 320px minmax(0, 1fr); align-items: start; gap: 24px; }
+    .is-desktop .option > :not(.frame-wrap) { grid-column: 1; }
+    .is-desktop .frame-wrap { grid-column: 2; grid-row: 1 / span 6; }
+    .open { align-self: center; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; font: 600 14px "Space Grotesk", sans-serif; color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; }
+    .open:hover { border-color: var(--neon); color: var(--neon); }
+    dl { display: grid; gap: 8px; margin: 0; padding: 14px 16px; background: rgb(255 255 255 / .03); border: 1px solid var(--line); border-radius: 18px; }
+    dl div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 10px; font-size: 14px; }
+    dt { color: var(--muted); }
+    dd { margin: 0; color: var(--ink); }
+    dd.game { color: var(--gold); }
+    ul.points { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    ul.points li { position: relative; padding-left: 18px; font-size: 14px; }
+    ul.points li::before { content: ""; position: absolute; top: .62em; left: 2px; width: 7px; height: 7px; background: var(--neon); border-radius: 50%; }
+    footer { padding-bottom: 44px; font-size: 13.5px; color: var(--muted); }
+    footer p { max-width: 90ch; margin: 0 0 8px; }
+    code { font: 500 .92em "JetBrains Mono", monospace; color: var(--body); }
+    @media (max-width: 1100px) { main { grid-template-columns: 1fr; } .is-phone .option { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; } .is-phone .option > :not(.frame-wrap) { grid-column: 1; } .is-phone .frame-wrap { grid-column: 2; grid-row: 1 / span 6; } }
+    @media (max-width: 760px) { .fixes ul { grid-template-columns: 1fr; } .is-phone .option, .is-desktop .option { display: flex; } }
+  </style>
+</head>
+<body class="is-phone">
+  <header>
+    <p class="eyebrow">igordecastro.com.br · protótipos</p>
+    <h1>Três direções para o site principal</h1>
+    <p>As três têm o mesmo conteúdo, a mesma identidade da /links e o fundo em rede neural. Todas foram pensadas para fechar cliente: casos reais com desafio, solução e resultado, preço claro, dúvidas respondidas e o WhatsApp sempre à mão. A trajetória continua lá, contada de jeitos diferentes. Tudo funciona de verdade: dá para tocar, abrir os casos, ver os vídeos e jogar.</p>
+    <div class="switch" role="group" aria-label="Tamanho da prévia">
+      <button type="button" aria-pressed="true" data-size="phone">Celular</button>
+      <button type="button" aria-pressed="false" data-size="desktop">Computador</button>
+    </div>
+  </header>
+
+  <section class="fixes" aria-label="O que corrigi do site atual">
+    <details open>
+      <summary>O que corrigi do site atual, com a mesma lista que valeu para a /links <span>10 pontos</span></summary>
+      <ul>
+        <li><b>Sem cara de IA:</b> saíram os cantos chanfrados e de mira, os cartões de terminal com bolinhas de janela, os chips entre colchetes, os <code>&gt;</code> e os rótulos tipo <code>ver_projetos</code>.</li>
+        <li><b>Componentes arredondados e atípicos</b>, diferentes em cada direção: ilha que vira menu, stories, cartas para arrastar, trilha com conquistas.</li>
+        <li><b>Texto legível no celular:</b> o menor texto tem 12,5 px (fora a miniatura ilustrativa do celular na A) e os parágrafos ficam entre 15 e 17 px. No site atual havia rótulos de 8 a 10 px em caixa alta.</li>
+        <li><b>Selo da Kyber legível</b> numa pílula escura com texto neon. Nada de ciano em cima da foto.</li>
+        <li><b>Sem rodapé autorreferente:</b> saiu o "Feito com Next.js, TypeScript e uma rede neural viva". Ficou só "© 2026 Igor de Castro".</li>
+        <li><b>Trabalho atual só como Minsait · Grupo Indra</b>, sem SINGRA 2 nem Marinha do Brasil.</li>
+        <li><b>Saiu o joguinho</b> "Da ideia ao projeto" (o vídeo com o seletor Site/Sistema/Automação). No lugar, cada direção tem uma brincadeira diferente e nada técnica.</li>
+        <li><b>Projetos com peso certo:</b> clientes reais primeiro, conceitos sempre rotulados, André Mei como "Site de atleta" e o print inteiro de cada site, sem corte ruim.</li>
+        <li><b>Ícones Boxicons</b> do mesmo traço, só onde ajudam a reconhecer algo.</li>
+        <li><b>Celular primeiro:</b> validado em 390 px, sem rolagem lateral, com áreas de toque de 44 px ou mais. O fundo neural é o mesmo.</li>
+      </ul>
+    </details>
+  </section>
+
+  <main>
+    <section class="option">
+      <div class="tag"><b>A</b><h2>IgorOS</h2></div>
+      <p class="concept">A continuação da /links que você escolheu, agora como site completo: o pôster de contato, notificações que viram provas, projetos no estilo "Hoje" da App Store e cada seção como um app do sistema.</p>
+      <dl>
+        <div><dt>Formas</dt><dd>Muito arredondado: janelas de vidro, pílulas, ilha</dd></div>
+        <div><dt>Pegada</dt><dd>Produto premium, a mesma da /links</dd></div>
+        <div><dt>Destaque</dt><dd>O cartão do projeto cresce até virar a página do caso</dd></div>
+        <div><dt>Joguinho</dt><dd class="game">Monte seu projeto: ligue módulos e veja um site de exemplo se montar num celular</dd></div>
+      </dl>
+      <ul class="points">
+        <li>A ilha dinâmica mostra a seção e, ao toque, vira o menu</li>
+        <li>Como funciona em forma de rastreio de pedido, e o preço num passe da Wallet que vira</li>
+        <li>Ajustes com a trajetória como "atualizações do IgorOS"</li>
+        <li>Dúvidas numa conversa: você toca a pergunta e a resposta chega digitando</li>
+        <li>No computador, barra de menu e dock com lupa</li>
+      </ul>
+      <div class="frame-wrap"><div class="frame"><iframe src="a-os/" title="Direção A, IgorOS" loading="lazy"></iframe></div></div>
+      <a class="open" href="a-os/" target="_blank" rel="noopener">Abrir A em tela cheia ↗</a>
+    </section>
+
+    <section class="option">
+      <div class="tag"><b>B</b><h2>Estúdio</h2></div>
+      <p class="concept">Editorial e de conversa, com a linguagem dos stories que você curtiu: nome gigante, retrato em arco com figurinhas, uma caixa de mensagem logo na abertura e os projetos como reels que abrem em stories.</p>
+      <dl>
+        <div><dt>Formas</dt><dd>Arcos, círculos de story e pílulas</dd></div>
+        <div><dt>Pegada</dt><dd>Revista + Instagram, a mais emocional</dd></div>
+        <div><dt>Destaque</dt><dd>Escreva o que precisa e a mensagem vai direto para o WhatsApp</dd></div>
+        <div><dt>Joguinho</dt><dd class="game">"Isso acontece no seu negócio?": arraste seis cartas e receba por onde começar</dd></div>
+      </dl>
+      <ul class="points">
+        <li>Barra de progresso no topo, como nos stories, com uma parte por seção</li>
+        <li>Cada caso em quatro telas: vídeo, desafio, o que foi feito e resultado, com "Responder"</li>
+        <li>Destaques em círculo: Clientes, Conceitos, Minha marca, Processo, Sobre e Modelo</li>
+        <li>Barra fixa "Mensagem para o Igor" que aparece quando a caixa sai da tela</li>
+      </ul>
+      <div class="frame-wrap"><div class="frame"><iframe src="b-estudio/" title="Direção B, Estúdio" loading="lazy"></iframe></div></div>
+      <a class="open" href="b-estudio/" target="_blank" rel="noopener">Abrir B em tela cheia ↗</a>
+    </section>
+
+    <section class="option">
+      <div class="tag"><b>C</b><h2>Jornada</h2></div>
+      <p class="concept">A escolhida, agora com o "Monte seu projeto" da A como fase final e o dock da A embaixo. A trajetória vira uma trilha da rede neural: um pulso de luz desce com a rolagem, os nós acendem e aparecem conquistas.</p>
+      <dl>
+        <div><dt>Formas</dt><dd>Nós circulares, trilha pontilhada e cartões arredondados</dd></div>
+        <div><dt>Pegada</dt><dd>A mais divertida, sem perder o profissional</dd></div>
+        <div><dt>Destaque</dt><dd>Sua história contada como progressão, do suporte ao cofundador</dd></div>
+        <div><dt>Joguinho</dt><dd class="game">A trilha com sete conquistas. Na fase final, a pessoa monta o projeto, vê a prévia no celular e destrava</dd></div>
+      </dl>
+      <ul class="points">
+        <li>Dock embaixo, como na A: Conversar sempre à mão, mais Projetos e Montar (no computador, todos os atalhos, com lupa)</li>
+        <li>Fase final com tipo de negócio, módulos ligando no celular e prazo; a mensagem do WhatsApp sai pronta</li>
+        <li>Barra de experiência e fase atual no topo, com o contador de conquistas</li>
+        <li>Projetos como círculos, com o caso numa folha que sobe; preço e "você só paga depois de aprovar" em "Como funciona"</li>
+        <li>No computador, um painel fixo mostra a fase e as conquistas</li>
+      </ul>
+      <div class="frame-wrap"><div class="frame"><iframe src="c-jornada/?v=2" title="Direção C, Jornada" loading="lazy"></iframe></div></div>
+      <a class="open" href="c-jornada/?v=2" target="_blank" rel="noopener">Abrir C em tela cheia ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Os protótipos ficam em <code>reference/portfolio/prototipos/</code>, fora do site publicado. Estão em português; a versão em inglês entra na implementação da direção escolhida.</p>
+    <p>Preço, prazo e "você só paga depois de aprovar" vêm da página de preços da Kyber Tech (25/10/2026). Casos com desafio, solução e resultado vêm do site da Kyber. Números: 4+ anos desde 2022, 11 projetos no ar e 950+ testes somados no Compressify e no QR Code Studio.</p>
+  </footer>
+
+  <script>
+    // As molduras mostram cada protótipo no tamanho real e reduzem para caber.
+    const frames = [...document.querySelectorAll('.frame')];
+    const sizes = { phone: [390, 844], desktop: [1280, 800] };
+    let mode = 'phone';
+    const fit = () => frames.forEach(frame => {
+      const [width, height] = sizes[mode];
+      const iframe = frame.querySelector('iframe');
+      iframe.style.width = `${width}px`;
+      iframe.style.height = `${height}px`;
+      iframe.style.transform = `scale(${frame.clientWidth / width})`;
+    });
+    document.querySelectorAll('[data-size]').forEach(button => button.addEventListener('click', () => {
+      mode = button.dataset.size;
+      document.body.className = `is-${mode}`;
+      document.querySelectorAll('[data-size]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      fit();
+    }));
+    new ResizeObserver(fit).observe(document.body);
+    fit();
+  </script>
+</body>
+</html>
